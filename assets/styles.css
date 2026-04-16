@@ -379,6 +379,20 @@ nav.is-scrolled {
     padding-left: 26px;
 }
 
+.dropdown-content a.is-active {
+    color: var(--lpi-navy);
+    background: color-mix(in oklab, var(--lpi-gold) 10%, transparent);
+    position: relative;
+}
+
+.dropdown-content a.is-active::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 3px;
+    background: var(--lpi-gold);
+}
+
 .nav-toggle {
     display: none;
     background: none;

@@ -15,12 +15,13 @@
             <li><a href="index.html" data-nav="home">Home</a></li>
             <li><a href="about.html" data-nav="about">About</a></li>
             <li class="dropdown">
-                <a href="programs.html" data-nav="programs">Programs <i class="fas fa-caret-down" aria-hidden="true"></i></a>
+                <a href="#" role="button" aria-haspopup="true" aria-expanded="false" data-nav="programs" data-nav-trigger>Programs <i class="fas fa-caret-down" aria-hidden="true"></i></a>
                 <div class="dropdown-content">
-                    <a href="programs.html#fellowships">Research Fellowships</a>
-                    <a href="programs.html#mentorship">Mentorship Programs</a>
-                    <a href="programs.html#training">Research Training &amp; Courses</a>
-                    <a href="programs.html#networks">Scholarly Exchange &amp; Networks</a>
+                    <a href="fellowships.html">Research Fellowships</a>
+                    <a href="fellowship-tracks.html">Fellowship Tracks</a>
+                    <a href="mentorship.html">Mentorship Programs</a>
+                    <a href="training.html">Research Training &amp; Courses</a>
+                    <a href="networks.html">Scholarly Exchange &amp; Networks</a>
                 </div>
             </li>
             <li><a href="get-involved.html" data-nav="get-involved">Get Involved</a></li>
@@ -58,15 +59,30 @@
             toggle.setAttribute('aria-expanded', String(isOpen));
         });
 
-        const dropdown = document.querySelector('.nav-links .dropdown > a');
-        if (dropdown) {
-            dropdown.addEventListener('click', (e) => {
-                if (window.matchMedia('(max-width: 768px)').matches) {
-                    const parent = dropdown.parentElement;
-                    if (!parent.classList.contains('open')) {
-                        e.preventDefault();
-                        parent.classList.add('open');
-                    }
+        // Programs top-level is a hover-only dropdown trigger — never navigates on click.
+        // Desktop: hover opens (CSS). Click/focus just toggles the open class for parity
+        // with mobile and keyboard users. Mobile: tap toggles open/close.
+        const dropdownTrigger = document.querySelector('.nav-links .dropdown > a[data-nav-trigger]');
+        if (dropdownTrigger) {
+            const parent = dropdownTrigger.parentElement;
+            dropdownTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isOpen = parent.classList.toggle('open');
+                dropdownTrigger.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            // Close dropdown when clicking outside or pressing Escape.
+            document.addEventListener('click', (e) => {
+                if (!parent.contains(e.target) && parent.classList.contains('open')) {
+                    parent.classList.remove('open');
+                    dropdownTrigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && parent.classList.contains('open')) {
+                    parent.classList.remove('open');
+                    dropdownTrigger.setAttribute('aria-expanded', 'false');
+                    dropdownTrigger.focus();
                 }
             });
         }
@@ -74,9 +90,16 @@
 
     function highlightActive() {
         const page = document.body.dataset.page;
-        if (!page) return;
-        const link = document.querySelector(`.nav-links a[data-nav="${page}"]`);
-        if (link) link.classList.add('is-active');
+        if (page) {
+            const link = document.querySelector(`.nav-links a[data-nav="${page}"]`);
+            if (link) link.classList.add('is-active');
+        }
+
+        const here = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.dropdown-content a').forEach(a => {
+            const href = (a.getAttribute('href') || '').split('/').pop();
+            if (href && href === here) a.classList.add('is-active');
+        });
     }
 
     function wireNavScroll() {
