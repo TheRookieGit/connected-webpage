@@ -123,14 +123,19 @@
             '.contact-form-container',
             '.interest-form',
             '.form-container',
-            '.check-list'
+            '.check-list',
+            '.pullquote-figure',
+            '.pullquote-body',
+            '.split-feature__media',
+            '.split-feature__body',
+            '.impact-band .section-header'
         ];
         document.querySelectorAll(selectors.join(',')).forEach(el => {
             el.classList.add('reveal');
         });
 
         // Grids stagger their children.
-        document.querySelectorAll('.initiatives-grid, .fellowship-cards, .opportunity-grid').forEach(grid => {
+        document.querySelectorAll('.initiatives-grid, .fellowship-cards, .opportunity-grid, .stats-grid, .figure-row, .partners-logos').forEach(grid => {
             grid.classList.add('reveal-group');
         });
     }
