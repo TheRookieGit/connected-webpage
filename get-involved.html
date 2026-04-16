@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved | ConnectEd Research Institute</title>
+    <meta name="description" content="Support ConnectEd as a faculty mentor, volunteer, or institutional partner. Submit your interest form to help expand access to research.">
+    <meta property="og:title" content="Get Involved | ConnectEd Research Institute">
+    <meta property="og:description" content="Ways to contribute: faculty mentorship, volunteering, and institutional partnership.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-page="get-involved">
+
+    <div id="site-nav"></div>
+
+    <header class="hero hero--centered">
+        <h1>Get Involved</h1>
+        <p>Support our mission to expand access to research and academic opportunity.</p>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Ways to Contribute</h2>
+            </div>
+
+            <div class="opportunity-grid">
+                <div class="opportunity-card">
+                    <i class="fas fa-user-tie" aria-hidden="true"></i>
+                    <h3>Faculty Mentors</h3>
+                    <p>University faculty can participate by advising research fellows and providing guidance on academic projects.</p>
+                </div>
+
+                <div class="opportunity-card">
+                    <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                    <h3>Volunteers</h3>
+                    <p>Professionals and graduate students can support our operations through administrative and program assistance.</p>
+                </div>
+
+                <div class="opportunity-card">
+                    <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                    <h3>Supporters</h3>
+                    <p>Financial contributions help provide fellowships and resources to students with limited institutional access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Submit an Interest Form</h2>
+            </div>
+
+            <div class="interest-form">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="hidden" name="_subject" value="New ConnectEd Interest Form Submission">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Desired Role</label>
+                        <select id="role" name="Role">
+                            <option value="Mentor">Faculty Mentor</option>
+                            <option value="Volunteer">Volunteer</option>
+                            <option value="Partner">Institutional Partner</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Key Skills</label>
+                        <input type="text" id="skills" name="Skills" placeholder="e.g., Data Analysis, Writing, Web Design">
+                    </div>
+                    <div class="form-group">
+                        <label for="availability">Time Availability</label>
+                        <input type="text" id="availability" name="Availability" placeholder="e.g., 2 hours per month">
+                    </div>
+                    <div class="form-group">
+                        <label for="interests">Primary Interests</label>
+                        <textarea id="interests" name="Interests" rows="4" placeholder="Which roles or areas are you most interested in?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Formal Interest</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="assets/components.js"></script>
+</body>
+</html>

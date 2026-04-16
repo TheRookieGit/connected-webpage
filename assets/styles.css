@@ -1,0 +1,716 @@
+/* ConnectEd Research Institute — shared stylesheet
+   Brand palette inspired by LPI aesthetic. */
+
+:root {
+    --lpi-navy: #002b49;
+    --lpi-blue: #005587;
+    --lpi-gold: #ffb81c;
+    --lpi-gray-light: #f7f9fa;
+    --lpi-gray-dark: #333333;
+    --lpi-border: #d1d7db;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    line-height: 1.7;
+    color: var(--lpi-gray-dark);
+    background-color: var(--white);
+}
+
+/* ---------- Navigation ---------- */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 5%;
+    border-bottom: 4px solid var(--lpi-navy);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--lpi-navy);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 25px;
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--lpi-navy);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--lpi-blue);
+}
+
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    border: 1px solid var(--lpi-border);
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: var(--lpi-navy);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid var(--lpi-border);
+    font-size: 0.85rem;
+    text-transform: none;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--lpi-gray-light);
+    color: var(--lpi-blue);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown.open .dropdown-content {
+    display: block;
+}
+
+/* Hamburger (mobile only) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--lpi-navy);
+    font-size: 1.5rem;
+}
+
+/* ---------- Page Header ---------- */
+.page-header {
+    background-color: var(--lpi-gray-light);
+    padding: 60px 10%;
+    border-bottom: 1px solid var(--lpi-border);
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    color: var(--lpi-navy);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------- Sections ---------- */
+section {
+    padding: 80px 10%;
+}
+
+.section-header {
+    text-align: left;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--lpi-border);
+    padding-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--lpi-navy);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ---------- Hero (Home) ---------- */
+.hero {
+    position: relative;
+    padding: 120px 10%;
+    background: var(--lpi-navy);
+    color: var(--white);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=40&w=1920');
+    background-size: cover;
+    opacity: 0.2;
+}
+
+.hero-content {
+    position: relative;
+    max-width: 850px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    opacity: 0.95;
+    border-left: 6px solid var(--lpi-gold);
+    padding-left: 25px;
+}
+
+/* Hero variant — Get Involved (centered + image overlay) */
+.hero--centered {
+    background: linear-gradient(rgba(0, 43, 73, 0.85), rgba(0, 43, 73, 0.85)),
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1600') center/cover;
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.hero--centered::before { display: none; }
+
+.hero--centered h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ---------- Home: Mission ---------- */
+.mission-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+}
+
+.mission-text p {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.sidebar-callout {
+    background: var(--lpi-navy);
+    padding: 30px;
+    color: white;
+    border-left: 6px solid var(--lpi-gold);
+}
+
+/* ---------- Home: Programs grid ---------- */
+.programs-section {
+    background-color: var(--lpi-gray-light);
+}
+
+.initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--lpi-border);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.card-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--lpi-blue);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card-content h3 {
+    color: var(--lpi-navy);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ---------- Home: Fellowship feature ---------- */
+.fellowship-feature {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 100px 10%;
+}
+
+.feature-text { flex: 1; }
+
+.feature-image {
+    flex: 1;
+    border: 10px solid var(--lpi-gray-light);
+}
+
+.feature-image img {
+    width: 100%;
+    display: block;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--lpi-navy);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--lpi-blue);
+}
+
+.btn-gold {
+    background-color: var(--lpi-gold);
+    color: var(--lpi-navy);
+}
+
+.btn-gold:hover {
+    background-color: #e6a619;
+}
+
+/* ---------- Check list ---------- */
+.check-list {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.check-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--lpi-border);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--lpi-navy);
+    display: flex;
+    align-items: center;
+}
+
+.check-list li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 15px;
+    color: var(--lpi-gold);
+}
+
+/* ---------- About ---------- */
+.who-we-are-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.beliefs-section { background-color: var(--lpi-gray-light); }
+
+.integrity-content {
+    background: var(--white);
+    border: 1px solid var(--lpi-border);
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ---------- Programs ---------- */
+.fellowship-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.clickable-card {
+    background: var(--lpi-gray-light);
+    border: 1px solid var(--lpi-border);
+    padding: 40px;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.clickable-card:hover {
+    background: var(--white);
+    border-color: var(--lpi-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.clickable-card h3 {
+    color: var(--lpi-blue);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.back-link {
+    background: none;
+    border: none;
+    color: var(--lpi-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 30px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ---------- Forms ---------- */
+.form-container {
+    background: var(--white);
+    border: 1px solid var(--lpi-border);
+    padding: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label,
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--lpi-navy);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--lpi-border);
+    border-radius: 0;
+    font-size: 1rem;
+    background: var(--white);
+    color: var(--lpi-gray-dark);
+}
+
+.btn-submit {
+    background: var(--lpi-navy);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-submit:hover { background: var(--lpi-blue); }
+.btn-submit:disabled { background: #ccc; cursor: not-allowed; }
+
+/* ---------- Get Involved ---------- */
+.opportunity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.opportunity-card {
+    background: var(--lpi-gray-light);
+    padding: 40px;
+    border-top: 5px solid var(--lpi-blue);
+    transition: transform 0.3s;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.opportunity-card i {
+    font-size: 2.5rem;
+    color: var(--lpi-gold);
+    margin-bottom: 20px;
+}
+
+.opportunity-card h3 {
+    color: var(--lpi-navy);
+    margin-bottom: 15px;
+}
+
+.form-section {
+    background-color: var(--lpi-gray-light);
+}
+
+.interest-form {
+    background: var(--white);
+    padding: 40px;
+    border: 1px solid var(--lpi-border);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ---------- Support ---------- */
+.support-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.support-text p {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.donation-portal,
+.contact-form-container {
+    background: var(--lpi-navy);
+    padding: 40px;
+    color: white;
+    border-left: 6px solid var(--lpi-gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.donation-portal h3,
+.contact-form-container h3 {
+    color: var(--lpi-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+}
+
+.donation-portal label,
+.contact-form-container label {
+    color: white;
+}
+
+.donation-portal input,
+.donation-portal select,
+.contact-form-container input,
+.contact-form-container select,
+.contact-form-container textarea {
+    border: none;
+}
+
+.monthly-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal.open { display: block; }
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 40px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--lpi-navy);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background: #f1f3f5;
+    color: var(--lpi-navy);
+    padding: 60px 10%;
+    border-top: 8px solid var(--lpi-navy);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: var(--lpi-navy);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.copyright {
+    margin-top: 40px;
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+    .mission-grid,
+    .who-we-are-grid,
+    .support-grid,
+    .contact-grid,
+    .fellowship-cards {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .fellowship-feature { flex-direction: column; }
+    .hero h1 { font-size: 2.4rem; }
+    .page-header h1 { font-size: 2.2rem; }
+}
+
+@media (max-width: 768px) {
+    nav { padding: 0.8rem 5%; flex-wrap: wrap; }
+
+    .nav-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+        border-top: 1px solid var(--lpi-border);
+        padding-top: 15px;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--lpi-border);
+    }
+
+    .nav-links li:last-child { border-bottom: none; }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: var(--lpi-gray-light);
+        margin-top: 10px;
+    }
+
+    section { padding: 60px 5%; }
+    .hero { padding: 80px 5%; }
+    .hero h1 { font-size: 2rem; }
+    .page-header { padding: 40px 5%; }
+    footer { padding: 40px 5%; }
+    .form-container { padding: 30px 20px; }
+}

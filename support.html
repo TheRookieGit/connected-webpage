@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | ConnectEd Research Institute</title>
+    <meta name="description" content="Support ConnectEd's mission with a one-time or monthly donation. Your contribution funds fellowship awards, mentorship infrastructure, and training resources.">
+    <meta property="og:title" content="Support | ConnectEd Research Institute">
+    <meta property="og:description" content="Donate to fund fellowships, mentorship, and research training for emerging scholars.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-page="support">
+
+    <div id="site-nav"></div>
+
+    <header class="page-header">
+        <h1>Support</h1>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="support-grid">
+
+                <div class="support-text">
+                    <div class="section-header">
+                        <h2>Our Impact</h2>
+                    </div>
+                    <p>Your support helps expand access to research mentorship and fellowship funding for emerging scholars committed to educational equity.</p>
+
+                    <div class="section-header" style="margin-top: 40px;">
+                        <h2>Where Your Donation Goes</h2>
+                    </div>
+                    <ul class="check-list">
+                        <li>Research Fellowship awards and scholar support</li>
+                        <li>Mentorship infrastructure and program coordination</li>
+                        <li>Research training resources and pilot learning initiatives</li>
+                    </ul>
+                </div>
+
+                <aside class="donation-portal">
+                    <h3>Secure Donation Portal</h3>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="hidden" name="_subject" value="New ConnectEd Donation Intent">
+                        <div class="form-group">
+                            <label for="amount">Choose Donation Amount</label>
+                            <select name="Donation_Amount" id="amount" required>
+                                <option value="" disabled selected>Select an amount</option>
+                                <option value="$25">$25</option>
+                                <option value="$50">$50</option>
+                                <option value="$100">$100</option>
+                                <option value="$250">$250</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="other-amount-div" style="display:none;">
+                            <label for="other_val">Enter Custom Amount ($)</label>
+                            <input type="number" name="Custom_Amount" id="other_val" placeholder="e.g., 500">
+                        </div>
+
+                        <label class="monthly-checkbox">
+                            <input type="checkbox" name="Monthly_Donation" value="Yes"> Make this a monthly donation
+                        </label>
+
+                        <button type="submit" class="btn-submit btn-gold">Complete Donation</button>
+                    </form>
+                    <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.85;">Note: submitting this form notifies our team. Secure card processing will be connected soon.</p>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="assets/components.js"></script>
+    <script>
+        // Reveal custom amount field when "Other" is selected
+        document.addEventListener('DOMContentLoaded', () => {
+            const amount = document.getElementById('amount');
+            const otherDiv = document.getElementById('other-amount-div');
+            const otherInput = document.getElementById('other_val');
+            amount.addEventListener('change', () => {
+                if (amount.value === 'Other') {
+                    otherDiv.style.display = 'block';
+                    otherInput.setAttribute('required', 'required');
+                } else {
+                    otherDiv.style.display = 'none';
+                    otherInput.removeAttribute('required');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
