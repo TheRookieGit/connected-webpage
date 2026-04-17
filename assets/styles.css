@@ -605,6 +605,11 @@ section > .content-wrap {
     max-width: 24ch;
 }
 
+.section-header--center {
+    align-items: center;
+    text-align: center;
+}
+
 /* ============================================================
    HERO (home)
    ============================================================ */
@@ -867,6 +872,54 @@ section > .content-wrap {
     max-width: none;
 }
 
+.facts-panel {
+    padding: var(--space-lg) 0;
+    border-top: 2px solid var(--lpi-gold);
+}
+
+.facts-panel h4 {
+    font-family: var(--font-sans);
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+}
+
+.program-facts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.program-facts__item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.program-facts__item:last-child { border-bottom: none; }
+
+.program-facts__label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--lpi-gold);
+    font-family: var(--font-sans);
+}
+
+.program-facts__value {
+    font-size: var(--step-0);
+    color: var(--lpi-navy);
+    line-height: 1.4;
+    font-weight: 500;
+}
+
 /* ============================================================
    PROGRAMS / INITIATIVES GRID
    ============================================================ */
@@ -892,6 +945,118 @@ section > .content-wrap {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: var(--space-xl);
+}
+
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+    .structure-grid { grid-template-columns: 1fr; }
+}
+
+.structure-card {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    padding: clamp(24px, 3vw, 40px);
+    position: relative;
+    overflow: hidden;
+}
+
+.structure-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--lpi-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-slow) var(--ease-out-quart);
+}
+
+.structure-card:hover::after { transform: scaleX(1); }
+
+.structure-card__num {
+    display: block;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1;
+    color: color-mix(in oklab, var(--lpi-navy) 12%, transparent);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-display);
+}
+
+.structure-card h3 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    color: var(--lpi-navy);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.01em;
+}
+
+.structure-card p {
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+/* Eligibility editorial row list */
+.eligibility-list {
+    list-style: none;
+    border-top: 1px solid var(--hairline);
+}
+
+.eligibility-item {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--hairline);
+    align-items: start;
+    position: relative;
+    transition: padding-left var(--dur-med) var(--ease-out-quart);
+}
+
+.eligibility-item::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--lpi-gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform var(--dur-slow) var(--ease-out-quart);
+}
+
+.eligibility-item:hover { padding-left: var(--space-md); }
+.eligibility-item:hover::before { transform: scaleY(1); }
+
+.eligibility-item__num {
+    font-size: var(--step-0);
+    font-weight: 700;
+    color: var(--lpi-gold);
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    padding-top: 0.25em;
+}
+
+.eligibility-item h3 {
+    font-size: var(--step-2);
+    font-weight: 500;
+    color: var(--lpi-navy);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+}
+
+.eligibility-item p {
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 56ch;
 }
 
 .card {
@@ -1158,6 +1323,120 @@ section > .content-wrap {
 }
 
 .beliefs-section { background: var(--surface); }
+
+/* Gap tags — Why We Exist */
+.gap-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.gap-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-md) clamp(20px, 2.5vw, 36px);
+    border: 1.5px solid var(--lpi-navy);
+    color: var(--lpi-navy);
+    font-size: var(--step-1);
+    font-weight: 500;
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+    transition:
+        background var(--dur-med) var(--ease-out-quart),
+        color var(--dur-med) var(--ease-out-quart);
+    cursor: default;
+}
+
+.gap-tag:hover {
+    background: var(--lpi-navy);
+    color: var(--paper);
+}
+
+/* Belief statements — What We Believe (dark bg) */
+.belief-statements {
+    list-style: none;
+    margin-top: var(--space-2xl);
+}
+
+.belief-statement {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+    border-top: 1px solid color-mix(in oklab, var(--paper) 14%, transparent);
+    align-items: start;
+}
+
+.belief-statement:last-child {
+    border-bottom: 1px solid color-mix(in oklab, var(--paper) 14%, transparent);
+}
+
+.belief-statement__num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--lpi-gold);
+    letter-spacing: 0.08em;
+    font-family: var(--font-sans);
+    padding-top: 0.5em;
+}
+
+.belief-statement p {
+    font-size: var(--step-2);
+    font-weight: 300;
+    color: color-mix(in oklab, var(--paper) 92%, transparent);
+    line-height: 1.45;
+    font-style: italic;
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    max-width: none;
+}
+
+/* Process steps — How We Work */
+.process-steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 var(--space-xl);
+}
+
+.process-step {
+    padding-top: var(--space-xl);
+    border-top: 2px solid var(--hairline);
+    position: relative;
+    transition: border-top-color var(--dur-med) var(--ease-out-quart);
+}
+
+.process-step:hover { border-top-color: var(--lpi-gold); }
+
+.process-step__num {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--lpi-gold);
+    letter-spacing: 0.1em;
+    font-family: var(--font-sans);
+    margin-bottom: var(--space-md);
+}
+
+.process-step h3 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    color: var(--lpi-navy);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-sm);
+}
+
+.process-step p {
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .gap-tag { font-size: var(--step-0); }
+    .belief-statement p { font-size: var(--step-1); }
+}
 
 .integrity-content {
     background: var(--paper);

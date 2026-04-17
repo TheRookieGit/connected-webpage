@@ -173,7 +173,7 @@
             '.impact-band .section-header'
         ];
         document.querySelectorAll(selectors.join(',')).forEach(el => {
-            el.classList.add('reveal');
+            if (!el.closest('[data-no-reveal]')) el.classList.add('reveal');
         });
 
         document.querySelectorAll('.initiatives-grid, .fellowship-cards, .opportunity-grid, .stats-grid, .figure-row, .partners-logos').forEach(grid => {
