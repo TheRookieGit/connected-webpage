@@ -3,7 +3,7 @@
    Brand palette (navy / deep blue / gold) preserved; neutrals tinted toward navy. */
 
 /* ---------- Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=Work+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=Work+Sans:ital,wght@0,300..800;1,300..800&family=Noto+Serif+SC:wght@300;400;500;700;900&display=swap');
 
 /* ============================================================
    TOKENS
@@ -35,9 +35,11 @@
     --gold-soft: oklch(89% 0.10 85);
     --gold-deep: oklch(72% 0.17 75);
 
-    /* Typography */
-    --font-display: 'Source Serif 4', 'Iowan Old Style', 'Charter', Georgia, serif;
-    --font-sans: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    /* Typography
+       Chinese fallback stack matches nexgen: Noto Serif SC for display, PingFang/YaHei for body.
+       Latin characters still use Source Serif 4 / Work Sans; Chinese characters fall through. */
+    --font-display: 'Source Serif 4', 'Iowan Old Style', 'Charter', Georgia, 'Noto Serif SC', 'PingFang SC', 'STSong', 'Microsoft YaHei', serif;
+    --font-sans: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
 
     /* Fluid modular scale (marketing/editorial — not app UI) */
     --step--1: clamp(0.82rem, 0.78rem + 0.2vw, 0.9rem);
@@ -452,6 +454,7 @@ nav.is-scrolled {
 .page-header {
     background: var(--surface);
     padding: clamp(70px, 10vw, 140px) var(--edge-x) clamp(50px, 6vw, 80px);
+    padding-inline-start: calc(var(--edge-x) + clamp(16px, 5vw, 96px) + 80px);
     border-bottom: 1px solid var(--hairline);
     position: relative;
     overflow: hidden;
@@ -486,6 +489,7 @@ nav.is-scrolled {
     color: var(--paper);
     border-bottom: none;
     padding: clamp(110px, 14vw, 190px) var(--edge-x) clamp(80px, 10vw, 140px);
+    padding-inline-start: calc(var(--edge-x) + clamp(16px, 5vw, 96px) + 80px);
     isolation: isolate;
 }
 
@@ -599,6 +603,7 @@ section > .content-wrap {
 .hero {
     position: relative;
     padding: clamp(100px, 14vw, 180px) var(--edge-x) clamp(90px, 12vw, 160px);
+    padding-inline-start: calc(var(--edge-x) + clamp(16px, 5vw, 96px) + 80px);
     background: var(--lpi-navy);
     color: var(--paper);
     overflow: hidden;
@@ -665,10 +670,20 @@ section > .content-wrap {
     animation-delay: 160ms;
 }
 
+/* Chinese hero title uses heavy weight to match nexgen's 900; English stays thin. */
+:lang(zh) .hero h1 { font-weight: 900; }
+
 .hero h1 em {
     font-style: italic;
     color: var(--lpi-gold);
     font-weight: 400;
+}
+
+/* Italic synthesis on CJK looks wrong, and 400 stands out against 900 Chinese.
+   In Chinese keep upright and match surrounding weight — gold color still carries the accent. */
+:lang(zh) .hero h1 em {
+    font-style: normal;
+    font-weight: 900;
 }
 
 .hero p {
@@ -737,6 +752,7 @@ section > .content-wrap {
         linear-gradient(rgba(0, 43, 73, 0.88), rgba(0, 43, 73, 0.82)),
         url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1600') center / cover;
     padding: clamp(90px, 10vw, 140px) var(--edge-x);
+    padding-inline-start: var(--edge-x);
     text-align: center;
 }
 
