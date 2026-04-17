@@ -3,14 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborate & Volunteer | ConnectEd Research Institute</title>
+    <title>Get Involved | ConnectEd Research Institute</title>
     <meta name="description" content="Collaborate with ConnectEd as a faculty advisor or research partner, or volunteer to help expand mentoring and program offerings.">
-    <meta property="og:title" content="Collaborate & Volunteer | ConnectEd Research Institute">
+    <meta property="og:title" content="Get Involved | ConnectEd Research Institute">
     <meta property="og:description" content="Collaboration and volunteer opportunities with ConnectEd Research Institute.">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+
+        /* ── Section divider label ── */
+        .gi-divider {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 56px;
+        }
+
+        .gi-divider-num {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--lpi-gold);
+            white-space: nowrap;
+        }
+
+        .gi-divider-line {
+            flex: 1;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.15;
+        }
+
+        /* ── Collaboration rows ── */
+        .gi-collab {
+            padding: 80px 0 60px;
+            background: #fff;
+        }
+
+        .gi-collab-intro {
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        .gi-collab-intro p {
+            font-size: 1.15rem;
+            color: var(--ink-soft);
+            line-height: 1.75;
+        }
+
+        .gi-row {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            align-items: stretch;
+            border-top: 1px solid rgba(0,0,0,0.09);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.25s;
+            height: 140px;
+        }
+
+        .gi-row:last-child {
+            border-bottom: 1px solid rgba(0,0,0,0.09);
+        }
+
+        .gi-row:hover {
+            background: rgba(255, 184, 28, 0.03);
+        }
+
+        /* left accent bar */
+        .gi-row::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--lpi-gold);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        .gi-row:hover::before {
+            transform: scaleY(1);
+        }
+
+        /* text side */
+        .gi-row-text {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            padding: 36px 40px 36px 28px;
+        }
+
+        .gi-row-num {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: var(--font-display);
+            color: var(--lpi-gold);
+            line-height: 1;
+            opacity: 0.65;
+            flex-shrink: 0;
+            width: 60px;
+        }
+
+        .gi-row-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .gi-row-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+            font-family: var(--font-display);
+        }
+
+        .gi-row-desc {
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            line-height: 1.65;
+        }
+
+        .gi-row-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--lpi-navy);
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .gi-row:hover .gi-row-link {
+            opacity: 1;
+        }
+
+        /* image side */
+        .gi-row-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gi-row-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gi-row:hover .gi-row-img img {
+            transform: scale(1.04);
+        }
+
+        /* gradient fade from white into image */
+        .gi-row-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 38%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .gi-collab-cta {
+            margin-top: 56px;
+        }
+
+        /* ── Volunteer grid ── */
+        .gi-volunteer {
+            background: var(--lpi-navy);
+            padding: 80px 0;
+            color: #fff;
+        }
+
+        .gi-volunteer .gi-divider-num {
+            color: var(--lpi-gold);
+        }
+
+        .gi-volunteer-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 64px;
+        }
+
+        .gi-volunteer-headline {
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 900;
+            font-family: var(--font-display);
+            color: #fff;
+            line-height: 1.05;
+        }
+
+        .gi-volunteer-headline em {
+            color: var(--lpi-gold);
+            font-style: normal;
+        }
+
+        .gi-volunteer-sub p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        .gi-volunteer-sub strong {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .gi-roles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .gi-role-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+
+        .gi-role-card:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .gi-role-ghost {
+            position: absolute;
+            top: -16px;
+            right: 16px;
+            font-size: 7rem;
+            font-weight: 900;
+            font-family: var(--font-display);
+            color: rgba(255,255,255,0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .gi-role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--lpi-gold);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gi-role-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .gi-role-icon {
+            font-size: 1.4rem;
+            color: var(--lpi-gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .gi-role-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.25;
+            position: relative;
+        }
+
+        .gi-role-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.65;
+            position: relative;
+        }
+
+        /* ── CTA strip ── */
+        .gi-cta {
+            background: var(--lpi-gold);
+            padding: 80px 0;
+        }
+
+        .gi-cta-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .gi-cta-text {
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 900;
+            font-family: var(--font-display);
+            color: var(--lpi-navy);
+            line-height: 1.1;
+        }
+
+        .gi-cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: stretch;
+            min-width: 280px;
+        }
+
+        .gi-btn-navy {
+            display: block;
+            padding: 14px 32px;
+            text-align: center;
+            background: var(--lpi-navy);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .gi-btn-navy:hover {
+            background: #fff;
+            color: var(--lpi-navy);
+        }
+
+        .gi-btn-outline {
+            display: block;
+            padding: 14px 32px;
+            text-align: center;
+            border: 2px solid var(--lpi-navy);
+            color: var(--lpi-navy);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .gi-btn-outline:hover {
+            background: var(--lpi-navy);
+            color: #fff;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .gi-row {
+                grid-template-columns: 52px 1fr;
+            }
+            .gi-row-link { display: none; }
+            .gi-volunteer-intro { grid-template-columns: 1fr; gap: 32px; }
+            .gi-roles-grid { grid-template-columns: 1fr 1fr; }
+            .gi-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 600px) {
+            .gi-roles-grid { grid-template-columns: 1fr; }
+            .gi-hero h1 { font-size: 2.6rem; }
+        }
+
+    </style>
 </head>
 <body data-page="get-involved">
 
@@ -18,84 +387,162 @@
 
     <header class="page-header page-header--image" style="--ph-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1800');">
         <span class="eyebrow">Join the Mission</span>
-        <h1>Collaborate &amp; <em>Volunteer</em></h1>
+        <h1>Get <em>Involved</em></h1>
     </header>
 
-    <section>
+    <!-- ── 01 Collaboration ── -->
+    <section class="gi-collab">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">01 &middot; Collaborate</span>
-                <h2>Collaboration Opportunities</h2>
+
+            <div class="gi-divider">
+                <span class="gi-divider-num">01 &mdash; Collaborate</span>
+                <span class="gi-divider-line"></span>
             </div>
-            <div class="who-we-are-grid">
-                <div class="mission-text">
-                    <p>We welcome collaboration with faculty, scholars, research labs, and academic centers aligned with our mission of expanding access to research opportunities and educational equity. Collaboration models are flexible and can be discussed based on mutual goals, capacity, and timelines.</p>
-                    <p style="margin-top: var(--space-lg); font-weight: 600; color: var(--ink);">Possible collaboration models:</p>
-                    <ul class="check-list" style="margin-top: var(--space-sm);">
-                        <li>Co-hosting a virtual research talk, methods workshop, or professional development panel</li>
-                        <li>Join us as a faculty advisor for Fellowship recipients &mdash; <a href="faculty.html" style="color: var(--lpi-blue);">learn more</a></li>
-                        <li>Join us as a faculty mentor for junior scholars</li>
-                        <li>Partnering on a small pilot initiative or a sponsored research project</li>
-                    </ul>
-                    <div style="margin-top: var(--space-xl);">
-                        <a href="contact.html" class="btn btn--gold">Propose a Collaboration</a>
+
+            <div class="gi-collab-intro">
+                <p>We welcome collaboration with faculty, scholars, research labs, and academic centers aligned with our mission. Models are flexible and shaped around mutual goals, capacity, and timelines.</p>
+            </div>
+
+            <div>
+                <div class="gi-row">
+                    <div class="gi-row-text">
+                        <span class="gi-row-num">01</span>
+                        <div class="gi-row-body">
+                            <span class="gi-row-title">Co-host an Event</span>
+                            <span class="gi-row-desc">Partner with us on a virtual research talk, methods workshop, or professional development panel for students and emerging scholars.</span>
+                            <span class="gi-row-link">Get in touch &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="gi-row-img">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800" alt="Event">
                     </div>
                 </div>
-                <aside class="sidebar-callout">
-                    <h4>Faculty Advisors</h4>
-                    <p>Faculty members and research groups are invited to participate as advisors in the ConnectEd Research Fellowship.</p>
-                    <a href="faculty.html" style="color: var(--lpi-blue); font-weight: 600;">Learn more &rarr;</a>
-                </aside>
+
+                <div class="gi-row">
+                    <div class="gi-row-text">
+                        <span class="gi-row-num">02</span>
+                        <div class="gi-row-body">
+                            <span class="gi-row-title">Faculty Advisor for Fellows</span>
+                            <span class="gi-row-desc">Faculty members and research groups are invited to serve as advisors for ConnectEd Research Fellowship recipients.</span>
+                            <a href="faculty.html" class="gi-row-link">Learn more &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="gi-row-img">
+                        <img src="https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?auto=format&fit=crop&q=80&w=800" alt="Faculty Advisor">
+                    </div>
+                </div>
+
+                <div class="gi-row">
+                    <div class="gi-row-text">
+                        <span class="gi-row-num">03</span>
+                        <div class="gi-row-body">
+                            <span class="gi-row-title">Faculty Mentor for Junior Scholars</span>
+                            <span class="gi-row-desc">Join as a mentor to support junior scholars in research interest development, academic pathway navigation, and higher education preparation.</span>
+                            <span class="gi-row-link">Get in touch &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="gi-row-img">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=800" alt="Mentorship">
+                    </div>
+                </div>
+
+                <div class="gi-row">
+                    <div class="gi-row-text">
+                        <span class="gi-row-num">04</span>
+                        <div class="gi-row-body">
+                            <span class="gi-row-title">Sponsored Research or Pilot Initiative</span>
+                            <span class="gi-row-desc">Explore partnering on a small pilot initiative or a sponsored research project tied to educational equity and access.</span>
+                            <span class="gi-row-link">Get in touch &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="gi-row-img">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" alt="Research">
+                    </div>
+                </div>
             </div>
+
+            <div class="gi-collab-cta">
+                <a href="contact.html" class="btn btn--gold">Propose a Collaboration</a>
+            </div>
+
         </div>
     </section>
 
-    <section id="volunteer" class="programs-section">
+    <!-- ── 02 Volunteer ── -->
+    <section id="volunteer" class="gi-volunteer">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">02 &middot; Volunteer</span>
-                <h2>Volunteer Roles</h2>
+
+            <div class="gi-divider">
+                <span class="gi-divider-num">02 &mdash; Volunteer</span>
+                <span class="gi-divider-line" style="background:#fff;"></span>
             </div>
-            <div class="who-we-are-grid">
-                <div class="mission-text">
-                    <p>We are actively building volunteer capacity to expand mentoring and program offerings. Volunteers typically contribute in flexible, project-based ways.</p>
-                    <p style="margin-top: var(--space-lg); font-weight: 600; color: var(--ink);">Volunteer roles:</p>
-                    <ul class="check-list" style="margin-top: var(--space-sm);">
-                        <li>Fellowship application support (eligibility screening, rubric-based review support)</li>
-                        <li>Mentorship coordination (matching logistics, scheduling support)</li>
-                        <li>Event support (moderation, outreach, post-event resource posting)</li>
-                        <li>Research resource development (toolkits, templates, guides)</li>
-                        <li>Communications (newsletter drafts, web updates, social posts)</li>
-                        <li>Partnerships outreach (academic centers, labs, faculty networks)</li>
-                    </ul>
-                    <p style="margin-top: var(--space-lg); font-size: var(--step-0); color: var(--ink-soft);">Most roles are flexible and can range from 1&ndash;3 hours per month to short-term project sprints during active cycles.</p>
+
+            <div class="gi-volunteer-intro">
+                <h2 class="gi-volunteer-headline">6 ways to<br><em>contribute.</em></h2>
+                <div class="gi-volunteer-sub">
+                    <p>We are actively building volunteer capacity to expand mentoring and program offerings. Volunteers contribute in flexible, project-based ways.</p>
+                    <p><strong>1–3 hours per month,</strong> or short-term project sprints during active cycles. We work around your schedule.</p>
                 </div>
-                <aside class="sidebar-callout">
-                    <h4>Time Commitment</h4>
-                    <p>1&ndash;3 hours per month, or short-term project sprints. We work around your schedule.</p>
-                </aside>
             </div>
+
+            <div class="gi-roles-grid">
+
+                <div class="gi-role-card">
+                    <span class="gi-role-ghost">01</span>
+                    <i class="fas fa-file-alt gi-role-icon"></i>
+                    <div class="gi-role-title">Fellowship Application Support</div>
+                    <div class="gi-role-desc">Eligibility screening and rubric-based review support during application cycles.</div>
+                </div>
+
+                <div class="gi-role-card">
+                    <span class="gi-role-ghost">02</span>
+                    <i class="fas fa-users gi-role-icon"></i>
+                    <div class="gi-role-title">Mentorship Coordination</div>
+                    <div class="gi-role-desc">Matching logistics and scheduling support for student–mentor pairings.</div>
+                </div>
+
+                <div class="gi-role-card">
+                    <span class="gi-role-ghost">03</span>
+                    <i class="fas fa-calendar-alt gi-role-icon"></i>
+                    <div class="gi-role-title">Event Support</div>
+                    <div class="gi-role-desc">Moderation, outreach, and post-event resource posting for workshops and panels.</div>
+                </div>
+
+                <div class="gi-role-card">
+                    <span class="gi-role-ghost">04</span>
+                    <i class="fas fa-book-open gi-role-icon"></i>
+                    <div class="gi-role-title">Research Resource Development</div>
+                    <div class="gi-role-desc">Creating toolkits, templates, and guides for student researchers and program staff.</div>
+                </div>
+
+                <div class="gi-role-card">
+                    <span class="gi-role-ghost">05</span>
+                    <i class="fas fa-bullhorn gi-role-icon"></i>
+                    <div class="gi-role-title">Communications</div>
+                    <div class="gi-role-desc">Newsletter drafts, web updates, and social media content for our public-facing channels.</div>
+                </div>
+
+                <div class="gi-role-card">
+                    <span class="gi-role-ghost">06</span>
+                    <i class="fas fa-handshake gi-role-icon"></i>
+                    <div class="gi-role-title">Partnerships Outreach</div>
+                    <div class="gi-role-desc">Connecting us with academic centers, labs, and faculty networks to expand our reach.</div>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
-    <section>
+    <!-- ── CTA ── -->
+    <section class="gi-cta">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">03 &middot; Express Interest</span>
-                <h2>Ready to Volunteer?</h2>
-            </div>
-            <div class="who-we-are-grid">
-                <div class="mission-text">
-                    <p style="font-size: var(--step-1); color: var(--ink-soft);">Share your background and interests and we will be in touch about current volunteer opportunities.</p>
-                    <p style="font-size: var(--step-1); color: var(--ink-soft); margin-top: var(--space-md);">You can also reach our volunteer team directly at <strong>volunteer@connect-edu.org</strong>.</p>
-                    <div style="margin-top: var(--space-xl);">
-                        <a href="volunteer-interest.html" class="btn btn--gold">Fill Out the Volunteer Interest Form</a>
-                    </div>
+            <div class="gi-cta-inner">
+                <div class="gi-cta-text">Ready to get<br>involved?</div>
+                <div class="gi-cta-actions">
+                    <a href="volunteer-interest.html" class="gi-btn-navy">Fill Out Volunteer Form</a>
+                    <a href="contact.html" class="gi-btn-outline">Propose a Collaboration</a>
                 </div>
-                <aside class="sidebar-callout">
-                    <h4>What Happens Next?</h4>
-                    <p>After submitting the form, our team will review your interests and reach out about current openings that match your skills and availability.</p>
-                </aside>
             </div>
         </div>
     </section>
