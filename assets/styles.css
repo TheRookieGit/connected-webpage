@@ -1587,6 +1587,28 @@ textarea { min-height: 140px; resize: vertical; }
     border-top: 2px solid var(--lpi-gold);
 }
 
+.modal-content--form {
+    max-width: 640px;
+    text-align: left;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+.modal-content--form h3 {
+    margin: 0 0 var(--space-xs);
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+    color: var(--lpi-navy);
+}
+.modal-content--form .modal-intro {
+    margin: 0 0 var(--space-lg);
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+}
+.modal-content--form .btn-submit {
+    width: 100%;
+    margin-top: var(--space-sm);
+}
+
 .modal-close {
     position: absolute;
     top: 14px;
@@ -2146,8 +2168,9 @@ body::before {
     background-size: 220px 220px;
 }
 
-/* Hide grain above nav/modals so it doesn't muddy text */
-nav, footer, .modal { position: relative; z-index: 2; }
+/* Hide grain above nav/footer so it doesn't muddy text. Modals already have
+   position:fixed + z-index:2000 and must not be forced into the document flow. */
+nav, footer { position: relative; z-index: 2; }
 
 /* ============================================================
    FIGURE ROW — editorial image trio

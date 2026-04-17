@@ -19,7 +19,7 @@
     <header class="hero hero--centered">
         <div class="hero-content">
             <span class="eyebrow" data-i18n data-en="Join the Mission" data-zh-hash="arh8wz">加入使命</span>
-            <h1 data-i18n data-en="Join us." data-zh-hash="lf0cxq">加入我们。</h1>
+            <h1 data-i18n data-en="Join us." data-zh-hash="arkdj4">加入我们</h1>
             <p data-i18n data-en="Mentor a fellow, support operations, or partner as an institution. The mission only grows with people who truly commit." data-zh-hash="8yj4g4">指导一位 fellow、支持运营工作，或以机构身份建立合作。使命的壮大，有赖于每一个真正投入其中的人。</p>
         </div>
     </header>
@@ -27,7 +27,6 @@
     <section>
         <div class="container">
             <div class="section-header">
-                <span class="section-number" data-i18n data-en="01 &middot; Ways to Contribute" data-zh-hash="n0wa46">01 · 参与方式</span>
                 <h2 data-i18n data-en="Three ways to support the work." data-zh-hash="s3atxm">三种支持方式。</h2>
             </div>
 
@@ -40,6 +39,7 @@
                     <div class="photo-card__body">
                         <h3 data-i18n data-en="Faculty Mentors" data-zh-hash="d6ei6z">教师导师</h3>
                         <p data-i18n data-en="University faculty can participate by advising research fellows and providing guidance on academic projects." data-zh-hash="kx31q7">大学教师可以通过指导 research fellow、为学术项目提供建议等方式参与。</p>
+                        <a href="#" class="btn" data-modal="mentor-modal" style="margin-top:auto; align-self:flex-start;" data-i18n data-en="Apply as Mentor" data-zh-hash="8u2c2u">申请成为导师</a>
                     </div>
                 </div>
 
@@ -51,67 +51,90 @@
                     <div class="photo-card__body">
                         <h3 data-i18n data-en="Volunteers" data-zh-hash="eilrx">志愿者</h3>
                         <p data-i18n data-en="Professionals and graduate students can support our operations through administrative and program assistance." data-zh-hash="2gqef8">业界专业人士与研究生可以通过行政与项目协助支持我们的运营。</p>
+                        <a href="#" class="btn" data-modal="volunteer-modal" style="margin-top:auto; align-self:flex-start;" data-i18n data-en="Apply as Volunteer" data-zh-hash="a91eb3">申请成为志愿者</a>
                     </div>
                 </div>
 
                 <div class="opportunity-card opportunity-card--photo">
                     <div class="photo-card__media">
-                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&amp;fit=crop&amp;q=80&amp;w=900" alt="Students celebrating at an academic ceremony">
+                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&amp;fit=crop&amp;q=80&amp;w=900" alt="A university library reading room lined with books">
                     </div>
                     <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
                     <div class="photo-card__body">
                         <h3 data-i18n data-en="Supporters" data-zh-hash="l3ni8">资助者</h3>
                         <p data-i18n data-en="Financial contributions help provide fellowships and learning resources to students with limited institutional access." data-zh-hash="od08g2">经济支持可以为缺乏机构资源渠道的学生提供 fellowship 与学习资源。</p>
+                        <a href="support.html#impact" class="btn" style="margin-top:auto; align-self:flex-start;" data-i18n data-en="See How to Support" data-zh-hash="gazwsb">了解支持方式</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="form-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number" data-i18n data-en="02 &middot; Interest Form" data-zh-hash="4totof">02 · 意向表</span>
-                <h2 data-i18n data-en="Submit an interest form." data-zh-hash="c4cf8w">提交意向表。</h2>
-            </div>
-
-            <div class="interest-form">
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <input type="hidden" name="_subject" value="New ConnectEd Interest Form Submission">
-                    <div class="form-group">
-                        <label for="name" data-i18n data-en="Full Name" data-zh-hash="fqmy">姓名</label>
-                        <input type="text" id="name" name="Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" data-i18n data-en="Email Address" data-zh-hash="irh79v">邮箱地址</label>
-                        <input type="email" id="email" name="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="role" data-i18n data-en="Desired Role" data-zh-hash="k5j0lz">希望参与的角色</label>
-                        <select id="role" name="Role">
-                            <option value="Mentor" data-opt-en="Faculty Mentor">教师导师</option>
-                            <option value="Volunteer" data-opt-en="Volunteer">志愿者</option>
-                            <option value="Partner" data-opt-en="Institutional Partner">机构合作方</option>
-                            <option value="Other" data-opt-en="Other">其他</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="skills" data-i18n data-en="Key Skills" data-zh-hash="afu8wz">主要技能</label>
-                        <input type="text" id="skills" name="Skills" placeholder="例如：数据分析、写作、网页设计" data-ph-en="e.g., Data Analysis, Writing, Web Design">
-                    </div>
-                    <div class="form-group">
-                        <label for="availability" data-i18n data-en="Time Availability" data-zh-hash="88zufl">时间可用度</label>
-                        <input type="text" id="availability" name="Availability" placeholder="例如：每月 2 小时" data-ph-en="e.g., 2 hours per month">
-                    </div>
-                    <div class="form-group">
-                        <label for="interests" data-i18n data-en="Primary Interests" data-zh-hash="afrf11">主要兴趣</label>
-                        <textarea id="interests" name="Interests" rows="4" placeholder="你对哪些角色或方向最感兴趣？" data-ph-en="Which roles or areas are you most interested in?"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit" data-i18n data-en="Submit Formal Interest" data-zh-hash="nz1ohq">正式提交意向</button>
-                </form>
-            </div>
+    <div id="mentor-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="mentor-modal-title">
+        <div class="modal-content modal-content--form">
+            <button type="button" class="modal-close" aria-label="Close">&times;</button>
+            <h3 id="mentor-modal-title" data-i18n data-en="Become a Mentor" data-zh-hash="cp662e">成为导师</h3>
+            <p class="modal-intro" data-i18n data-en="Share a few details and we&rsquo;ll follow up shortly." data-zh-hash="nv6k61">请填写以下信息，我们会尽快与您联系。</p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="_subject" value="New Mentor Application">
+                <input type="hidden" name="Role" value="Faculty Mentor">
+                <div class="form-group">
+                    <label for="mentor-name" data-i18n data-en="Full Name" data-zh-hash="fqmy">姓名</label>
+                    <input type="text" id="mentor-name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-email" data-i18n data-en="Email" data-zh-hash="padf">邮箱</label>
+                    <input type="email" id="mentor-email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-institution" data-i18n data-en="Institution" data-zh-hash="cs5cfc">所属机构</label>
+                    <input type="text" id="mentor-institution" name="Institution">
+                </div>
+                <div class="form-group">
+                    <label for="mentor-area" data-i18n data-en="Research Area" data-zh-hash="fnweij">研究领域</label>
+                    <input type="text" id="mentor-area" name="Research_Area">
+                </div>
+                <div class="form-group">
+                    <label for="mentor-message" data-i18n data-en="Message" data-zh-hash="kptz">留言</label>
+                    <textarea id="mentor-message" name="Message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-submit" data-i18n data-en="Submit Application" data-zh-hash="cxay9k">提交申请</button>
+            </form>
         </div>
-    </section>
+    </div>
+
+    <div id="volunteer-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="volunteer-modal-title">
+        <div class="modal-content modal-content--form">
+            <button type="button" class="modal-close" aria-label="Close">&times;</button>
+            <h3 id="volunteer-modal-title" data-i18n data-en="Become a Volunteer" data-zh-hash="whriy5">成为志愿者</h3>
+            <p class="modal-intro" data-i18n data-en="Share a few details and we&rsquo;ll follow up shortly." data-zh-hash="nv6k61">请填写以下信息，我们会尽快与您联系。</p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="_subject" value="New Volunteer Application">
+                <input type="hidden" name="Role" value="Volunteer">
+                <div class="form-group">
+                    <label for="vol-name" data-i18n data-en="Full Name" data-zh-hash="fqmy">姓名</label>
+                    <input type="text" id="vol-name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="vol-email" data-i18n data-en="Email" data-zh-hash="padf">邮箱</label>
+                    <input type="email" id="vol-email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="vol-skills" data-i18n data-en="Key Skills" data-zh-hash="afu8wz">主要技能</label>
+                    <input type="text" id="vol-skills" name="Skills" placeholder="例如：数据分析、写作、网页设计" data-ph-en="e.g., Data Analysis, Writing, Web Design">
+                </div>
+                <div class="form-group">
+                    <label for="vol-availability" data-i18n data-en="Time Availability" data-zh-hash="88zufl">时间可用度</label>
+                    <input type="text" id="vol-availability" name="Availability" placeholder="例如：每月 2 小时" data-ph-en="e.g., 2 hours per month">
+                </div>
+                <div class="form-group">
+                    <label for="vol-interests" data-i18n data-en="Primary Interests" data-zh-hash="av34h3">兴趣方向</label>
+                    <textarea id="vol-interests" name="Interests" rows="4" placeholder="你对哪些方向最感兴趣？" data-ph-en="Which areas are you most interested in?"></textarea>
+                </div>
+                <button type="submit" class="btn-submit" data-i18n data-en="Submit Application" data-zh-hash="cxay9k">提交申请</button>
+            </form>
+        </div>
+    </div>
 
     <div id="site-footer"></div>
 

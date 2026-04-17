@@ -90,7 +90,7 @@
         "zh": "关于本机构"
       },
       {
-        "id": "ssxf8g",
+        "id": "qu192a",
         "en": "Expanding access to research &mdash; institutionally, intentionally, and with care.",
         "zh": "以机构化、有意识且审慎的方式，扩展科研的可及性。"
       },
@@ -110,13 +110,13 @@
         "zh": "围绕一个尚未解决的问题成立的非营利机构。"
       },
       {
-        "id": "1wvw97",
-        "en": "ConnectEd Research Institute is a nonprofit focused on expanding access to research mentorship and academic opportunity for talented, dedicated students who have been left on the outside of existing academic networks.",
+        "id": "fon9lh",
+        "en": "ConnectEd Research Institute is a nonprofit dedicated to opening pathways to research mentorship and academic opportunity for talented, dedicated students who have been shut out of existing academic networks.",
         "zh": "ConnectEd Research Institute 是一家非营利机构，致力于帮助那些被挡在现有学术网络之外、却富有才华与专注力的学生，打通接触科研导师资源与学术机会的渠道。"
       },
       {
-        "id": "gmt8og",
-        "en": "The Institute develops programs that let students engage with real research environments, build academic skills, and connect with faculty and research communities — the kind of connections that shape a career long after a single fellowship ends.",
+        "id": "in07x6",
+        "en": "The Institute develops programs that let students engage deeply with real research environments, build academic skills, and connect with faculty and research communities &mdash; connections whose value extends far beyond any single fellowship.",
         "zh": "机构开发的项目让学生深入真实的科研环境、构建学术能力，并与教师及研究社群建立联系——这些联系的价值远远超过任何一次 fellowship 本身。"
       },
       {
@@ -170,8 +170,8 @@
         "zh": "接触真实的科研环境能同时建立信心与能力。"
       },
       {
-        "id": "mao1m3",
-        "en": "Institutions and faculty can and should play an active role in supporting emerging scholars.",
+        "id": "960f6h",
+        "en": "Institutions and faculty not only can, but should take an active role in supporting emerging scholars.",
         "zh": "机构与教师不仅可以，更应当在支持成长中的学者方面主动担当。"
       },
       {
@@ -431,8 +431,8 @@
         "zh": "两个 Fellowship 方向。"
       },
       {
-        "id": "1nm35g",
-        "en": "Application-based programs matching advanced high school and undergraduate students with research groups for meaningful academic exposure.",
+        "id": "ql0xc8",
+        "en": "Application-based programs that match advanced high school and undergraduate students with research groups, providing meaningful academic exposure.",
         "zh": "通过申请制项目，将资深高中生及本科生与科研团队匹配，提供具有实质意义的学术接触。"
       },
       {
@@ -446,8 +446,8 @@
         "zh": "选择与你所处阶段相匹配的方向。"
       },
       {
-        "id": "jasdsa",
-        "en": "These application-based programs match advanced high school and undergraduate students with research groups to provide meaningful academic exposure and skill development.",
+        "id": "cbofie",
+        "en": "These application-based programs match advanced high school and undergraduate students with research groups, providing meaningful academic exposure and skill development.",
         "zh": "这些申请制项目将资深高中生及本科生匹配至科研团队，提供具有实质意义的学术接触与能力建设。"
       },
       {
@@ -541,7 +541,7 @@
         "zh": "研究 Fellowship。"
       },
       {
-        "id": "f0gejx",
+        "id": "xhadsp",
         "en": "Mentored research placements inside working academic environments &mdash; with the same expectations and rigor as any graduate-level research role.",
         "zh": "在真实运作的学术环境中提供有导师指导的科研岗位——与研究生级别的科研角色有着同等的期望与严谨标准。"
       },
@@ -561,8 +561,8 @@
         "zh": "真实的工作环境"
       },
       {
-        "id": "lgs4mp",
-        "en": "The ConnectEd Research Fellowships support selected fellows in participating in mentored research experiences under the guidance of faculty advisors at leading institutions.",
+        "id": "mfg9sl",
+        "en": "The ConnectEd Research Fellowships support selected fellows in engaging deeply with mentored research practice under the guidance of faculty advisors at leading institutions.",
         "zh": "ConnectEd 研究 Fellowship 支持入选学员在一流机构导师的指导下深入参与科研实践。"
       },
       {
@@ -596,8 +596,8 @@
         "zh": "申请制、择优录取——看能力与匹配度，而非人脉。"
       },
       {
-        "id": "t86s50",
-        "en": "Paired with a faculty advisor for the duration of the placement.",
+        "id": "l8tlq",
+        "en": "Paired one-on-one with a dedicated faculty advisor throughout the placement.",
         "zh": "全程由专属教师导师一对一跟进指导。"
       },
       {
@@ -646,19 +646,14 @@
         "zh": "加入使命"
       },
       {
-        "id": "hepyn9",
-        "en": "Get involved.",
-        "zh": "加入我们。"
+        "id": "arkdj4",
+        "en": "Join us.",
+        "zh": "加入我们"
       },
       {
-        "id": "v91xc8",
-        "en": "Mentor a fellow, support operations, or partner as an institution. The mission only scales with people who show up.",
+        "id": "8yj4g4",
+        "en": "Mentor a fellow, support operations, or partner as an institution. The mission only grows with people who truly commit.",
         "zh": "指导一位 fellow、支持运营工作，或以机构身份建立合作。使命的壮大，有赖于每一个真正投入其中的人。"
-      },
-      {
-        "id": "n0wa46",
-        "en": "01 &middot; Ways to Contribute",
-        "zh": "01 · 参与方式"
       },
       {
         "id": "s3atxm",
@@ -676,6 +671,11 @@
         "zh": "大学教师可以通过指导 research fellow、为学术项目提供建议等方式参与。"
       },
       {
+        "id": "8u2c2u",
+        "en": "Apply as Mentor",
+        "zh": "申请成为导师"
+      },
+      {
         "id": "eilrx",
         "en": "Volunteers",
         "zh": "志愿者"
@@ -686,24 +686,34 @@
         "zh": "业界专业人士与研究生可以通过行政与项目协助支持我们的运营。"
       },
       {
+        "id": "a91eb3",
+        "en": "Apply as Volunteer",
+        "zh": "申请成为志愿者"
+      },
+      {
         "id": "l3ni8",
         "en": "Supporters",
         "zh": "资助者"
       },
       {
-        "id": "7crh83",
-        "en": "Financial contributions help provide fellowships and resources to students with limited institutional access.",
+        "id": "od08g2",
+        "en": "Financial contributions help provide fellowships and learning resources to students with limited institutional access.",
         "zh": "经济支持可以为缺乏机构资源渠道的学生提供 fellowship 与学习资源。"
       },
       {
-        "id": "4totof",
-        "en": "02 &middot; Interest Form",
-        "zh": "02 · 意向表"
+        "id": "gazwsb",
+        "en": "See How to Support",
+        "zh": "了解支持方式"
       },
       {
-        "id": "c4cf8w",
-        "en": "Submit an interest form.",
-        "zh": "提交意向表。"
+        "id": "cp662e",
+        "en": "Become a Mentor",
+        "zh": "成为导师"
+      },
+      {
+        "id": "nv6k61",
+        "en": "Share a few details and we&rsquo;ll follow up shortly.",
+        "zh": "请填写以下信息，我们会尽快与您联系。"
       },
       {
         "id": "fqmy",
@@ -711,14 +721,49 @@
         "zh": "姓名"
       },
       {
-        "id": "irh79v",
-        "en": "Email Address",
-        "zh": "邮箱地址"
+        "id": "padf",
+        "en": "Email",
+        "zh": "邮箱"
       },
       {
-        "id": "k5j0lz",
-        "en": "Desired Role",
-        "zh": "希望参与的角色"
+        "id": "cs5cfc",
+        "en": "Institution",
+        "zh": "所属机构"
+      },
+      {
+        "id": "fnweij",
+        "en": "Research Area",
+        "zh": "研究领域"
+      },
+      {
+        "id": "kptz",
+        "en": "Message",
+        "zh": "留言"
+      },
+      {
+        "id": "cxay9k",
+        "en": "Submit Application",
+        "zh": "提交申请"
+      },
+      {
+        "id": "whriy5",
+        "en": "Become a Volunteer",
+        "zh": "成为志愿者"
+      },
+      {
+        "id": "nv6k61",
+        "en": "Share a few details and we&rsquo;ll follow up shortly.",
+        "zh": "请填写以下信息，我们会尽快与您联系。"
+      },
+      {
+        "id": "fqmy",
+        "en": "Full Name",
+        "zh": "姓名"
+      },
+      {
+        "id": "padf",
+        "en": "Email",
+        "zh": "邮箱"
       },
       {
         "id": "afu8wz",
@@ -731,14 +776,14 @@
         "zh": "时间可用度"
       },
       {
-        "id": "afrf11",
+        "id": "av34h3",
         "en": "Primary Interests",
-        "zh": "主要兴趣"
+        "zh": "兴趣方向"
       },
       {
-        "id": "nz1ohq",
-        "en": "Submit Formal Interest",
-        "zh": "正式提交意向"
+        "id": "cxay9k",
+        "en": "Submit Application",
+        "zh": "提交申请"
       }
     ],
     "placeholders": [
@@ -751,26 +796,8 @@
         "zh": "例如：每月 2 小时"
       },
       {
-        "id": "Which roles or areas are you most interested in?",
-        "zh": "你对哪些角色或方向最感兴趣？"
-      }
-    ],
-    "options": [
-      {
-        "id": "Faculty Mentor",
-        "zh": "教师导师"
-      },
-      {
-        "id": "Volunteer",
-        "zh": "志愿者"
-      },
-      {
-        "id": "Institutional Partner",
-        "zh": "机构合作方"
-      },
-      {
-        "id": "Other",
-        "zh": "其他"
+        "id": "Which areas are you most interested in?",
+        "zh": "你对哪些方向最感兴趣？"
       }
     ]
   },
@@ -788,8 +815,8 @@
         "zh": "扩展<em>研究</em>与学术机会的可及性。"
       },
       {
-        "id": "iftmo5",
-        "en": "ConnectEd connects talented students with meaningful research experiences and mentorship inside real academic environments — not around them.",
+        "id": "iv1js9",
+        "en": "ConnectEd brings talented students into real academic environments &mdash; with meaningful research experiences and mentorship inside them, not at the edges.",
         "zh": "ConnectEd 将有才华的学生带入真实的学术环境，获得有意义的研究经历与导师指导——不是在门外徘徊，而是真正走进去。"
       },
       {
@@ -823,7 +850,7 @@
         "zh": "学术资源与科研机会的分配仍不均衡。许多有能力的学生——尤其是第一代学生、国际学生与其他代表性不足的群体——在进入科研环境、获得教师指导、以及接入塑造职业轨迹的学术网络时，面对的是结构性的障碍。"
       },
       {
-        "id": "34czo1",
+        "id": "y4xz4g",
         "en": "ConnectEd works to expand that access: connecting motivated students with the environments, mentors, and pathways they need to pursue graduate study, academic careers, and research-driven fields.",
         "zh": "ConnectEd 致力于扩展这份可及性：将有动力的学生，与进入研究生学习、学术职业及以研究为驱动的领域所需的环境、导师和路径连接起来。"
       },
@@ -833,8 +860,8 @@
         "zh": "我们的影响领域"
       },
       {
-        "id": "awzpww",
-        "en": "Empowering the next generation of scholars through evidence-based mentorship and institutional integration — not shortcuts.",
+        "id": "dl53nh",
+        "en": "Empowering the next generation of scholars through evidence-based mentorship and deep institutional integration &mdash; not shortcuts.",
         "zh": "以循证的导师制与深度的机构整合，为下一代学者赋能——而不是走捷径。"
       },
       {
@@ -898,7 +925,7 @@
         "zh": "学术交流与网络"
       },
       {
-        "id": "o1q7jf",
+        "id": "ep5a7x",
         "en": "Convenings and peer networks supporting knowledge exchange across academic communities.",
         "zh": "支持学术社群之间知识交流的聚会与同伴网络。"
       },
@@ -933,8 +960,8 @@
         "zh": "真实的学者。真实的科研。真实的结果。"
       },
       {
-        "id": "v0y5an",
-        "en": "Scholars Placed",
+        "id": "n9pv2d",
+        "en": "Scholars Matched",
         "zh": "已匹配学者"
       },
       {
@@ -978,8 +1005,8 @@
         "zh": "05 · 他们的原话"
       },
       {
-        "id": "v7el8",
-        "en": "ConnectEd gave me the first room where my questions weren&rsquo;t out of place — and the first mentor who treated them as real work.",
+        "id": "2bus1p",
+        "en": "ConnectEd was the first place where my questions no longer felt out of place &mdash; and where I met the first mentor who treated them as real research.",
         "zh": "ConnectEd 是第一个让我的问题不再显得格格不入的地方——也让我遇到了第一位把这些问题当作真实研究的导师。"
       },
       {
@@ -1113,8 +1140,8 @@
         "zh": "申请导师结对。"
       },
       {
-        "id": "j4mgfr",
-        "en": "Mentorship placements are arranged based on academic stage, research interest, and advisor capacity. Start with a brief note through our contact form and we&rsquo;ll follow up.",
+        "id": "i5c32x",
+        "en": "Mentorship placements take into account academic stage, research interest, and advisor availability. Start with a brief note through our contact form and we&rsquo;ll follow up.",
         "zh": "导师匹配将综合考量申请者的学术阶段、研究兴趣及导师的档期情况。可先通过联系表单简短留言，我们会随后跟进。"
       },
       {
@@ -1143,7 +1170,7 @@
         "zh": "学术交流与网络。"
       },
       {
-        "id": "2rsqrp",
+        "id": "q8k08s",
         "en": "Convenings and peer networks that support knowledge exchange across academic communities and emerging scholars.",
         "zh": "支持学术社群与早期学者之间知识交流的聚会与同伴网络。"
       },
@@ -1163,13 +1190,13 @@
         "zh": "聚会与同伴交流"
       },
       {
-        "id": "9owg1i",
-        "en": "Convenings and peer networks that support knowledge exchange across academic communities and emerging scholars &mdash; the connective tissue that keeps early-career research moving.",
+        "id": "pvuxop",
+        "en": "Through convenings and peer networks, supporting knowledge exchange across academic communities and emerging scholars &mdash; the connective tissue that keeps early-career research moving forward.",
         "zh": "通过聚会与同伴网络，在学术社群与早期学者之间支持知识交流——这是推动早期科研持续向前的纽带。"
       },
       {
-        "id": "ifyqmh",
-        "en": "Alumni remain connected through a small, working community rather than a credential directory &mdash; with recurring reading groups, writing critiques, and advisor office hours.",
+        "id": "te3i9e",
+        "en": "Alumni stay connected through a small, working community rather than a credential directory &mdash; with recurring reading groups, writing critiques, and advisor office hours.",
         "zh": "校友通过一个小规模、持续运作的社群保持联系，而非一份资质名录——定期举办读书会、写作点评与导师答疑时间。"
       },
       {
@@ -1258,7 +1285,7 @@
         "zh": "我们如何使用信息"
       },
       {
-        "id": "ppupna",
+        "id": "v2xe7o",
         "en": "Information is used to administer our programs, respond to inquiries, coordinate fellowships, and send occasional updates if you opt in. We do not sell personal information.",
         "zh": "信息用于管理我们的项目、回应咨询、协调 fellowship，以及在您选择加入后发送不定期更新。我们不出售个人信息。"
       },
@@ -1674,7 +1701,7 @@
         "zh": "青年学者 Fellowship。"
       },
       {
-        "id": "rdk70z",
+        "id": "e7114b",
         "en": "A structured, mentored environment for advanced high school students and early undergraduates entering real research for the first time.",
         "zh": "为初次进入真实科研的优秀高中生与低年级本科生提供的结构化导师制学习环境。"
       },

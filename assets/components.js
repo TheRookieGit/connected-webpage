@@ -206,6 +206,31 @@
         });
     }
 
+    // Modal wiring: any element with [data-modal="id"] opens #id; .modal-close or
+    // clicking the backdrop closes; Escape closes. Body scroll locked while open.
+    function wireModals() {
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('[data-modal]');
+            if (trigger) {
+                e.preventDefault();
+                const modal = document.getElementById(trigger.getAttribute('data-modal'));
+                if (modal) { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+                return;
+            }
+            if (e.target.closest('.modal-close') || e.target.classList.contains('modal')) {
+                document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
+                document.body.style.overflow = '';
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            const open = document.querySelectorAll('.modal.open');
+            if (!open.length) return;
+            open.forEach(m => m.classList.remove('open'));
+            document.body.style.overflow = '';
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         mount('#site-nav', renderNav());
         mount('#site-footer', renderFooter());
@@ -214,6 +239,7 @@
         wireNavScroll();
         autoDecorate();
         wireReveals();
+        wireModals();
 
         // Re-apply language to newly injected nav/footer.
         if (typeof window.applyLang === 'function' && typeof window.getLang === 'function') {
