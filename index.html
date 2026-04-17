@@ -177,23 +177,106 @@
         </div>
     </section>
 
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">07 &middot; Support</span>
-                <h2>Support the Fellowship</h2>
+    <section class="support-band">
+        <div class="support-band__img" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=1800');"></div>
+        <div class="support-band__overlay"></div>
+        <div class="container support-band__inner">
+            <div class="support-band__left">
+                <span class="eyebrow" style="color: rgba(255,255,255,0.6);">07 &middot; Support</span>
+                <h2 class="support-band__title">Support the<br><em>Fellowship.</em></h2>
+                <p class="support-band__desc">Philanthropic support enables the Institute to expand access to research opportunities and to support fellows who may not otherwise be able to participate.</p>
+                <a href="support.html" class="btn btn--gold" style="margin-top: var(--space-xl); display: inline-block;">Donate</a>
             </div>
-            <div class="mission-grid">
-                <div class="mission-text">
-                    <p>Philanthropic support enables the Institute to expand access to research opportunities and to support fellows who may not otherwise be able to participate.</p>
-                    <p>If you are interested in donating, please click the button below.</p>
-                    <div style="margin-top: var(--space-lg);">
-                        <a href="support.html" class="btn btn--gold">Donate</a>
-                    </div>
+            <div class="support-band__right">
+                <div class="support-stat">
+                    <span class="support-stat__num">100%</span>
+                    <span class="support-stat__label">of donations go directly to fellowship support</span>
+                </div>
+                <div class="support-stat">
+                    <span class="support-stat__num">Access</span>
+                    <span class="support-stat__label">for scholars who wouldn't otherwise reach research environments</span>
+                </div>
+                <div class="support-stat">
+                    <span class="support-stat__num">Impact</span>
+                    <span class="support-stat__label">felt across institutions, disciplines, and career trajectories</span>
                 </div>
             </div>
         </div>
     </section>
+    <style>
+        .support-band {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        .support-band__img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+        }
+        .support-band__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(100deg, rgba(120,10,10,0.96) 45%, rgba(140,20,10,0.80) 100%);
+        }
+        .support-band__inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .support-band__title {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 900;
+            font-family: var(--font-display);
+            color: #fff;
+            line-height: 1.05;
+            margin: 16px 0 20px;
+        }
+        .support-band__title em {
+            font-style: normal;
+            color: var(--lpi-gold);
+        }
+        .support-band__desc {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.75;
+            max-width: 44ch;
+        }
+        .support-band__right {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .support-stat {
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .support-stat:first-child {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .support-stat__num {
+            font-size: 1.8rem;
+            font-weight: 900;
+            font-family: var(--font-display);
+            color: #fff;
+            line-height: 1;
+        }
+        .support-stat__label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.55;
+        }
+        @media (max-width: 768px) {
+            .support-band__inner { grid-template-columns: 1fr; gap: 48px; }
+        }
+    </style>
 
     <section class="partners-strip">
         <div class="container">
