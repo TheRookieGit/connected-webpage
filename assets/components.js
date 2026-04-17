@@ -1,53 +1,43 @@
 // ConnectEd Research Institute — shared layout components
 // Injects nav + footer, wires hamburger, handles modals, scroll reveals, and subtle nav elevation.
-// Nav/footer copy is maintained bilingually here (single source of truth), so translate.js can
-// focus on page content. Language switching is wired via assets/lang.js.
 
 (function () {
-    // Nav links: data-driven so we don't duplicate HTML and can render either language.
     const navItems = [
-        { href: 'index.html',     zh: '首页',       en: 'Home',         key: 'home' },
-        { href: 'about.html',     zh: '关于',       en: 'About',        key: 'about' },
+        { href: 'index.html',     label: 'Home',         key: 'home' },
+        { href: 'about.html',     label: 'About',        key: 'about' },
         {
             type: 'dropdown', key: 'programs',
-            zh: '项目', en: 'Programs',
+            label: 'Programs',
             children: [
-                { href: 'fellowships.html',       zh: '研究 Fellowship', en: 'Research Fellowships' },
-                { href: 'fellowship-tracks.html', zh: 'Fellowship 方向', en: 'Fellowship Tracks' },
-                { href: 'mentorship.html',        zh: '导师指导项目',     en: 'Mentorship Programs' },
-                { href: 'training.html',          zh: '研究培训与课程',   en: 'Research Training & Courses' },
-                { href: 'networks.html',          zh: '学术交流与网络',   en: 'Scholarly Exchange & Networks' }
+                { href: 'fellowships.html',       label: 'Research Fellowships' },
+                { href: 'fellowship-tracks.html', label: 'Fellowship Tracks' },
+                { href: 'mentorship.html',        label: 'Mentorship Programs' },
+                { href: 'training.html',          label: 'Research Training & Courses' },
+                { href: 'networks.html',          label: 'Scholarly Exchange & Networks' }
             ]
         },
-        { href: 'get-involved.html', zh: '加入我们', en: 'Get Involved', key: 'get-involved' },
-        { href: 'support.html',      zh: '支持我们', en: 'Support',      key: 'support' },
-        { href: 'contact.html',      zh: '联系我们', en: 'Contact',      key: 'contact' }
+        { href: 'get-involved.html', label: 'Get Involved', key: 'get-involved' },
+        { href: 'support.html',      label: 'Support',      key: 'support' },
+        { href: 'contact.html',      label: 'Contact',      key: 'contact' }
     ];
-
-    const footerCopy = {
-        brand:   { zh: 'ConnectEd Research Institute', en: 'ConnectEd Research Institute' },
-        privacy: { zh: '隐私政策', en: 'Privacy Policy' },
-        terms:   { zh: '使用条款', en: 'Terms of Use' },
-        rights:  { zh: '保留所有权利。', en: 'All rights reserved.' }
-    };
 
     function renderNav() {
         const itemsHtml = navItems.map(item => {
             if (item.type === 'dropdown') {
                 const childLinks = item.children.map(c =>
-                    `<a href="${c.href}" data-i18n data-en="${escapeAttr(c.en)}">${c.zh}</a>`
+                    `<a href="${c.href}">${escapeAttr(c.label)}</a>`
                 ).join('');
                 return `
                 <li class="dropdown">
                     <a href="#" role="button" aria-haspopup="true" aria-expanded="false"
                        data-nav="${item.key}" data-nav-trigger>
-                       <span data-i18n data-en="${escapeAttr(item.en)}">${item.zh}</span>
+                       <span>${escapeAttr(item.label)}</span>
                        <i class="fas fa-caret-down" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-content">${childLinks}</div>
                 </li>`;
             }
-            return `<li><a href="${item.href}" data-nav="${item.key}" data-i18n data-en="${escapeAttr(item.en)}">${item.zh}</a></li>`;
+            return `<li><a href="${item.href}" data-nav="${item.key}">${escapeAttr(item.label)}</a></li>`;
         }).join('');
 
         return `
@@ -61,13 +51,6 @@
             </button>
             <ul class="nav-links">
                 ${itemsHtml}
-                <li class="lang-toggle-wrap">
-                    <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch to English">
-                        <span class="lang-opt" data-lang="zh">中</span>
-                        <span class="lang-sep">|</span>
-                        <span class="lang-opt" data-lang="en">EN</span>
-                    </button>
-                </li>
             </ul>
         </nav>`;
     }
@@ -76,14 +59,14 @@
         return `
         <footer>
             <div class="footer-container">
-                <a href="index.html" class="logo" data-i18n data-en="${escapeAttr(footerCopy.brand.en)}">${footerCopy.brand.zh}</a>
+                <a href="index.html" class="logo">ConnectEd Research Institute</a>
                 <div class="footer-links">
-                    <a href="privacy.html" data-i18n data-en="${escapeAttr(footerCopy.privacy.en)}">${footerCopy.privacy.zh}</a>
-                    <a href="terms.html" data-i18n data-en="${escapeAttr(footerCopy.terms.en)}">${footerCopy.terms.zh}</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2026 ConnectEd Research Institute. <span data-i18n data-en="${escapeAttr(footerCopy.rights.en)}">${footerCopy.rights.zh}</span>
+                &copy; 2026 ConnectEd Research Institute. All rights reserved.
             </div>
         </footer>`;
     }
@@ -173,7 +156,6 @@
         targets.forEach(el => io.observe(el));
     }
 
-    // Auto-apply .reveal to common content blocks so existing HTML gets animations for free.
     function autoDecorate() {
         const selectors = [
             'section > .section-header',
@@ -206,8 +188,6 @@
         });
     }
 
-    // Modal wiring: any element with [data-modal="id"] opens #id; .modal-close or
-    // clicking the backdrop closes; Escape closes. Body scroll locked while open.
     function wireModals() {
         document.addEventListener('click', (e) => {
             const trigger = e.target.closest('[data-modal]');
@@ -240,10 +220,5 @@
         autoDecorate();
         wireReveals();
         wireModals();
-
-        // Re-apply language to newly injected nav/footer.
-        if (typeof window.applyLang === 'function' && typeof window.getLang === 'function') {
-            window.applyLang(window.getLang());
-        }
     });
 })();
