@@ -455,8 +455,7 @@ nav.is-scrolled {
    ============================================================ */
 .page-header {
     background: var(--surface);
-    padding: clamp(70px, 10vw, 140px) var(--edge-x) clamp(50px, 6vw, 80px);
-    padding-inline-start: calc(var(--edge-x) + clamp(16px, 5vw, 96px) + 80px);
+    padding: clamp(70px, 10vw, 140px) var(--edge-x) clamp(50px, 6vw, 80px) max(var(--edge-x), calc((100% - var(--max-content)) / 2));
     border-bottom: 1px solid var(--hairline);
     position: relative;
     overflow: hidden;
@@ -496,8 +495,7 @@ nav.is-scrolled {
     background: var(--lpi-navy);
     color: var(--paper);
     border-bottom: none;
-    padding: clamp(110px, 14vw, 190px) var(--edge-x) clamp(80px, 10vw, 140px);
-    padding-inline-start: calc(var(--edge-x) + clamp(16px, 5vw, 96px) + 80px);
+    padding: clamp(110px, 14vw, 190px) var(--edge-x) clamp(80px, 10vw, 140px) max(var(--edge-x), calc((100% - var(--max-content)) / 2));
     isolation: isolate;
 }
 
@@ -617,8 +615,7 @@ section > .content-wrap {
    ============================================================ */
 .hero {
     position: relative;
-    padding: clamp(100px, 14vw, 180px) var(--edge-x) clamp(90px, 12vw, 160px);
-    padding-inline-start: calc(var(--edge-x) + clamp(16px, 5vw, 96px) + 80px);
+    padding: clamp(100px, 14vw, 180px) var(--edge-x) clamp(90px, 12vw, 160px) max(var(--edge-x), calc((100% - var(--max-content)) / 2));
     background: var(--lpi-navy);
     color: var(--paper);
     overflow: hidden;
