@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>支持我们 | ConnectEd Research Institute</title>
-    <meta name="description" content="Support ConnectEd's mission with a one-time or monthly donation. Your contribution funds fellowship awards, mentorship infrastructure, and training resources.">
+    <meta name="description" content="Support ConnectEd's mission with a one-time or monthly pledge. Your contribution funds fellowship awards, mentorship infrastructure, and training resources.">
     <meta property="og:title" content="Support | ConnectEd Research Institute">
-    <meta property="og:description" content="Donate to fund fellowships, mentorship, and research training for emerging scholars.">
+    <meta property="og:description" content="Pledge support for fellowships, mentorship, and research training for emerging scholars.">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="assets/styles.css">
@@ -16,93 +16,240 @@
 
     <div id="site-nav"></div>
 
-    <header class="page-header page-header--image" style="--ph-image: url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&amp;fit=crop&amp;q=80&amp;w=1800');">
-        <span class="eyebrow" data-i18n data-en="Fund the Mission" data-zh-hash="d6bqc0">支持使命</span>
-        <h1 data-i18n data-en="Support students who&rsquo;d otherwise be locked out." data-zh-hash="wngkd1">支持那些本可能被挡在门外的学生。</h1>
-        <p data-i18n data-en="Every fellowship funded is a seat at a table someone wouldn&rsquo;t otherwise have been offered." data-zh-hash="3awwgl">每一笔 fellowship 资助，都是一把原本不会被递过去的椅子。</p>
+    <!-- ============================================================
+         SECTION 1 — Pitch + ledger in one viewport
+         ============================================================ -->
+    <header class="pledge-hero">
+        <div class="pledge-hero__inner">
+            <div class="pledge-hero__meta">
+                <span data-i18n data-en="Support" data-zh-hash="hv001">支持我们</span>
+                <span class="pledge-hero__sep">·</span>
+                <span data-i18n data-en="501(c)(3) nonprofit" data-zh-hash="hv002">501(c)(3) 非营利机构</span>
+            </div>
+
+            <div class="pledge-hero__main">
+                <h1>
+                    <span class="pledge-hero__h1-line" data-i18n data-en="A seat at the table," data-zh-hash="hv003a">一把递过去的椅子，</span>
+                    <span class="pledge-hero__h1-line pledge-hero__h1-line--italic" data-i18n data-en="funded one pledge at a time." data-zh-hash="hv003b">由一次次认捐撑起。</span>
+                </h1>
+                <p class="pledge-hero__lede" data-i18n data-en="Your gift underwrites research fellowships, mentorship, and training for first-generation, international, and underrepresented scholars who would otherwise have no path into a research environment." data-zh-hash="hv004">你的捐赠用于资助第一代大学生、国际学生与代表性不足学者的研究 fellowship、导师指导与科研培训——他们原本没有路径进入科研环境。</p>
+            </div>
+
+            <ol class="pledge-hero__ledger">
+                <li>
+                    <span class="pledge-hero__ledger-amt">$20</span>
+                    <span class="pledge-hero__ledger-cap" data-i18n data-en="One mentor hour" data-zh-hash="hv010">一小时导师指导</span>
+                </li>
+                <li>
+                    <span class="pledge-hero__ledger-amt">$90</span>
+                    <span class="pledge-hero__ledger-cap" data-i18n data-en="One application supported" data-zh-hash="hv011">一份完整申请支持</span>
+                </li>
+                <li>
+                    <span class="pledge-hero__ledger-amt">$200</span>
+                    <span class="pledge-hero__ledger-cap" data-i18n data-en="One workshop seat" data-zh-hash="hv012">一席工作坊</span>
+                </li>
+            </ol>
+
+            <a href="#" class="pledge-hero__cta" data-modal="pledge-modal">
+                <span data-i18n data-en="Pledge now" data-zh-hash="hv020">立即认捐</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
     </header>
 
-    <section id="impact">
-        <div class="container">
-            <div class="support-grid">
+    <!-- ============================================================
+         PLEDGE MODAL — opens from CTA, blurs page behind
+         ============================================================ -->
+    <div id="pledge-modal" class="modal pledge-modal" role="dialog" aria-modal="true" aria-labelledby="pledge-modal-title">
+        <div class="modal-content pledge-modal__content">
+            <button type="button" class="modal-close pledge-modal__close" aria-label="Close">&times;</button>
+            <div class="pledge__inner">
 
-                <div class="support-text">
-                    <div class="section-header">
-                        <span class="section-number" data-i18n data-en="01 &middot; Impact" data-zh-hash="i0g6ro">01 · 影响</span>
-                        <h2 data-i18n data-en="Your support expands access." data-zh-hash="yxblol">你的支持扩展科研可及性。</h2>
-                    </div>
+            <div class="pledge__head">
+                <span class="pledge__eyebrow" data-i18n data-en="Make your pledge" data-zh-hash="pl001">提交认捐</span>
+                <h2 id="pledge-modal-title" data-i18n data-en="Choose a contribution." data-zh-hash="pl002">选择你的支持方式。</h2>
+            </div>
 
-                    <figure class="feature-image" style="aspect-ratio: 4 / 3; margin-bottom: var(--space-lg);">
-                        <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" alt="A scholar at work in a university research setting">
-                    </figure>
+            <form class="pledge__form" id="pledge-form" novalidate
+                  data-stripe-mode="checkout"
+                  data-stripe-currency="usd">
 
-                    <p data-i18n data-en="Your support helps expand access to research mentorship and fellowship funding for emerging scholars committed to educational equity — particularly for students who would otherwise have no path into a research environment." data-zh-hash="9l65vc">你的支持帮助我们为致力于教育公平的成长期学者扩展科研导师资源与 fellowship 资金——尤其是那些原本没有路径进入科研环境的学生。</p>
-
-                    <div class="section-header" style="margin-top: var(--space-2xl);">
-                        <span class="section-number" data-i18n data-en="02 &middot; Allocation" data-zh-hash="dboqi2">02 · 资金去向</span>
-                        <h2 data-i18n data-en="Where your donation goes." data-zh-hash="pmr7of">你的捐赠去了哪里。</h2>
-                    </div>
-                    <ul class="check-list">
-                        <li data-i18n data-en="Research Fellowship awards and scholar support." data-zh-hash="pcgw0r">研究 Fellowship 奖学金与学者支持。</li>
-                        <li data-i18n data-en="Mentorship infrastructure and program coordination." data-zh-hash="llayzr">导师体系与项目统筹。</li>
-                        <li data-i18n data-en="Research training resources and pilot learning initiatives." data-zh-hash="5qjupo">科研培训资源与试点学习项目。</li>
-                    </ul>
+                <!-- Frequency: typographic toggle -->
+                <div class="pledge__freq" role="radiogroup" aria-label="Pledge frequency">
+                    <label class="pledge__freq-opt is-active">
+                        <input type="radio" name="frequency" value="once" checked>
+                        <span data-i18n data-en="Once" data-zh-hash="pl010">单次</span>
+                    </label>
+                    <span class="pledge__freq-sep" aria-hidden="true">/</span>
+                    <label class="pledge__freq-opt">
+                        <input type="radio" name="frequency" value="monthly">
+                        <span data-i18n data-en="Monthly" data-zh-hash="pl011">月度</span>
+                    </label>
                 </div>
 
-                <aside class="donation-portal">
-                    <h3 data-i18n data-en="Secure Donation Portal" data-zh-hash="9nl0lv">安全捐赠入口</h3>
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <input type="hidden" name="_subject" value="New ConnectEd Donation Intent">
-                        <div class="form-group">
-                            <label for="amount" data-i18n data-en="Choose Donation Amount" data-zh-hash="thzzss">选择捐赠金额</label>
-                            <select name="Donation_Amount" id="amount" required>
-                                <option value="" disabled selected data-opt-en="Select an amount">请选择金额</option>
-                                <option value="$25" data-opt-en="$25">$25</option>
-                                <option value="$50" data-opt-en="$50">$50</option>
-                                <option value="$100" data-opt-en="$100">$100</option>
-                                <option value="$250" data-opt-en="$250">$250</option>
-                                <option value="Other" data-opt-en="Other">其他</option>
-                            </select>
-                        </div>
+                <!-- Amount tiles + custom -->
+                <div class="pledge__amounts" role="radiogroup" aria-label="Pledge amount">
+                    <label class="pledge__amt-opt">
+                        <input type="radio" name="amount" value="10">
+                        <span class="pledge__amt-fig">$10</span>
+                    </label>
+                    <label class="pledge__amt-opt">
+                        <input type="radio" name="amount" value="20">
+                        <span class="pledge__amt-fig">$20</span>
+                    </label>
+                    <label class="pledge__amt-opt">
+                        <input type="radio" name="amount" value="45">
+                        <span class="pledge__amt-fig">$45</span>
+                    </label>
+                    <label class="pledge__amt-opt is-active">
+                        <input type="radio" name="amount" value="90" checked>
+                        <span class="pledge__amt-fig">$90</span>
+                    </label>
+                    <label class="pledge__amt-opt">
+                        <input type="radio" name="amount" value="130">
+                        <span class="pledge__amt-fig">$130</span>
+                    </label>
+                    <label class="pledge__amt-opt">
+                        <input type="radio" name="amount" value="200">
+                        <span class="pledge__amt-fig">$200</span>
+                    </label>
+                    <label class="pledge__amt-opt pledge__amt-opt--custom">
+                        <input type="radio" name="amount" value="custom">
+                        <span class="pledge__amt-fig">$ <input
+                            type="number"
+                            name="custom_amount"
+                            id="custom_amount"
+                            min="1" step="1"
+                            inputmode="numeric"
+                            placeholder="自定义金额"
+                            data-ph-en="Custom amount"
+                            aria-label="Custom amount"></span>
+                    </label>
+                </div>
 
-                        <div class="form-group" id="other-amount-div" style="display:none;">
-                            <label for="other_val" data-i18n data-en="Enter Custom Amount ($)" data-zh-hash="n4af9b">输入自定义金额（美元）</label>
-                            <input type="number" name="Custom_Amount" id="other_val" placeholder="例如：500" data-ph-en="e.g., 500">
-                        </div>
+                <!-- Submit -->
+                <button type="submit" class="pledge__submit">
+                    <span class="pledge__submit-label" data-i18n data-en="Continue to secure checkout" data-zh-hash="pl040">前往安全支付</span>
+                    <span class="pledge__submit-arrow" aria-hidden="true">→</span>
+                </button>
 
-                        <label class="monthly-checkbox">
-                            <input type="checkbox" name="Monthly_Donation" value="Yes"> <span data-i18n data-en="Make this a monthly donation" data-zh-hash="377b12">设为月度捐赠</span>
-                        </label>
+                <p class="pledge__submit-note">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <span data-i18n data-en="Tax-deductible. Processed by Stripe. Cancel anytime." data-zh-hash="pl041">可抵税 · 由 Stripe 处理 · 可随时取消</span>
+                </p>
 
-                        <button type="submit" class="btn-submit btn-gold" data-i18n data-en="Complete Donation" data-zh-hash="byj7kk">完成捐赠</button>
-                    </form>
-                    <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.85;" data-i18n data-en="Note: submitting this form notifies our team. Secure card processing will be connected soon." data-zh-hash="wwj27m">说明：提交本表单会通知我们的团队。安全的银行卡处理将尽快接入。</p>
-                </aside>
+                <div class="pledge__status" id="pledge-status" role="status" aria-live="polite"></div>
+            </form>
 
             </div>
         </div>
-    </section>
+    </div>
 
     <div id="site-footer"></div>
 
     <script src="assets/lang.js"></script>
     <script src="assets/components.js"></script>
+
     <script>
-        // Reveal custom amount field when "Other" is selected
-        document.addEventListener('DOMContentLoaded', () => {
-            const amount = document.getElementById('amount');
-            const otherDiv = document.getElementById('other-amount-div');
-            const otherInput = document.getElementById('other_val');
-            amount.addEventListener('change', () => {
-                if (amount.value === 'Other') {
-                    otherDiv.style.display = 'block';
-                    otherInput.setAttribute('required', 'required');
-                } else {
-                    otherDiv.style.display = 'none';
-                    otherInput.removeAttribute('required');
-                }
+    /* ============================================================
+       PLEDGE FORM — Stripe Checkout integration point
+       ------------------------------------------------------------
+       When ready: deploy a server endpoint that accepts
+         { amount(cents), frequency, dedication }
+       and returns { url } from stripe.checkout.sessions.create().
+       Then set window.STRIPE_CHECKOUT_ENDPOINT below.
+       ============================================================ */
+    window.STRIPE_CHECKOUT_ENDPOINT = ''; // e.g. '/api/create-checkout-session'
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('pledge-form');
+        if (!form) return;
+
+        const status   = document.getElementById('pledge-status');
+        const customIn = document.getElementById('custom_amount');
+
+        const freqOpts = form.querySelectorAll('.pledge__freq-opt');
+        freqOpts.forEach(opt => {
+            opt.addEventListener('click', () => {
+                freqOpts.forEach(o => o.classList.remove('is-active'));
+                opt.classList.add('is-active');
             });
         });
+
+        const amtOpts = form.querySelectorAll('.pledge__amt-opt');
+        const setActiveAmount = (target) => {
+            amtOpts.forEach(o => o.classList.remove('is-active'));
+            target.classList.add('is-active');
+        };
+        amtOpts.forEach(opt => {
+            const radio = opt.querySelector('input[type="radio"]');
+            opt.addEventListener('click', (e) => {
+                if (e.target === customIn) return;
+                radio.checked = true;
+                setActiveAmount(opt);
+                if (radio.value !== 'custom') customIn.value = '';
+            });
+        });
+        customIn.addEventListener('focus', () => {
+            const customOpt = customIn.closest('.pledge__amt-opt');
+            customOpt.querySelector('input[type="radio"]').checked = true;
+            setActiveAmount(customOpt);
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            status.textContent = '';
+            status.classList.remove('is-error');
+
+            const data = new FormData(form);
+            let amount = data.get('amount');
+            if (amount === 'custom') amount = (data.get('custom_amount') || '').trim();
+            const numeric = Number(amount);
+
+            if (!numeric || numeric < 1) {
+                status.textContent = (document.documentElement.lang === 'en')
+                    ? 'Please enter a valid pledge amount.'
+                    : '请填写有效的认捐金额。';
+                status.classList.add('is-error');
+                return;
+            }
+
+            const payload = {
+                amount: Math.round(numeric * 100),
+                frequency: data.get('frequency')
+            };
+            const endpoint = window.STRIPE_CHECKOUT_ENDPOINT;
+
+            if (!endpoint) {
+                status.textContent = (document.documentElement.lang === 'en')
+                    ? `Pledge prepared: $${numeric} (${payload.frequency}). Stripe checkout will open here once connected.`
+                    : `已准备认捐：$${numeric}（${payload.frequency === 'monthly' ? '月度' : '单次'}）。Stripe 接入后将开启安全支付。`;
+                return;
+            }
+
+            try {
+                const btn = form.querySelector('.pledge__submit');
+                btn.disabled = true;
+                btn.classList.add('is-loading');
+                const res = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) throw new Error('checkout_failed');
+                const { url } = await res.json();
+                window.location.href = url;
+            } catch (err) {
+                status.textContent = (document.documentElement.lang === 'en')
+                    ? 'Something went wrong starting checkout. Please try again or email give@connected-research.org.'
+                    : '启动支付时出现问题，请稍后重试，或来信 give@connected-research.org。';
+                status.classList.add('is-error');
+                const btn = form.querySelector('.pledge__submit');
+                btn.disabled = false;
+                btn.classList.remove('is-loading');
+            }
+        });
+    });
     </script>
 </body>
 </html>

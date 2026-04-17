@@ -2363,3 +2363,502 @@ nav, footer { position: relative; z-index: 2; }
     .hero::before { animation: none; }
     .hero-scroll::after { animation: none; }
 }
+
+/* ============================================================
+   SUPPORT PAGE — compact pitch + red donate (scoped)
+   Section 1 (paper): pitch + ledger fits one viewport.
+   Section 2 (red):   donate form fits one viewport.
+   Section 3:         other ways below the fold.
+   Stripe-ready form (see support.html script for endpoint hook).
+   ============================================================ */
+
+/* Local tokens for the editorial red palette.
+   Tinted toward warm earth red — closer to Penguin Classics / Faber
+   than to error-state crimson. Paired with brand gold and cream. */
+body[data-page="support"] {
+    --pledge-red:        oklch(46% 0.165 28);
+    --pledge-red-deep:   oklch(36% 0.155 28);
+    --pledge-red-edge:   oklch(58% 0.16 28);
+    --pledge-cream:      oklch(96% 0.018 75);
+    background: var(--paper);
+}
+
+/* ---- SECTION 1 · Hero (one viewport) ----------------------- */
+.pledge-hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding: clamp(40px, 6vw, 72px) var(--edge-x) clamp(40px, 6vw, 64px);
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+}
+
+.pledge-hero__inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    gap: clamp(20px, 3vw, 36px);
+}
+
+.pledge-hero__meta {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--hairline);
+}
+
+.pledge-hero__sep { opacity: 0.5; }
+
+.pledge-hero__main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+}
+
+.pledge-hero__main h1 {
+    font-size: clamp(2.2rem, 1.2rem + 4.2vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+    text-wrap: balance;
+}
+
+.pledge-hero__h1-line { display: block; }
+
+.pledge-hero__h1-line--italic {
+    font-style: italic;
+    color: var(--lpi-blue);
+    padding-left: clamp(12px, 3vw, 48px);
+}
+
+.pledge-hero__lede {
+    font-size: var(--step-0);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 42ch;
+}
+
+/* Inline ledger row */
+.pledge-hero__ledger {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--lpi-navy);
+    border-bottom: 1px solid var(--hairline);
+}
+
+.pledge-hero__ledger li {
+    padding: clamp(14px, 2vw, 22px) clamp(12px, 2vw, 24px);
+    display: flex;
+    align-items: baseline;
+    gap: clamp(10px, 1.5vw, 18px);
+    border-right: 1px solid var(--hairline);
+}
+
+.pledge-hero__ledger li:last-child { border-right: none; }
+
+.pledge-hero__ledger-amt {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 1rem + 1.6vw, 2.4rem);
+    letter-spacing: -0.02em;
+    color: var(--lpi-navy);
+    line-height: 1;
+    font-feature-settings: "lnum";
+    flex-shrink: 0;
+}
+
+.pledge-hero__ledger-cap {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.3;
+}
+
+/* CTA */
+.pledge-hero__cta {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: clamp(14px, 1.6vw, 18px) clamp(24px, 3vw, 36px);
+    background: var(--pledge-red);
+    color: var(--pledge-cream);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    transition: background var(--dur-fast) var(--ease-out-quart),
+                gap var(--dur-fast) var(--ease-out-quart),
+                transform var(--dur-fast) var(--ease-out-quart);
+}
+
+.pledge-hero__cta:hover {
+    background: var(--pledge-red-deep);
+    gap: calc(var(--space-md) + 6px);
+    transform: translateY(-1px);
+}
+
+.pledge-hero__cta i {
+    font-size: 0.85em;
+    color: var(--lpi-gold);
+}
+
+/* ---- Pledge modal (red panel popping over blurred page) ---- */
+
+/* Stronger backdrop blur for the pledge modal specifically */
+.pledge-modal {
+    background: color-mix(in oklab, var(--ink) 45%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Override .modal-content to be the cream editorial panel */
+.pledge-modal__content {
+    background: var(--pledge-cream);
+    color: var(--pledge-red-deep);
+    border-top: none;
+    border-radius: 16px;
+    max-width: 460px;
+    width: calc(100% - 32px);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: clamp(28px, 3.4vw, 40px) clamp(22px, 3vw, 36px);
+    text-align: left;
+    position: relative;
+    font-family: var(--font-sans);
+}
+
+/* Inner hairline plate (the editorial flourish) */
+.pledge-modal__content::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid color-mix(in oklab, var(--pledge-red) 18%, transparent);
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Close button — red ink on cream */
+.pledge-modal__close {
+    color: color-mix(in oklab, var(--pledge-red) 55%, transparent);
+    top: 12px;
+    right: 14px;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+.pledge-modal__close:hover {
+    color: var(--pledge-red-deep);
+    transform: rotate(90deg);
+}
+
+.pledge__inner {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.pledge__head {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.pledge__eyebrow {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pledge-red);
+    margin-bottom: var(--space-sm);
+    padding-bottom: 4px;
+    border-bottom: 1px solid color-mix(in oklab, var(--pledge-red) 45%, transparent);
+}
+
+.pledge__head h2 {
+    font-family: var(--font-sans);
+    color: var(--pledge-red-deep);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin: 0;
+    text-wrap: balance;
+}
+
+.pledge__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* Frequency typographic toggle */
+.pledge__freq {
+    display: inline-flex;
+    align-self: center;
+    align-items: baseline;
+    gap: var(--space-sm);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.pledge__freq-opt {
+    cursor: pointer;
+    color: color-mix(in oklab, var(--pledge-red-deep) 40%, transparent);
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid transparent;
+    transition: color var(--dur-fast) var(--ease-out-quart),
+                border-color var(--dur-fast) var(--ease-out-quart);
+}
+
+.pledge__freq-opt input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pledge__freq-opt.is-active {
+    color: var(--pledge-red-deep);
+    border-bottom-color: var(--pledge-red);
+}
+
+.pledge__freq-sep {
+    color: color-mix(in oklab, var(--pledge-red-deep) 30%, transparent);
+}
+
+/* Amount tiles — 3 cols × 2 rows of presets, custom spans the last row */
+.pledge__amounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+
+.pledge__amt-opt {
+    position: relative;
+    padding: 10px 8px;
+    text-align: center;
+    cursor: pointer;
+    background: transparent;
+    color: var(--pledge-red-deep);
+    border: 1px solid color-mix(in oklab, var(--pledge-red) 22%, transparent);
+    border-radius: 8px;
+    transition: background var(--dur-fast) var(--ease-out-quart),
+                color var(--dur-fast) var(--ease-out-quart),
+                border-color var(--dur-fast) var(--ease-out-quart);
+}
+
+.pledge__amt-opt--custom {
+    grid-column: 1 / -1;
+}
+
+.pledge__amt-opt input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pledge__amt-opt:hover {
+    border-color: var(--pledge-red);
+}
+
+.pledge__amt-opt.is-active {
+    background: var(--pledge-red);
+    color: var(--pledge-cream);
+    border-color: var(--pledge-red);
+}
+
+.pledge__amt-fig {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 3px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: inherit;
+    transition: color var(--dur-fast) var(--ease-out-quart);
+    font-feature-settings: "lnum", "tnum";
+}
+
+.pledge__amt-opt--custom .pledge__amt-fig {
+    width: 100%;
+}
+
+.pledge__amt-opt--custom input[type="number"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid color-mix(in oklab, var(--pledge-red) 30%, transparent);
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    width: 100%;
+    min-width: 0;
+    padding: 0 0 2px;
+    -moz-appearance: textfield;
+}
+
+.pledge__amt-opt--custom input[type="number"]::placeholder {
+    color: color-mix(in oklab, var(--pledge-red-deep) 40%, transparent);
+    font-style: italic;
+}
+
+.pledge__amt-opt--custom.is-active input[type="number"]::placeholder {
+    color: color-mix(in oklab, var(--pledge-cream) 65%, transparent);
+}
+
+.pledge__amt-opt--custom input[type="number"]::-webkit-outer-spin-button,
+.pledge__amt-opt--custom input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.pledge__amt-opt--custom input[type="number"]:focus {
+    outline: none;
+    border-bottom-color: var(--pledge-red);
+}
+
+.pledge__amt-opt--custom.is-active input[type="number"] {
+    border-bottom-color: color-mix(in oklab, var(--pledge-cream) 60%, transparent);
+}
+
+.pledge__amt-opt--custom.is-active input[type="number"]:focus {
+    border-bottom-color: var(--pledge-cream);
+}
+
+/* Submit */
+.pledge__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    width: 100%;
+    padding: 12px 18px;
+    background: var(--lpi-gold);
+    color: var(--pledge-red-deep);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    transition: background var(--dur-fast) var(--ease-out-quart),
+                transform var(--dur-fast) var(--ease-out-quart),
+                opacity var(--dur-fast) var(--ease-out-quart);
+}
+
+.pledge__submit:hover {
+    background: color-mix(in oklab, var(--lpi-gold) 80%, var(--pledge-red-deep));
+    transform: translateY(-1px);
+}
+
+.pledge__submit:active { transform: translateY(0); }
+
+.pledge__submit.is-loading,
+.pledge__submit:disabled {
+    opacity: 0.6;
+    cursor: progress;
+    transform: none;
+}
+
+.pledge__submit-arrow {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1.15em;
+    transition: transform var(--dur-fast) var(--ease-out-quart);
+}
+
+.pledge__submit:hover .pledge__submit-arrow { transform: translateX(3px); }
+
+.pledge__submit-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    font-size: 0.74rem;
+    font-family: var(--font-sans);
+    color: color-mix(in oklab, var(--pledge-red-deep) 60%, transparent);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pledge__submit-note i {
+    font-size: 0.78em;
+    color: var(--pledge-red);
+}
+
+.pledge__status {
+    min-height: 1.2em;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--pledge-red-deep);
+    font-family: var(--font-sans);
+    text-align: center;
+    margin: 0;
+}
+
+.pledge__status.is-error {
+    color: var(--pledge-red);
+    font-style: normal;
+}
+
+/* Focus rings on red surface */
+body[data-page="support"] .pledge-modal__content :focus-visible {
+    outline-color: var(--lpi-gold);
+}
+
+/* ---- Responsive ------------------------------------------- */
+@media (max-width: 880px) {
+    .pledge-hero {
+        min-height: 0;
+        padding-top: clamp(56px, 9vw, 80px);
+    }
+    .pledge-hero__main {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    .pledge-hero__h1-line--italic { padding-left: 0; }
+    .pledge-hero__ledger {
+        grid-template-columns: 1fr;
+    }
+    .pledge-hero__ledger li {
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
+    }
+    .pledge-hero__ledger li:last-child { border-bottom: none; }
+
+    .pledge-modal__content {
+        padding: clamp(32px, 5vw, 48px) clamp(20px, 4vw, 36px);
+    }
+}
+
+@media (max-width: 480px) {
+    .pledge-modal__content::before {
+        top: 10px; left: 10px; right: 10px; bottom: 10px;
+    }
+    .pledge__amounts {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
