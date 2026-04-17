@@ -44,6 +44,7 @@
                 <aside class="sidebar-callout">
                     <h4>Our Impact Area</h4>
                     <p>Empowering the next generation of scholars through evidence-based mentorship and deep institutional integration &mdash; not shortcuts.</p>
+                    <img src="https://images.unsplash.com/photo-1658235081483-8f06aa0882cf?auto=format&fit=crop&q=80&w=800" alt="Research environment" style="display:block; width:100%; margin-top:var(--space-lg); position:relative; z-index:1;">
                 </aside>
             </div>
         </div>
@@ -55,14 +56,28 @@
                 <span class="section-number">02 &middot; What We Do</span>
                 <h2>What We Do</h2>
             </div>
-            <p style="font-size: var(--step-1); color: var(--ink-soft); max-width: 64ch; margin-bottom: var(--space-lg);">We design and administer research and mentorship programs that:</p>
-            <ul class="check-list">
-                <li>expand access to faculty-led research environments</li>
-                <li>support structured, mentored academic experiences</li>
-                <li>strengthen research skills and scholarly preparation</li>
-                <li>build connections between students, researchers, and institutions</li>
-                <li>provide financial support that makes participation possible for fellows from all backgrounds</li>
-            </ul>
+            <div class="do-cards">
+            <div class="do-card" style="background-image:url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&q=80&w=800')">
+                <span class="do-card__num">01</span>
+                <p class="do-card__text">Expand access to faculty-led research environments</p>
+            </div>
+            <div class="do-card" style="background-image:url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=800')">
+                <span class="do-card__num">02</span>
+                <p class="do-card__text">Support structured, mentored academic experiences</p>
+            </div>
+            <div class="do-card" style="background-image:url('https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80&w=800')">
+                <span class="do-card__num">03</span>
+                <p class="do-card__text">Strengthen research skills and scholarly preparation</p>
+            </div>
+            <div class="do-card" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800')">
+                <span class="do-card__num">04</span>
+                <p class="do-card__text">Build connections between students, researchers, and institutions</p>
+            </div>
+            <div class="do-card" style="background-image:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=800')">
+                <span class="do-card__num">05</span>
+                <p class="do-card__text">Provide financial support that makes participation possible for all fellows</p>
+            </div>
+            </div>
         </div>
     </section>
 
@@ -136,13 +151,29 @@
                 <span class="section-number">06 &middot; Approach</span>
                 <h2>Institutional Approach</h2>
             </div>
-            <p style="font-size: var(--step-1); color: var(--ink-soft); max-width: 64ch; margin-bottom: var(--space-lg);">Programs administered by ConnectEd are:</p>
-            <ul class="check-list">
-                <li>application-based and selection-driven</li>
-                <li>structured with defined expectations and oversight</li>
-                <li>aligned with institutional research practices</li>
-                <li>designed to support responsible and ethical academic engagement</li>
-            </ul>
+            <div class="approach-layout">
+                <div class="approach-timeline">
+                    <div class="approach-item" data-timeline-item>
+                        <span class="approach-item__label">Application-Based</span>
+                        <p class="approach-item__desc">Programs are open to motivated applicants and filled through a competitive review process designed to identify genuine fit between students and research environments.</p>
+                    </div>
+                    <div class="approach-item" data-timeline-item>
+                        <span class="approach-item__label">Structured Oversight</span>
+                        <p class="approach-item__desc">Each engagement includes explicit responsibilities, regular communication expectations, and program-level oversight to ensure both accountability and quality.</p>
+                    </div>
+                    <div class="approach-item" data-timeline-item>
+                        <span class="approach-item__label">Institutionally Aligned</span>
+                        <p class="approach-item__desc">Program design respects faculty autonomy and institutional norms, with fellows integrated into real research groups rather than parallel or simulated structures.</p>
+                    </div>
+                    <div class="approach-item" data-timeline-item>
+                        <span class="approach-item__label">Ethics-First</span>
+                        <p class="approach-item__desc">Academic integrity, research ethics, and professional conduct are foundational — not aspirational — elements of every program ConnectEd administers.</p>
+                    </div>
+                </div>
+                <div class="approach-visual">
+                    <img src="https://images.unsplash.com/photo-1631651693480-97f1132e333d?auto=format&fit=crop&crop=center&q=85&w=700&h=1050" alt="Papers and pen on a wooden table">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -181,5 +212,17 @@
     <div id="site-footer"></div>
 
     <script src="assets/components.js"></script>
+    <script>
+        // Scroll-activate timeline items
+        const timelineItems = document.querySelectorAll('[data-timeline-item]');
+        if (timelineItems.length && 'IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-active'); });
+            }, { threshold: 0.35 });
+            timelineItems.forEach(el => io.observe(el));
+        } else {
+            timelineItems.forEach(el => el.classList.add('is-active'));
+        }
+    </script>
 </body>
 </html>
