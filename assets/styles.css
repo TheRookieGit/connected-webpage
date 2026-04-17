@@ -551,6 +551,20 @@ nav.is-scrolled {
     font-weight: 300;
 }
 
+/* Page-header entry animations — mirrors heroRise stagger */
+.page-header .eyebrow {
+    animation: heroRise 900ms var(--ease-out-expo) both;
+    animation-delay: 80ms;
+}
+.page-header h1 {
+    animation: heroRise 1100ms var(--ease-out-expo) both;
+    animation-delay: 160ms;
+}
+.page-header p {
+    animation: heroRise 1100ms var(--ease-out-expo) both;
+    animation-delay: 280ms;
+}
+
 @keyframes phDrift {
     from { transform: scale(1.02) translateX(0); }
     to   { transform: scale(1.08) translateX(-1.5%); }
