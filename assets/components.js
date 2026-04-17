@@ -7,8 +7,8 @@
         { href: 'about.html',        label: 'About',                   key: 'about' },
         { href: 'fellowships.html',  label: 'Fellowship',              key: 'fellowship' },
         { href: 'faculty.html',      label: 'For Faculty',             key: 'faculty' },
-        { href: 'programs.html',     label: 'Programs & Initiatives',  key: 'programs' },
-        { href: 'get-involved.html', label: 'Collaborate & Volunteer', key: 'get-involved' },
+        { href: 'programs.html',     label: 'Programs',    key: 'programs' },
+        { href: 'get-involved.html', label: 'Get Involved', key: 'get-involved' },
         { href: 'support.html',      label: 'Support',                 key: 'support' },
         { href: 'contact.html',      label: 'Contact',                 key: 'contact' }
     ];
