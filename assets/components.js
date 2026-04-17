@@ -19,7 +19,7 @@
                 { href: 'networks.html',          zh: '学术交流与网络',   en: 'Scholarly Exchange & Networks' }
             ]
         },
-        { href: 'get-involved.html', zh: '参与我们', en: 'Get Involved', key: 'get-involved' },
+        { href: 'get-involved.html', zh: '加入我们', en: 'Get Involved', key: 'get-involved' },
         { href: 'support.html',      zh: '支持我们', en: 'Support',      key: 'support' },
         { href: 'contact.html',      zh: '联系我们', en: 'Contact',      key: 'contact' }
     ];

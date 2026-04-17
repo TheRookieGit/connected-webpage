@@ -1,0 +1,1748 @@
+{
+  "__instructions__": [
+    "只编辑每条记录的 \"zh\" 字段；不要改 \"id\" 或 \"en\"。",
+    "如果某条没有 \"en\"（如 title/placeholder/option/footer），也请保留其结构。",
+    "编辑完后运行：node apply-zh.js",
+    "回写时会精确匹配 id，不会破坏 HTML/JS 格式。"
+  ],
+  "assets/components.js": {
+    "nav": [
+      {
+        "id": "nav.home",
+        "en": "Home",
+        "zh": "首页"
+      },
+      {
+        "id": "nav.about",
+        "en": "About",
+        "zh": "关于"
+      },
+      {
+        "id": "nav.get-involved",
+        "en": "Get Involved",
+        "zh": "加入我们"
+      },
+      {
+        "id": "nav.support",
+        "en": "Support",
+        "zh": "支持我们"
+      },
+      {
+        "id": "nav.contact",
+        "en": "Contact",
+        "zh": "联系我们"
+      },
+      {
+        "id": "nav.programs",
+        "en": "Programs",
+        "zh": "项目"
+      },
+      {
+        "id": "nav.programs.fellowships",
+        "en": "Research Fellowships",
+        "zh": "研究 Fellowship"
+      },
+      {
+        "id": "nav.programs.fellowship-tracks",
+        "en": "Fellowship Tracks",
+        "zh": "Fellowship 方向"
+      },
+      {
+        "id": "nav.programs.mentorship",
+        "en": "Mentorship Programs",
+        "zh": "导师指导项目"
+      },
+      {
+        "id": "nav.programs.training",
+        "en": "Research Training & Courses",
+        "zh": "研究培训与课程"
+      },
+      {
+        "id": "nav.programs.networks",
+        "en": "Scholarly Exchange & Networks",
+        "zh": "学术交流与网络"
+      }
+    ],
+    "footer": [
+      {
+        "id": "footer.privacy",
+        "en": "Privacy Policy",
+        "zh": "隐私政策"
+      },
+      {
+        "id": "footer.terms",
+        "en": "Terms of Use",
+        "zh": "使用条款"
+      },
+      {
+        "id": "footer.rights",
+        "en": "All rights reserved.",
+        "zh": "保留所有权利。"
+      }
+    ]
+  },
+  "about.html": {
+    "title": "关于我们 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "qcja1x",
+        "en": "About the Institute",
+        "zh": "关于本机构"
+      },
+      {
+        "id": "ssxf8g",
+        "en": "Expanding access to research &mdash; institutionally, intentionally, and with care.",
+        "zh": "以机构化、有意识且审慎的方式，扩展科研的可及性。"
+      },
+      {
+        "id": "koj1hc",
+        "en": "Our work sits between capable students and the academic environments they deserve access to &mdash; building structured, credible pathways into real research.",
+        "zh": "我们的工作位于有潜力的学生与他们本应拥有的学术环境之间——搭建通往真实科研的结构化、可信路径。"
+      },
+      {
+        "id": "l7sguj",
+        "en": "01 &middot; Who We Are",
+        "zh": "01 · 我们是谁"
+      },
+      {
+        "id": "trz664",
+        "en": "A nonprofit built around one unfinished problem.",
+        "zh": "围绕一个尚未解决的问题成立的非营利机构。"
+      },
+      {
+        "id": "1wvw97",
+        "en": "ConnectEd Research Institute is a nonprofit focused on expanding access to research mentorship and academic opportunity for talented, dedicated students who have been left on the outside of existing academic networks.",
+        "zh": "ConnectEd Research Institute 是一家非营利机构，致力于帮助那些被挡在现有学术网络之外、却富有才华与专注力的学生，打通接触科研导师资源与学术机会的渠道。"
+      },
+      {
+        "id": "gmt8og",
+        "en": "The Institute develops programs that let students engage with real research environments, build academic skills, and connect with faculty and research communities — the kind of connections that shape a career long after a single fellowship ends.",
+        "zh": "机构开发的项目让学生深入真实的科研环境、构建学术能力，并与教师及研究社群建立联系——这些联系的价值远远超过任何一次 fellowship 本身。"
+      },
+      {
+        "id": "waqn9j",
+        "en": "Our Vision",
+        "zh": "我们的愿景"
+      },
+      {
+        "id": "6ngai0",
+        "en": "Empowering emerging scholars by lowering institutional barriers and fostering deep, sustained academic connections.",
+        "zh": "通过降低机构性门槛、培育深入而持久的学术联系，为正在成长中的学者赋能。"
+      },
+      {
+        "id": "8aaalu",
+        "en": "Inside the library &middot; shared study spaces",
+        "zh": "图书馆内部 · 共享自习空间"
+      },
+      {
+        "id": "ho4kzd",
+        "en": "Mentored sessions &middot; faculty advisors",
+        "zh": "导师会面 · 教师指导"
+      },
+      {
+        "id": "gc6o2r",
+        "en": "Academic archives &middot; long-form research",
+        "zh": "学术档案 · 长周期研究"
+      },
+      {
+        "id": "ihldee",
+        "en": "02 &middot; Beliefs",
+        "zh": "02 · 理念"
+      },
+      {
+        "id": "6qn39y",
+        "en": "What we believe.",
+        "zh": "我们的理念。"
+      },
+      {
+        "id": "lmw1l6",
+        "en": "Early access to research experiences can shape an academic trajectory for a decade.",
+        "zh": "早期接触科研的经历，可以塑造一个人长达十年的学术轨迹。"
+      },
+      {
+        "id": "dx5m0n",
+        "en": "Mentorship plays a critical role — far more than a line on a CV.",
+        "zh": "导师指导发挥着关键作用——远远不只是简历上的一行字。"
+      },
+      {
+        "id": "evenij",
+        "en": "Exposure to real research environments builds confidence and capability.",
+        "zh": "接触真实的科研环境能同时建立信心与能力。"
+      },
+      {
+        "id": "mao1m3",
+        "en": "Institutions and faculty can and should play an active role in supporting emerging scholars.",
+        "zh": "机构与教师不仅可以，更应当在支持成长中的学者方面主动担当。"
+      },
+      {
+        "id": "zc7izu",
+        "en": "03 &middot; Integrity",
+        "zh": "03 · 学术诚信"
+      },
+      {
+        "id": "u4ce44",
+        "en": "Commitment to academic integrity.",
+        "zh": "对学术诚信的承诺。"
+      },
+      {
+        "id": "tw57ao",
+        "en": "ConnectEd maintains internal policies to support professional standards and ethical academic engagement:",
+        "zh": "ConnectEd 制定了一套内部政策，用以支持专业标准与合乎伦理的学术参与："
+      },
+      {
+        "id": "irndj9",
+        "en": "Responsible program administration.",
+        "zh": "负责任的项目管理。"
+      },
+      {
+        "id": "7vgxhr",
+        "en": "Appropriate use of research support.",
+        "zh": "对科研支持资源的合理使用。"
+      },
+      {
+        "id": "xr5wbw",
+        "en": "Alignment with institutional policies and expectations.",
+        "zh": "与合作机构政策与期望的一致性。"
+      }
+    ]
+  },
+  "contact.html": {
+    "title": "联系我们 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "mihz",
+        "en": "Reach Out",
+        "zh": "联系"
+      },
+      {
+        "id": "kpt140",
+        "en": "Contact us.",
+        "zh": "联系我们。"
+      },
+      {
+        "id": "z91ary",
+        "en": "Fellowship questions, institutional partnerships, volunteering interest &mdash; we read everything that comes through.",
+        "zh": "Fellowship 咨询、机构合作、志愿者意向——我们会阅读每一条收到的消息。"
+      },
+      {
+        "id": "l6r6ww",
+        "en": "01 &middot; Say Hello",
+        "zh": "01 · 打个招呼"
+      },
+      {
+        "id": "kpt140",
+        "en": "Get in touch.",
+        "zh": "联系我们。"
+      },
+      {
+        "id": "iw8mwx",
+        "en": "Have questions about our fellowships, collaborations, or volunteer opportunities? Please reach out through our contact form, and a member of our team will get back to you shortly.",
+        "zh": "对 fellowship、合作或志愿者机会有疑问？请通过联系表单留言，我们的团队成员会尽快回复。"
+      },
+      {
+        "id": "tp5ycm",
+        "en": "For specific inquiries, you can also email us directly at <br><strong>admin@connect-edu.org</strong>.",
+        "zh": "如需具体咨询，也可以直接邮件联系 <br><strong>admin@connect-edu.org</strong>。"
+      },
+      {
+        "id": "b629ku",
+        "en": "Send a Message",
+        "zh": "发送信息"
+      },
+      {
+        "id": "fqmy",
+        "en": "Name",
+        "zh": "姓名"
+      },
+      {
+        "id": "padf",
+        "en": "Email",
+        "zh": "邮箱"
+      },
+      {
+        "id": "e56l",
+        "en": "Topic",
+        "zh": "主题"
+      },
+      {
+        "id": "2wqz02",
+        "en": "Specify Topic",
+        "zh": "请说明主题"
+      },
+      {
+        "id": "kptz",
+        "en": "Message",
+        "zh": "留言"
+      },
+      {
+        "id": "f1ow",
+        "en": "Send Message",
+        "zh": "发送"
+      }
+    ],
+    "placeholders": [
+      {
+        "id": "First and Last Name",
+        "zh": "姓与名"
+      },
+      {
+        "id": "Specify here",
+        "zh": "在此说明"
+      },
+      {
+        "id": "How can we help you?",
+        "zh": "我们可以如何帮助你？"
+      }
+    ],
+    "options": [
+      {
+        "id": "Select a topic",
+        "zh": "请选择主题"
+      },
+      {
+        "id": "Collaboration",
+        "zh": "合作"
+      },
+      {
+        "id": "Volunteer",
+        "zh": "志愿者"
+      },
+      {
+        "id": "Donate",
+        "zh": "捐赠"
+      },
+      {
+        "id": "Other",
+        "zh": "其他"
+      }
+    ]
+  },
+  "fellowship-application.html": {
+    "title": "Fellowship 申请 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "kpb8",
+        "en": "Apply",
+        "zh": "申请"
+      },
+      {
+        "id": "ow46nz",
+        "en": "Fellowship application.",
+        "zh": "Fellowship 申请。"
+      },
+      {
+        "id": "3xo9pg",
+        "en": "Rolling review. Please have your academic transcripts and personal statement ready before beginning.",
+        "zh": "滚动审核。开始前请备好学业成绩单与个人陈述。"
+      },
+      {
+        "id": "98hvzb",
+        "en": "Back to Fellowship",
+        "zh": "返回 Fellowship"
+      },
+      {
+        "id": "kzgzi4",
+        "en": "Applicant Profile",
+        "zh": "申请人信息"
+      },
+      {
+        "id": "fqmy",
+        "en": "Full Name",
+        "zh": "姓名"
+      },
+      {
+        "id": "atvjsv",
+        "en": "Date of Birth",
+        "zh": "出生日期"
+      },
+      {
+        "id": "fh80",
+        "en": "Nationality",
+        "zh": "国籍"
+      },
+      {
+        "id": "buwxl0",
+        "en": "Academic Record",
+        "zh": "学业情况"
+      },
+      {
+        "id": "p1eqnh",
+        "en": "Current Institution",
+        "zh": "目前就读机构"
+      },
+      {
+        "id": "yvrdg8",
+        "en": "GPA Scale",
+        "zh": "GPA 制度"
+      },
+      {
+        "id": "cy4zb1",
+        "en": "Fellowship Choice",
+        "zh": "Fellowship 选择"
+      },
+      {
+        "id": "jqfolx",
+        "en": "Program Selection",
+        "zh": "项目选择"
+      },
+      {
+        "id": "ez8dii",
+        "en": "Confirm accuracy of information",
+        "zh": "确认所填信息真实准确"
+      },
+      {
+        "id": "sxlkm2",
+        "en": "Understand placement is not guaranteed",
+        "zh": "理解岗位匹配不作保证"
+      },
+      {
+        "id": "vo4w5g",
+        "en": "Agree to be contacted",
+        "zh": "同意接受我们的联络"
+      },
+      {
+        "id": "nyxy4c",
+        "en": "Submit Formal Application",
+        "zh": "正式提交申请"
+      }
+    ],
+    "options": [
+      {
+        "id": "ConnectEd Young Scholars Fellowship",
+        "zh": "ConnectEd 青年学者 Fellowship"
+      },
+      {
+        "id": "ConnectEd STEM Research Fellowship",
+        "zh": "ConnectEd STEM 研究 Fellowship"
+      }
+    ]
+  },
+  "fellowship-tracks.html": {
+    "title": "Fellowship 方向 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "cxyn2b",
+        "en": "Fellowship Overview",
+        "zh": "Fellowship 概览"
+      },
+      {
+        "id": "unzadj",
+        "en": "Two fellowship tracks.",
+        "zh": "两个 Fellowship 方向。"
+      },
+      {
+        "id": "1nm35g",
+        "en": "Application-based programs matching advanced high school and undergraduate students with research groups for meaningful academic exposure.",
+        "zh": "通过申请制项目，将资深高中生及本科生与科研团队匹配，提供具有实质意义的学术接触。"
+      },
+      {
+        "id": "i0h934",
+        "en": "01 &middot; Tracks",
+        "zh": "01 · 方向"
+      },
+      {
+        "id": "r3cef1",
+        "en": "Choose the track that matches your stage.",
+        "zh": "选择与你所处阶段相匹配的方向。"
+      },
+      {
+        "id": "jasdsa",
+        "en": "These application-based programs match advanced high school and undergraduate students with research groups to provide meaningful academic exposure and skill development.",
+        "zh": "这些申请制项目将资深高中生及本科生匹配至科研团队，提供具有实质意义的学术接触与能力建设。"
+      },
+      {
+        "id": "ezimm8",
+        "en": "Available Now",
+        "zh": "现已开放"
+      },
+      {
+        "id": "qy5k1u",
+        "en": "Young Scholars Fellowship",
+        "zh": "青年学者 Fellowship"
+      },
+      {
+        "id": "kurjti",
+        "en": "Designed for academically strong high school students and early-stage undergraduates ready for a structured research environment.",
+        "zh": "面向学术基础扎实、准备好进入结构化科研环境的高中生与低年级本科生。"
+      },
+      {
+        "id": "vsbfm",
+        "en": "Learn More & Apply <i class='fas fa-arrow-right' aria-hidden='true' style='margin-left: 6px;'></i>",
+        "zh": "了解详情并申请 <i class=\"fas fa-arrow-right\" aria-hidden=\"true\" style=\"margin-left: 6px;\"></i>"
+      },
+      {
+        "id": "awvfr9",
+        "en": "Coming Soon",
+        "zh": "即将推出"
+      },
+      {
+        "id": "nb7xii",
+        "en": "STEM Research Fellowship",
+        "zh": "STEM 研究 Fellowship"
+      },
+      {
+        "id": "cic6wt",
+        "en": "Designed for students seeking advanced or technically involved research placements in science and engineering.",
+        "zh": "面向希望进入理工科深度或技术型科研岗位的学生。"
+      },
+      {
+        "id": "iin27",
+        "en": "In Development",
+        "zh": "筹备中"
+      },
+      {
+        "id": "a9tttv",
+        "en": "02 &middot; Eligibility",
+        "zh": "02 · 申请资格"
+      },
+      {
+        "id": "qyh8fx",
+        "en": "Who applies.",
+        "zh": "适合谁申请。"
+      },
+      {
+        "id": "4gcfq0",
+        "en": "Advanced high school students (Young Scholars) or early undergraduates.",
+        "zh": "资深高中生（青年学者方向）或低年级本科生。"
+      },
+      {
+        "id": "uw38ha",
+        "en": "Demonstrated academic curiosity and willingness to commit to a structured program.",
+        "zh": "具备学术好奇心，并愿意投入结构化项目。"
+      },
+      {
+        "id": "iokn5d",
+        "en": "A clear reason for pursuing research &mdash; not just a credential.",
+        "zh": "有明确的科研目的——而非仅仅为了一张履历。"
+      },
+      {
+        "id": "21dmk1",
+        "en": "Open to applicants from underrepresented and first-generation backgrounds.",
+        "zh": "欢迎来自代表性不足与第一代学生背景的申请者。"
+      },
+      {
+        "id": "tcq7hc",
+        "en": "Young Scholars Details",
+        "zh": "青年学者详情"
+      }
+    ]
+  },
+  "fellowships.html": {
+    "title": "研究 Fellowship | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "de81am",
+        "en": "Flagship Initiative",
+        "zh": "旗舰项目"
+      },
+      {
+        "id": "carp9d",
+        "en": "Research Fellowships.",
+        "zh": "研究 Fellowship。"
+      },
+      {
+        "id": "f0gejx",
+        "en": "Mentored research placements inside working academic environments &mdash; with the same expectations and rigor as any graduate-level research role.",
+        "zh": "在真实运作的学术环境中提供有导师指导的科研岗位——与研究生级别的科研角色有着同等的期望与严谨标准。"
+      },
+      {
+        "id": "e706td",
+        "en": "01 &middot; The Program",
+        "zh": "01 · 项目介绍"
+      },
+      {
+        "id": "ffszl5",
+        "en": "Mentored research, inside the room.",
+        "zh": "身处其中的导师制科研。"
+      },
+      {
+        "id": "wr3ma8",
+        "en": "Real working environments",
+        "zh": "真实的工作环境"
+      },
+      {
+        "id": "lgs4mp",
+        "en": "The ConnectEd Research Fellowships support selected fellows in participating in mentored research experiences under the guidance of faculty advisors at leading institutions.",
+        "zh": "ConnectEd 研究 Fellowship 支持入选学员在一流机构导师的指导下深入参与科研实践。"
+      },
+      {
+        "id": "xrmp3u",
+        "en": "Placements are structured around defined deliverables, cohort check-ins, and written feedback cycles &mdash; not shadowing visits or observational internships.",
+        "zh": "岗位围绕明确的交付物、小组复盘与书面反馈循环而设——不是旁观式访问或观摩型实习。"
+      },
+      {
+        "id": "dlob7i",
+        "en": "Explore Tracks",
+        "zh": "查看方向"
+      },
+      {
+        "id": "wathgc",
+        "en": "Our Approach",
+        "zh": "我们的做法"
+      },
+      {
+        "id": "9vgcr1",
+        "en": "02 &middot; What Sets It Apart",
+        "zh": "02 · 独特之处"
+      },
+      {
+        "id": "kd28g0",
+        "en": "The fellowship is structured &mdash; not improvised.",
+        "zh": "Fellowship 是结构化的——不是临场安排的。"
+      },
+      {
+        "id": "dtc25f",
+        "en": "Application-based and selective &mdash; admitted on merit and fit, not network.",
+        "zh": "申请制、择优录取——看能力与匹配度，而非人脉。"
+      },
+      {
+        "id": "t86s50",
+        "en": "Paired with a faculty advisor for the duration of the placement.",
+        "zh": "全程由专属教师导师一对一跟进指导。"
+      },
+      {
+        "id": "lx0ahf",
+        "en": "Structured deliverables: literature review, methods, analysis, written report.",
+        "zh": "结构化交付物：文献综述、方法、分析、书面报告。"
+      },
+      {
+        "id": "hzlql",
+        "en": "Cohort-based check-ins so fellows progress alongside peers, not in isolation.",
+        "zh": "同伴共学式的复盘，让 fellow 在群体中共同成长，而非孤军奋战。"
+      },
+      {
+        "id": "pg0sk6",
+        "en": "Designed to prepare fellows for graduate study, not to substitute for it.",
+        "zh": "旨在为研究生学习做准备，而非替代研究生阶段。"
+      },
+      {
+        "id": "joyomt",
+        "en": "03 &middot; Who It&rsquo;s For",
+        "zh": "03 · 适合谁"
+      },
+      {
+        "id": "w0s0si",
+        "en": "Two tracks, one set of standards.",
+        "zh": "两个方向，一套标准。"
+      },
+      {
+        "id": "4xx4w",
+        "en": "Fellowships are offered across two tracks, matched to a fellow&rsquo;s academic stage and research interests. Both tracks share the same commitment to mentorship, structure, and rigor.",
+        "zh": "Fellowship 分两个方向，依据 fellow 的学术阶段与研究兴趣进行匹配。两条方向都同样强调导师制、结构化与严谨度。"
+      },
+      {
+        "id": "ilueud",
+        "en": "See Fellowship Tracks",
+        "zh": "查看 Fellowship 方向"
+      }
+    ]
+  },
+  "get-involved.html": {
+    "title": "加入我们 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "arh8wz",
+        "en": "Join the Mission",
+        "zh": "加入使命"
+      },
+      {
+        "id": "hepyn9",
+        "en": "Get involved.",
+        "zh": "加入我们。"
+      },
+      {
+        "id": "v91xc8",
+        "en": "Mentor a fellow, support operations, or partner as an institution. The mission only scales with people who show up.",
+        "zh": "指导一位 fellow、支持运营工作，或以机构身份建立合作。使命的壮大，有赖于每一个真正投入其中的人。"
+      },
+      {
+        "id": "n0wa46",
+        "en": "01 &middot; Ways to Contribute",
+        "zh": "01 · 参与方式"
+      },
+      {
+        "id": "s3atxm",
+        "en": "Three ways to support the work.",
+        "zh": "三种支持方式。"
+      },
+      {
+        "id": "d6ei6z",
+        "en": "Faculty Mentors",
+        "zh": "教师导师"
+      },
+      {
+        "id": "kx31q7",
+        "en": "University faculty can participate by advising research fellows and providing guidance on academic projects.",
+        "zh": "大学教师可以通过指导 research fellow、为学术项目提供建议等方式参与。"
+      },
+      {
+        "id": "eilrx",
+        "en": "Volunteers",
+        "zh": "志愿者"
+      },
+      {
+        "id": "2gqef8",
+        "en": "Professionals and graduate students can support our operations through administrative and program assistance.",
+        "zh": "业界专业人士与研究生可以通过行政与项目协助支持我们的运营。"
+      },
+      {
+        "id": "l3ni8",
+        "en": "Supporters",
+        "zh": "资助者"
+      },
+      {
+        "id": "7crh83",
+        "en": "Financial contributions help provide fellowships and resources to students with limited institutional access.",
+        "zh": "经济支持可以为缺乏机构资源渠道的学生提供 fellowship 与学习资源。"
+      },
+      {
+        "id": "4totof",
+        "en": "02 &middot; Interest Form",
+        "zh": "02 · 意向表"
+      },
+      {
+        "id": "c4cf8w",
+        "en": "Submit an interest form.",
+        "zh": "提交意向表。"
+      },
+      {
+        "id": "fqmy",
+        "en": "Full Name",
+        "zh": "姓名"
+      },
+      {
+        "id": "irh79v",
+        "en": "Email Address",
+        "zh": "邮箱地址"
+      },
+      {
+        "id": "k5j0lz",
+        "en": "Desired Role",
+        "zh": "希望参与的角色"
+      },
+      {
+        "id": "afu8wz",
+        "en": "Key Skills",
+        "zh": "主要技能"
+      },
+      {
+        "id": "88zufl",
+        "en": "Time Availability",
+        "zh": "时间可用度"
+      },
+      {
+        "id": "afrf11",
+        "en": "Primary Interests",
+        "zh": "主要兴趣"
+      },
+      {
+        "id": "nz1ohq",
+        "en": "Submit Formal Interest",
+        "zh": "正式提交意向"
+      }
+    ],
+    "placeholders": [
+      {
+        "id": "e.g., Data Analysis, Writing, Web Design",
+        "zh": "例如：数据分析、写作、网页设计"
+      },
+      {
+        "id": "e.g., 2 hours per month",
+        "zh": "例如：每月 2 小时"
+      },
+      {
+        "id": "Which roles or areas are you most interested in?",
+        "zh": "你对哪些角色或方向最感兴趣？"
+      }
+    ],
+    "options": [
+      {
+        "id": "Faculty Mentor",
+        "zh": "教师导师"
+      },
+      {
+        "id": "Volunteer",
+        "zh": "志愿者"
+      },
+      {
+        "id": "Institutional Partner",
+        "zh": "机构合作方"
+      },
+      {
+        "id": "Other",
+        "zh": "其他"
+      }
+    ]
+  },
+  "index.html": {
+    "title": "首页 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "etclx4",
+        "en": "A Nonprofit Research Institute",
+        "zh": "一家非营利研究机构"
+      },
+      {
+        "id": "8heg66",
+        "en": "Expanding access to <em>research</em> and academic opportunity.",
+        "zh": "扩展<em>研究</em>与学术机会的可及性。"
+      },
+      {
+        "id": "iftmo5",
+        "en": "ConnectEd connects talented students with meaningful research experiences and mentorship inside real academic environments — not around them.",
+        "zh": "ConnectEd 将有才华的学生带入真实的学术环境，获得有意义的研究经历与导师指导——不是在门外徘徊，而是真正走进去。"
+      },
+      {
+        "id": "dlx4uz",
+        "en": "Explore Programs",
+        "zh": "查看项目"
+      },
+      {
+        "id": "watri1",
+        "en": "Our Mission",
+        "zh": "我们的使命"
+      },
+      {
+        "id": "axoii0",
+        "en": "Scroll",
+        "zh": "向下滚动"
+      },
+      {
+        "id": "i0dh2e",
+        "en": "01 &middot; Mission",
+        "zh": "01 · 使命"
+      },
+      {
+        "id": "6zu2uo",
+        "en": "Opening the door to research — for the students who weren&rsquo;t handed a key.",
+        "zh": "为那些没有被递过钥匙的学生——打开科研的大门。"
+      },
+      {
+        "id": "lxz754",
+        "en": "Access to academic resources and research opportunities remains uneven. Many capable students — particularly first-generation, international, and otherwise underrepresented — face structural barriers to research environments, faculty mentorship, and the academic networks that shape a career.",
+        "zh": "学术资源与科研机会的分配仍不均衡。许多有能力的学生——尤其是第一代学生、国际学生与其他代表性不足的群体——在进入科研环境、获得教师指导、以及接入塑造职业轨迹的学术网络时，面对的是结构性的障碍。"
+      },
+      {
+        "id": "34czo1",
+        "en": "ConnectEd works to expand that access: connecting motivated students with the environments, mentors, and pathways they need to pursue graduate study, academic careers, and research-driven fields.",
+        "zh": "ConnectEd 致力于扩展这份可及性：将有动力的学生，与进入研究生学习、学术职业及以研究为驱动的领域所需的环境、导师和路径连接起来。"
+      },
+      {
+        "id": "1ive2m",
+        "en": "Our Impact Area",
+        "zh": "我们的影响领域"
+      },
+      {
+        "id": "awzpww",
+        "en": "Empowering the next generation of scholars through evidence-based mentorship and institutional integration — not shortcuts.",
+        "zh": "以循证的导师制与深度的机构整合，为下一代学者赋能——而不是走捷径。"
+      },
+      {
+        "id": "ihrp4s",
+        "en": "02 &middot; Programs",
+        "zh": "02 · 项目"
+      },
+      {
+        "id": "j11l3f",
+        "en": "Four interlocking initiatives, one coherent mission.",
+        "zh": "四项相互衔接的计划，一个统一的使命。"
+      },
+      {
+        "id": "4z99xd",
+        "en": "Research Fellowships",
+        "zh": "研究 Fellowship"
+      },
+      {
+        "id": "ymd1ys",
+        "en": "Structured, mentored research placements connecting early scholars with faculty-led environments.",
+        "zh": "将早期学者与教师主导的研究环境连接起来的结构化导师制科研岗位。"
+      },
+      {
+        "id": "dxh62",
+        "en": "Mentorship",
+        "zh": "导师制"
+      },
+      {
+        "id": "mwdqye",
+        "en": "Mentorship Programs",
+        "zh": "导师指导项目"
+      },
+      {
+        "id": "95nyzz",
+        "en": "Long-form pairings with researchers who support academic development and exploration.",
+        "zh": "与研究者的长周期结对，用以支持学术成长与学术探索。"
+      },
+      {
+        "id": "hy0p",
+        "en": "Education",
+        "zh": "教育"
+      },
+      {
+        "id": "8j71b9",
+        "en": "Research Training & Courses",
+        "zh": "研究培训与课程"
+      },
+      {
+        "id": "b04oeo",
+        "en": "Workshops in research methods, academic writing, and advanced data analysis.",
+        "zh": "围绕研究方法、学术写作与进阶数据分析的工作坊。"
+      },
+      {
+        "id": "byqmt0",
+        "en": "Network",
+        "zh": "学术网络"
+      },
+      {
+        "id": "y2h625",
+        "en": "Scholarly Exchange & Networks",
+        "zh": "学术交流与网络"
+      },
+      {
+        "id": "o1q7jf",
+        "en": "Convenings and peer networks supporting knowledge exchange across academic communities.",
+        "zh": "支持学术社群之间知识交流的聚会与同伴网络。"
+      },
+      {
+        "id": "xwrzzg",
+        "en": "03 &middot; Flagship",
+        "zh": "03 · 旗舰项目"
+      },
+      {
+        "id": "t07tyg",
+        "en": "ConnectEd Research Fellowships.",
+        "zh": "ConnectEd 研究 Fellowship。"
+      },
+      {
+        "id": "5ojfkt",
+        "en": "The program gives early scholars meaningful exposure to research environments and structured academic engagement under the guidance of faculty advisors — a full semester of real work, not a shadowing visit.",
+        "zh": "该项目让早期学者在教师导师指导下切实接触科研环境、进行结构化的学术参与——一个完整学期的真实工作，而不是一次观摩式走访。"
+      },
+      {
+        "id": "ah8ozn",
+        "en": "Learn More",
+        "zh": "了解更多"
+      },
+      {
+        "id": "jfl1y9",
+        "en": "04 &middot; Impact",
+        "zh": "04 · 影响"
+      },
+      {
+        "id": "w6x6d0",
+        "en": "Real scholars. Real research. Real outcomes.",
+        "zh": "真实的学者。真实的科研。真实的结果。"
+      },
+      {
+        "id": "v0y5an",
+        "en": "Scholars Placed",
+        "zh": "已匹配学者"
+      },
+      {
+        "id": "kw1lxh",
+        "en": "Into mentored research positions across partner institutions.",
+        "zh": "进入合作机构的导师制科研岗位。"
+      },
+      {
+        "id": "d6ei6z",
+        "en": "Faculty Advisors",
+        "zh": "教师导师"
+      },
+      {
+        "id": "6obfja",
+        "en": "Committed to long-form, structured mentorship — not drop-in sessions.",
+        "zh": "致力于长周期的结构化导师制——而非临时性的交流。"
+      },
+      {
+        "id": "dw1dv",
+        "en": "Completion Rate",
+        "zh": "完成率"
+      },
+      {
+        "id": "en58kl",
+        "en": "Fellows finishing structured placements with defined deliverables.",
+        "zh": "完成结构化岗位并交付既定成果的 fellow 比例。"
+      },
+      {
+        "id": "axxb4t",
+        "en": "Partner Universities",
+        "zh": "合作高校"
+      },
+      {
+        "id": "ql1n16",
+        "en": "Hosting fellows inside working research groups — not around them.",
+        "zh": "让 fellow 真正进入正在运作的研究小组内部——而不是停留在门外。"
+      },
+      {
+        "id": "1bs8o",
+        "en": "05 &middot; In Their Words",
+        "zh": "05 · 他们的原话"
+      },
+      {
+        "id": "v7el8",
+        "en": "ConnectEd gave me the first room where my questions weren&rsquo;t out of place — and the first mentor who treated them as real work.",
+        "zh": "ConnectEd 是第一个让我的问题不再显得格格不入的地方——也让我遇到了第一位把这些问题当作真实研究的导师。"
+      },
+      {
+        "id": "tzahax",
+        "en": "Young Scholars Fellow, 2024 &middot; Cognitive Science",
+        "zh": "青年学者 Fellow，2024 · 认知科学"
+      },
+      {
+        "id": "kdlv32",
+        "en": "06 &middot; Approach",
+        "zh": "06 · 做法"
+      },
+      {
+        "id": "pc3hfo",
+        "en": "How we design programs.",
+        "zh": "我们如何设计项目。"
+      },
+      {
+        "id": "dtc25f",
+        "en": "Application-based and selective — admitted on merit and fit, not network.",
+        "zh": "申请制、择优录取——看能力与匹配度，而非人脉。"
+      },
+      {
+        "id": "j4pylm",
+        "en": "Structured with defined expectations, deliverables, and outcomes.",
+        "zh": "以明确的期望、交付物与结果为框架构建。"
+      },
+      {
+        "id": "rt6i12",
+        "en": "Aligned with academic research practices, not a credential-mill shortcut.",
+        "zh": "遵循学术研究的真实实践——不是履历工厂式的捷径。"
+      },
+      {
+        "id": "ls1bz6",
+        "en": "Designed to support responsible engagement in real research environments.",
+        "zh": "旨在支持在真实科研环境中的负责任参与。"
+      },
+      {
+        "id": "eae6aw",
+        "en": "In academic partnership with",
+        "zh": "学术合作伙伴"
+      }
+    ]
+  },
+  "mentorship.html": {
+    "title": "导师指导项目 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "bzx5cx",
+        "en": "Mentorship",
+        "zh": "导师指导"
+      },
+      {
+        "id": "pob0l9",
+        "en": "Long-form mentorship pairings.",
+        "zh": "长期结对的导师指导。"
+      },
+      {
+        "id": "6575al",
+        "en": "Sustained relationships between students and researchers &mdash; measured in semesters, not sessions.",
+        "zh": "学生与研究者之间的持续关系——以学期为单位，而非一次性的会面。"
+      },
+      {
+        "id": "i0lkcu",
+        "en": "01 &middot; The Pairing",
+        "zh": "01 · 结对"
+      },
+      {
+        "id": "bztxca",
+        "en": "A working relationship, not a meet-and-greet.",
+        "zh": "这是一段工作关系，而不是一次见面会。"
+      },
+      {
+        "id": "ccz0gm",
+        "en": "Semester-long pairings",
+        "zh": "以学期为单位的结对"
+      },
+      {
+        "id": "hfo9t6",
+        "en": "Sustained mentorship pairings that connect students with researchers for ongoing academic guidance, career navigation, and research exploration &mdash; measured in semesters, not sessions.",
+        "zh": "持续的导师结对将学生与研究者连接起来，提供长期的学术指导、职业路径梳理与科研探索——以学期为单位，而非一次性的会面。"
+      },
+      {
+        "id": "43ljos",
+        "en": "Advisors commit to structured check-ins, written feedback on drafts, and concrete deliverable cycles &mdash; the conditions under which real scholarship actually develops.",
+        "zh": "导师承诺定期复盘、对稿件进行书面反馈、并给出具体的交付节奏——这是真正学术能力得以成长的条件。"
+      },
+      {
+        "id": "5q6aip",
+        "en": "02 &middot; What&rsquo;s Included",
+        "zh": "02 · 包含内容"
+      },
+      {
+        "id": "kxb0tk",
+        "en": "What a pairing looks like.",
+        "zh": "结对是什么样子的。"
+      },
+      {
+        "id": "8xr18j",
+        "en": "Regular one-on-one meetings across an academic term.",
+        "zh": "贯穿整个学期的定期一对一会面。"
+      },
+      {
+        "id": "9bypyg",
+        "en": "Written feedback on research drafts, methods, and analytical choices.",
+        "zh": "针对稿件、研究方法与分析选择的书面反馈。"
+      },
+      {
+        "id": "mn1cp0",
+        "en": "Career navigation guidance on graduate school, publications, and research paths.",
+        "zh": "涵盖研究生申请、论文发表与科研路径的职业指导。"
+      },
+      {
+        "id": "4t0ucr",
+        "en": "Introductions into broader academic communities, where appropriate.",
+        "zh": "在合适的时候引荐进入更广泛的学术社群。"
+      },
+      {
+        "id": "dfktg6",
+        "en": "Clear expectations set on both sides &mdash; pairings end on a defined review, not a fade-out.",
+        "zh": "双方设定明确预期——结对以明确的回顾收尾，而非悄然淡出。"
+      },
+      {
+        "id": "vxxeea",
+        "en": "03 &middot; Get Matched",
+        "zh": "03 · 申请匹配"
+      },
+      {
+        "id": "be8ygk",
+        "en": "Request a mentorship pairing.",
+        "zh": "申请导师结对。"
+      },
+      {
+        "id": "j4mgfr",
+        "en": "Mentorship placements are arranged based on academic stage, research interest, and advisor capacity. Start with a brief note through our contact form and we&rsquo;ll follow up.",
+        "zh": "导师匹配将综合考量申请者的学术阶段、研究兴趣及导师的档期情况。可先通过联系表单简短留言，我们会随后跟进。"
+      },
+      {
+        "id": "fd9rca",
+        "en": "Request a Pairing",
+        "zh": "申请结对"
+      },
+      {
+        "id": "cp662e",
+        "en": "Become a Mentor",
+        "zh": "成为导师"
+      }
+    ]
+  },
+  "networks.html": {
+    "title": "学术交流与网络 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "byqmt0",
+        "en": "Networks",
+        "zh": "学术网络"
+      },
+      {
+        "id": "9bwv9r",
+        "en": "Scholarly exchange & networks.",
+        "zh": "学术交流与网络。"
+      },
+      {
+        "id": "2rsqrp",
+        "en": "Convenings and peer networks that support knowledge exchange across academic communities and emerging scholars.",
+        "zh": "支持学术社群与早期学者之间知识交流的聚会与同伴网络。"
+      },
+      {
+        "id": "i0kt7y",
+        "en": "01 &middot; The Community",
+        "zh": "01 · 社群"
+      },
+      {
+        "id": "5ehzie",
+        "en": "A small, working community &mdash; not a directory.",
+        "zh": "一个紧凑的、真正在做事的社群——而非通讯录。"
+      },
+      {
+        "id": "aasd03",
+        "en": "Convenings & peer exchange",
+        "zh": "聚会与同伴交流"
+      },
+      {
+        "id": "9owg1i",
+        "en": "Convenings and peer networks that support knowledge exchange across academic communities and emerging scholars &mdash; the connective tissue that keeps early-career research moving.",
+        "zh": "通过聚会与同伴网络，在学术社群与早期学者之间支持知识交流——这是推动早期科研持续向前的纽带。"
+      },
+      {
+        "id": "ifyqmh",
+        "en": "Alumni remain connected through a small, working community rather than a credential directory &mdash; with recurring reading groups, writing critiques, and advisor office hours.",
+        "zh": "校友通过一个小规模、持续运作的社群保持联系，而非一份资质名录——定期举办读书会、写作点评与导师答疑时间。"
+      },
+      {
+        "id": "ihk56c",
+        "en": "02 &middot; Activities",
+        "zh": "02 · 活动"
+      },
+      {
+        "id": "fhk8p",
+        "en": "What&rsquo;s on the calendar.",
+        "zh": "日程表上有什么。"
+      },
+      {
+        "id": "6sztao",
+        "en": "Research roundtables &mdash; closed-door discussion of works in progress.",
+        "zh": "科研圆桌——围绕进行中的研究进行闭门讨论。"
+      },
+      {
+        "id": "pq6m2v",
+        "en": "Writing critique circles &mdash; structured peer feedback on drafts.",
+        "zh": "写作点评圈——对稿件进行结构化的同伴反馈。"
+      },
+      {
+        "id": "dtg3hf",
+        "en": "Advisor office hours &mdash; drop-in consultation with faculty mentors.",
+        "zh": "导师 office hour——随到随谈的教师咨询。"
+      },
+      {
+        "id": "r55hoq",
+        "en": "Annual convening &mdash; short presentations from current fellows.",
+        "zh": "年度聚会——当期 fellow 的简短汇报。"
+      },
+      {
+        "id": "vypn5w",
+        "en": "Reading groups &mdash; small, topical seminars across disciplines.",
+        "zh": "读书小组——跨学科的小型专题研讨。"
+      },
+      {
+        "id": "iyheoi",
+        "en": "03 &middot; Participate",
+        "zh": "03 · 参与"
+      },
+      {
+        "id": "lahyy6",
+        "en": "Join a network.",
+        "zh": "加入网络。"
+      },
+      {
+        "id": "bdawfy",
+        "en": "Most network activities are open to current fellows, mentees, and alumni. Outside researchers are welcomed at annual convenings and selected open sessions.",
+        "zh": "大多数网络活动向当期 fellow、导师制学员及校友开放。外部研究者欢迎参加年度聚会与部分公开场次。"
+      },
+      {
+        "id": "m9e4ho",
+        "en": "Ask About Participation",
+        "zh": "咨询参与方式"
+      }
+    ]
+  },
+  "privacy.html": {
+    "title": "隐私政策 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "jhz6y0",
+        "en": "Privacy Policy",
+        "zh": "隐私政策"
+      },
+      {
+        "id": "8pivyw",
+        "en": "Last updated: April 16, 2026",
+        "zh": "最后更新：2026 年 4 月 16 日"
+      },
+      {
+        "id": "c011hj",
+        "en": "Information We Collect",
+        "zh": "我们收集的信息"
+      },
+      {
+        "id": "q8zcnz",
+        "en": "We collect limited personal information submitted through forms on this website — for example, newsletter signups, fellowship applications, volunteer interest forms, and contact requests. Typical information includes name, email address, and program-related details you choose to share.",
+        "zh": "我们通过本网站的表单收集有限的个人信息——例如订阅通讯、fellowship 申请、志愿者意向表和咨询请求。常见的信息包括姓名、电子邮箱以及您选择分享的项目相关细节。"
+      },
+      {
+        "id": "iz8g91",
+        "en": "How We Use It",
+        "zh": "我们如何使用信息"
+      },
+      {
+        "id": "ppupna",
+        "en": "Information is used to administer our programs, respond to inquiries, coordinate fellowships, and send occasional updates if you opt in. We do not sell personal information.",
+        "zh": "信息用于管理我们的项目、回应咨询、协调 fellowship，以及在您选择加入后发送不定期更新。我们不出售个人信息。"
+      },
+      {
+        "id": "ho28",
+        "en": "Donations",
+        "zh": "捐赠"
+      },
+      {
+        "id": "g8r6hm",
+        "en": "Donation processing may be handled by third-party payment processors with their own privacy and security practices. We do not store full payment card details on our servers.",
+        "zh": "捐赠处理可能由第三方支付机构完成，其有各自的隐私与安全规范。我们不会在服务器上存储完整的支付卡信息。"
+      },
+      {
+        "id": "gphnfh",
+        "en": "Contact",
+        "zh": "联系方式"
+      },
+      {
+        "id": "lthlxb",
+        "en": "Questions about this policy may be sent to <strong>admin@connect-edu.org</strong>.",
+        "zh": "如对本政策有任何疑问，可发送邮件至 <strong>admin@connect-edu.org</strong>。"
+      },
+      {
+        "id": "oo2t2j",
+        "en": "<em>This is a placeholder policy. It should be reviewed and finalized by qualified counsel before publication.</em>",
+        "zh": "<em>本文件为占位政策，发布前应由合格法律顾问审阅并定稿。</em>"
+      }
+    ]
+  },
+  "programs.html": {
+    "title": "项目 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "wdk6gy",
+        "en": "What We Offer",
+        "zh": "我们提供的"
+      },
+      {
+        "id": "94nqbs",
+        "en": "Programs built around real research &mdash; and real relationships.",
+        "zh": "围绕真实科研与真实关系搭建的项目。"
+      },
+      {
+        "id": "x8wtek",
+        "en": "Five interlocking program areas &mdash; fellowship placements, tracks, long-form mentorship, training, and scholarly exchange &mdash; working toward one mission.",
+        "zh": "五个相互衔接的项目板块——Fellowship 岗位、方向、长周期导师制、培训、学术交流——共同服务于同一个使命。"
+      },
+      {
+        "id": "i0gm2d",
+        "en": "01 &middot; Overview",
+        "zh": "01 · 总览"
+      },
+      {
+        "id": "joja9t",
+        "en": "Five program areas.",
+        "zh": "五个项目板块。"
+      },
+      {
+        "id": "i1bt",
+        "en": "Flagship",
+        "zh": "旗舰"
+      },
+      {
+        "id": "4z99xd",
+        "en": "Research Fellowships",
+        "zh": "研究 Fellowship"
+      },
+      {
+        "id": "1ls2cg",
+        "en": "Structured, mentored research placements with faculty advisors at leading institutions.",
+        "zh": "在一流机构教师导师指导下的结构化科研岗位。"
+      },
+      {
+        "id": "hri0",
+        "en": "Tracks",
+        "zh": "方向"
+      },
+      {
+        "id": "cxxp9x",
+        "en": "Fellowship Tracks",
+        "zh": "Fellowship 方向"
+      },
+      {
+        "id": "vntqry",
+        "en": "Two tracks &mdash; Young Scholars and a STEM research track in development.",
+        "zh": "两个方向——青年学者方向，以及筹备中的 STEM 研究方向。"
+      },
+      {
+        "id": "dxh62",
+        "en": "Mentorship",
+        "zh": "导师制"
+      },
+      {
+        "id": "mwdqye",
+        "en": "Mentorship Programs",
+        "zh": "导师指导项目"
+      },
+      {
+        "id": "nkzxgb",
+        "en": "Long-form pairings between students and researchers &mdash; measured in semesters.",
+        "zh": "学生与研究者之间的长期结对——以学期为单位。"
+      },
+      {
+        "id": "hy0p",
+        "en": "Education",
+        "zh": "教育"
+      },
+      {
+        "id": "8j71b9",
+        "en": "Research Training & Courses",
+        "zh": "研究培训与课程"
+      },
+      {
+        "id": "dxlxdh",
+        "en": "Workshops in research methods, academic writing, and data analysis.",
+        "zh": "围绕研究方法、学术写作与数据分析的工作坊。"
+      },
+      {
+        "id": "byqmt0",
+        "en": "Network",
+        "zh": "学术网络"
+      },
+      {
+        "id": "y2h625",
+        "en": "Scholarly Exchange & Networks",
+        "zh": "学术交流与网络"
+      },
+      {
+        "id": "bss8ie",
+        "en": "Convenings and peer networks supporting knowledge exchange across communities.",
+        "zh": "在不同学术社群之间支持知识交流的聚会与同伴网络。"
+      }
+    ]
+  },
+  "support.html": {
+    "title": "支持我们 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "d6bqc0",
+        "en": "Fund the Mission",
+        "zh": "支持使命"
+      },
+      {
+        "id": "wngkd1",
+        "en": "Support students who&rsquo;d otherwise be locked out.",
+        "zh": "支持那些本可能被挡在门外的学生。"
+      },
+      {
+        "id": "3awwgl",
+        "en": "Every fellowship funded is a seat at a table someone wouldn&rsquo;t otherwise have been offered.",
+        "zh": "每一笔 fellowship 资助，都是一把原本不会被递过去的椅子。"
+      },
+      {
+        "id": "i0g6ro",
+        "en": "01 &middot; Impact",
+        "zh": "01 · 影响"
+      },
+      {
+        "id": "yxblol",
+        "en": "Your support expands access.",
+        "zh": "你的支持扩展科研可及性。"
+      },
+      {
+        "id": "9l65vc",
+        "en": "Your support helps expand access to research mentorship and fellowship funding for emerging scholars committed to educational equity — particularly for students who would otherwise have no path into a research environment.",
+        "zh": "你的支持帮助我们为致力于教育公平的成长期学者扩展科研导师资源与 fellowship 资金——尤其是那些原本没有路径进入科研环境的学生。"
+      },
+      {
+        "id": "dboqi2",
+        "en": "02 &middot; Allocation",
+        "zh": "02 · 资金去向"
+      },
+      {
+        "id": "pmr7of",
+        "en": "Where your donation goes.",
+        "zh": "你的捐赠去了哪里。"
+      },
+      {
+        "id": "pcgw0r",
+        "en": "Research Fellowship awards and scholar support.",
+        "zh": "研究 Fellowship 奖学金与学者支持。"
+      },
+      {
+        "id": "llayzr",
+        "en": "Mentorship infrastructure and program coordination.",
+        "zh": "导师体系与项目统筹。"
+      },
+      {
+        "id": "5qjupo",
+        "en": "Research training resources and pilot learning initiatives.",
+        "zh": "科研培训资源与试点学习项目。"
+      },
+      {
+        "id": "9nl0lv",
+        "en": "Secure Donation Portal",
+        "zh": "安全捐赠入口"
+      },
+      {
+        "id": "thzzss",
+        "en": "Choose Donation Amount",
+        "zh": "选择捐赠金额"
+      },
+      {
+        "id": "n4af9b",
+        "en": "Enter Custom Amount ($)",
+        "zh": "输入自定义金额（美元）"
+      },
+      {
+        "id": "377b12",
+        "en": "Make this a monthly donation",
+        "zh": "设为月度捐赠"
+      },
+      {
+        "id": "byj7kk",
+        "en": "Complete Donation",
+        "zh": "完成捐赠"
+      },
+      {
+        "id": "wwj27m",
+        "en": "Note: submitting this form notifies our team. Secure card processing will be connected soon.",
+        "zh": "说明：提交本表单会通知我们的团队。安全的银行卡处理将尽快接入。"
+      }
+    ],
+    "placeholders": [
+      {
+        "id": "e.g., 500",
+        "zh": "例如：500"
+      }
+    ],
+    "options": [
+      {
+        "id": "Select an amount",
+        "zh": "请选择金额"
+      },
+      {
+        "id": "Other",
+        "zh": "其他"
+      }
+    ]
+  },
+  "terms.html": {
+    "title": "使用条款 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "aimjpi",
+        "en": "Terms of Use",
+        "zh": "使用条款"
+      },
+      {
+        "id": "8pivyw",
+        "en": "Last updated: April 16, 2026",
+        "zh": "最后更新：2026 年 4 月 16 日"
+      },
+      {
+        "id": "e46m",
+        "en": "Information",
+        "zh": "信息"
+      },
+      {
+        "id": "xukby7",
+        "en": "Information on this website is provided for informational purposes and may be updated as programs evolve. We aim for accuracy but make no guarantees that content is always complete or current.",
+        "zh": "本网站上的信息仅供参考，并可能随项目发展而更新。我们力求准确，但不保证内容始终完整或为最新。"
+      },
+      {
+        "id": "f70y9z",
+        "en": "User Responsibilities",
+        "zh": "用户责任"
+      },
+      {
+        "id": "ifgpc6",
+        "en": "Users are responsible for the accuracy of information they submit through our forms. Submission of a fellowship application or interest form does not guarantee acceptance or placement.",
+        "zh": "用户应对通过我们的表单提交的信息的准确性负责。提交 fellowship 申请或意向表不保证录取或安置。"
+      },
+      {
+        "id": "bug60p",
+        "en": "External Links",
+        "zh": "外部链接"
+      },
+      {
+        "id": "2q3icr",
+        "en": "This website may contain links to third-party sites. We are not responsible for the content or practices of external sites.",
+        "zh": "本网站可能包含第三方网站的链接。我们对外部网站的内容或做法不承担责任。"
+      },
+      {
+        "id": "gphnfh",
+        "en": "Contact",
+        "zh": "联系方式"
+      },
+      {
+        "id": "5ql3yd",
+        "en": "Questions about these terms may be sent to <strong>admin@connect-edu.org</strong>.",
+        "zh": "如对本条款有任何疑问，可发送邮件至 <strong>admin@connect-edu.org</strong>。"
+      },
+      {
+        "id": "pvjeo7",
+        "en": "<em>This is a placeholder document. It should be reviewed and finalized by qualified counsel before publication.</em>",
+        "zh": "<em>本文件为占位文本，发布前应由合格法律顾问审阅并定稿。</em>"
+      }
+    ]
+  },
+  "training.html": {
+    "title": "研究培训与课程 | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "fqac",
+        "en": "Training",
+        "zh": "培训"
+      },
+      {
+        "id": "jldtqb",
+        "en": "Research training & courses.",
+        "zh": "研究培训与课程。"
+      },
+      {
+        "id": "6917i6",
+        "en": "Workshops and structured courses in research methods, academic writing, data analysis, and responsible research conduct.",
+        "zh": "围绕研究方法、学术写作、数据分析与负责任的科研行为的工作坊与结构化课程。"
+      },
+      {
+        "id": "fr7s0z",
+        "en": "01 &middot; Curriculum",
+        "zh": "01 · 课程体系"
+      },
+      {
+        "id": "ifljs5",
+        "en": "Skills fellows actually use.",
+        "zh": "Fellow 真正会用到的能力。"
+      },
+      {
+        "id": "89ekea",
+        "en": "Methods & writing workshops",
+        "zh": "方法与写作工作坊"
+      },
+      {
+        "id": "sjz697",
+        "en": "Training is designed to complement real placements, not replace them. Fellows leave able to run a literature review, structure a methods section, and defend an analytical choice.",
+        "zh": "培训旨在与真实的科研岗位形成互补，而非取而代之。完成培训后，fellow 能够独立做文献综述、搭建方法章节、并为自己的分析选择辩护。"
+      },
+      {
+        "id": "r6tmd9",
+        "en": "Courses are short-form and workshop-based &mdash; built around producing a concrete artifact (outline, memo, analysis plan) rather than passive lecture hours.",
+        "zh": "课程为短周期的工作坊形式——围绕产出具体成果（提纲、备忘录、分析方案）展开，而非被动的讲座时长。"
+      },
+      {
+        "id": "ihjn3x",
+        "en": "02 &middot; Modules",
+        "zh": "02 · 模块"
+      },
+      {
+        "id": "2jug2m",
+        "en": "Topics we cover.",
+        "zh": "涵盖的主题。"
+      },
+      {
+        "id": "2t8c26",
+        "en": "Literature review &mdash; structuring a defensible survey of prior work.",
+        "zh": "文献综述——构建一份经得起推敲的前人工作梳理。"
+      },
+      {
+        "id": "4g4s65",
+        "en": "Research methods &mdash; choosing approaches that match the question.",
+        "zh": "研究方法——选择与研究问题相匹配的方法路径。"
+      },
+      {
+        "id": "ze7gyh",
+        "en": "Academic writing &mdash; arguments, structure, and clarity for research audiences.",
+        "zh": "学术写作——面向研究读者的论证、结构与清晰度。"
+      },
+      {
+        "id": "wbqxwl",
+        "en": "Data analysis fundamentals &mdash; descriptive statistics, visualization, reproducibility.",
+        "zh": "数据分析基础——描述统计、可视化、可复现性。"
+      },
+      {
+        "id": "j2fpky",
+        "en": "Responsible research conduct &mdash; authorship, attribution, and institutional norms.",
+        "zh": "负责任的科研行为——作者署名、成果归属与机构规范。"
+      },
+      {
+        "id": "iyhfl0",
+        "en": "03 &middot; Attend",
+        "zh": "03 · 参加"
+      },
+      {
+        "id": "p7k1ff",
+        "en": "Join an upcoming workshop.",
+        "zh": "报名近期工作坊。"
+      },
+      {
+        "id": "janar2",
+        "en": "Workshops run on a rolling schedule, tied to active fellowship cohorts. Spots are prioritized for current fellows and mentees, with a limited number open to outside applicants.",
+        "zh": "工作坊采用滚动排期，与当期 fellowship 批次绑定。名额优先提供给当期 fellow 与导师制学员，少量对外部申请者开放。"
+      },
+      {
+        "id": "g4y281",
+        "en": "Request Schedule",
+        "zh": "索取排期"
+      }
+    ]
+  },
+  "young-scholars.html": {
+    "title": "青年学者 Fellowship | ConnectEd Research Institute",
+    "i18n": [
+      {
+        "id": "cxxp9x",
+        "en": "Fellowship Track",
+        "zh": "Fellowship 方向"
+      },
+      {
+        "id": "gyk4n4",
+        "en": "Young Scholars Fellowship.",
+        "zh": "青年学者 Fellowship。"
+      },
+      {
+        "id": "rdk70z",
+        "en": "A structured, mentored environment for advanced high school students and early undergraduates entering real research for the first time.",
+        "zh": "为初次进入真实科研的优秀高中生与低年级本科生提供的结构化导师制学习环境。"
+      },
+      {
+        "id": "nbr28v",
+        "en": "Back to Fellowship Tracks",
+        "zh": "返回 Fellowship 方向"
+      },
+      {
+        "id": "dioc8d",
+        "en": "A supportive, structured environment for early scholars to build foundational research and analytical skills.",
+        "zh": "为早期学者构建基础科研与分析能力的结构化支持环境。"
+      },
+      {
+        "id": "i0g8fp",
+        "en": "01 &middot; Format",
+        "zh": "01 · 形式"
+      },
+      {
+        "id": "hf1d93",
+        "en": "Participation formats.",
+        "zh": "参与形式。"
+      },
+      {
+        "id": "dd9xim",
+        "en": "Summer Intensive",
+        "zh": "暑期密集"
+      },
+      {
+        "id": "9vy744",
+        "en": "8&ndash;12 weeks",
+        "zh": "8–12 周"
+      },
+      {
+        "id": "zfd05d",
+        "en": "20+ hours per week of committed engagement. Immersive, cohort-based, and closely supervised.",
+        "zh": "每周 20+ 小时的深度投入。沉浸式、同伴共学、密切督导。"
+      },
+      {
+        "id": "dvxlp",
+        "en": "Academic Term",
+        "zh": "学期制"
+      },
+      {
+        "id": "8079oo",
+        "en": "4&ndash;5 months",
+        "zh": "4–5 个月"
+      },
+      {
+        "id": "7ronr9",
+        "en": "10+ hours per week of structured engagement alongside coursework, with regular advising checkpoints.",
+        "zh": "每周 10+ 小时与课业并行的结构化投入，并有定期的导师复盘节点。"
+      },
+      {
+        "id": "cnhkbr",
+        "en": "Ready to Begin?",
+        "zh": "准备好开始了吗？"
+      },
+      {
+        "id": "k75ju7",
+        "en": "Applications are reviewed on a rolling basis. Make sure you have your academic transcripts and personal statement ready before you start.",
+        "zh": "申请采取滚动审核。开始前请备好学业成绩单与个人陈述。"
+      },
+      {
+        "id": "4zi9ay",
+        "en": "Access Application Form",
+        "zh": "进入申请表"
+      }
+    ]
+  }
+}

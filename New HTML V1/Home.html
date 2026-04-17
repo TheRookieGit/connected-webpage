@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | ConnectEd Research Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Refined Brand Palette based on LPI Aesthetic */
+        :root {
+            --lpi-navy: #002b49;
+            --lpi-blue: #005587;
+            --lpi-gold: #ffb81c;
+            --lpi-gray-light: #f7f9fa;
+            --lpi-gray-dark: #333333;
+            --lpi-border: #d1d7db;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--lpi-gray-dark);
+            background-color: var(--white);
+        }
+
+        /* Navigation - Clean & Corporate */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 5%;
+            border-bottom: 4px solid var(--lpi-navy);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--lpi-navy);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--lpi-navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--lpi-blue);
+        }
+
+        /* Hero Section - Direct & Impactful */
+        .hero {
+            position: relative;
+            padding: 120px 10%;
+            background: var(--lpi-navy);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=40&w=1920');
+            background-size: cover;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 850px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            line-height: 1.4;
+            opacity: 0.95;
+            border-left: 6px solid var(--lpi-gold);
+            padding-left: 25px;
+        }
+
+        /* Mission Section - Scientific & Clear */
+        .section-header {
+            text-align: left;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--lpi-border);
+            padding-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--lpi-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .mission-text p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        /* Programs Grid - Image Heavy Card Style */
+        .programs-section {
+            background-color: var(--lpi-gray-light);
+        }
+
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--lpi-border);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--lpi-blue);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card-content h3 {
+            color: var(--lpi-navy);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Feature Section (Fellowships) */
+        .fellowship-feature {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 100px 10%;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--lpi-navy);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: var(--lpi-blue);
+        }
+
+        /* Institutional Approach List */
+        .approach-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .approach-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--lpi-border);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--lpi-navy);
+            display: flex;
+            align-items: center;
+        }
+
+        .approach-list li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 15px;
+            color: var(--lpi-gold);
+        }
+
+        /* Footer - Substantial & Clean */
+        footer {
+            background: #f1f3f5;
+            color: var(--lpi-navy);
+            padding: 60px 10%;
+            border-top: 8px solid var(--lpi-navy);
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--lpi-navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .mission-grid, .fellowship-feature { flex-direction: column; grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.4rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-graduation-cap"></i>&nbsp;ConnectEd
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="programs.html">PROGRAMS</a></li>
+            <li><a href="get-involved.html">GET INVOLVED</a></li>
+            <li><a href="support.html">SUPPORT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expanding Access to Research and Academic Opportunity</h1>
+            <p>ConnectEd Research Institute connects talented students with meaningful research experiences and mentorship within academic environments.</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-header">
+            <h2>Our Mission</h2>
+        </div>
+        <div class="mission-grid">
+            <div class="mission-text">
+                <p>Access to academic resources and research opportunities remains limited for many students. Many capable students—particularly those from underrepresented, first-generation, and international backgrounds—face structural barriers to accessing research environments, faculty mentorship, and academic networks.</p>
+                <p>ConnectEd Research Institute works to expand access to research environments, mentorship, and academic pathways for students who are motivated to pursue graduate studies, academic careers and contribute to research-driven fields.</p>
+            </div>
+            <div style="background: var(--lpi-navy); padding: 30px; color: white;">
+                <h4 style="color: var(--lpi-gold); text-transform: uppercase; margin-bottom: 15px;">Impact Area</h4>
+                <p style="font-size: 0.95rem;">Empowering the next generation of scholars through evidence-based mentorship and institutional integration.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs-section">
+        <div class="section-header">
+            <h2>Programs & Initiatives</h2>
+        </div>
+        <div class="initiatives-grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="card-content">
+                    <span class="card-category">Fellowship</span>
+                    <h3>Research Fellowships</h3>
+                    <p>Structured, mentored research placements connecting early scholars with faculty-led research environments.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="card-content">
+                    <span class="card-category">Mentorship</span>
+                    <h3>Mentorship Programs</h3>
+                    <p>Connecting students with researchers to support academic development and research exploration.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="card-content">
+                    <span class="card-category">Education</span>
+                    <h3>Research Training & Courses</h3>
+                    <p>Workshops in research methods, academic writing, and advanced data analysis.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="card-content">
+                    <span class="card-category">Network</span>
+                    <h3>Scholarly Exchange & Networks</h3>
+                    <p>Initiatives that support knowledge exchange across academic communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fellowship-feature">
+        <div class="feature-text">
+            <div class="section-header">
+                <h2>ConnectEd Research Fellowships</h2>
+            </div>
+            <p style="font-size: 1.15rem; color: #444;">The program is designed to provide early scholars with meaningful exposure to research environments and structured academic engagement under the guidance of faculty advisors.</p>
+            <a href="programs.html" class="btn">Learn More</a>
+        </div>
+        <div style="flex: 1; border: 10px solid var(--lpi-gray-light);">
+            <img src="https://images.unsplash.com/photo-1523240715632-d984bc4a7956?auto=format&fit=crop&q=80&w=800" alt="Research Activity" style="width: 100%; display: block;">
+        </div>
+    </section>
+
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Institutional Approach</h2>
+            </div>
+            <ul class="approach-list">
+                <li>Application-based and selective</li>
+                <li>Structured with defined expectations</li>
+                <li>Aligned with academic research practices</li>
+                <li>Designed to support responsible engagement in research environments</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <a href="index.html" class="logo">ConnectEd Research Institute</a>
+            <div class="footer-links">
+                <a href="privacy.html">PRIVACY POLICY</a>
+                <a href="terms.html">TERMS OF USE</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 ConnectEd Research Institute. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

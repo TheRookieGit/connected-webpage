@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ConnectEd Research Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Refined Brand Palette based on LPI Aesthetic */
+        :root {
+            --lpi-navy: #002b49;
+            --lpi-blue: #005587;
+            --lpi-gold: #ffb81c;
+            --lpi-gray-light: #f7f9fa;
+            --lpi-gray-dark: #333333;
+            --lpi-border: #d1d7db;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--lpi-gray-dark);
+            background-color: var(--white);
+        }
+
+        /* Navigation - EXTRACTED FROM Programs.html */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 5%;
+            border-bottom: 4px solid var(--lpi-navy);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--lpi-navy);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--lpi-navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--lpi-blue);
+        }
+
+        /* Dropdown Styles - EXTRACTED FROM Programs.html */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 240px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            z-index: 1;
+            border: 1px solid var(--lpi-border);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--lpi-navy);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid var(--lpi-border);
+            font-size: 0.85rem;
+            text-transform: none;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--lpi-gray-light);
+            color: var(--lpi-blue);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Page Title Header */
+        .page-header {
+            background-color: var(--lpi-gray-light);
+            padding: 60px 10%;
+            border-bottom: 1px solid var(--lpi-border);
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: var(--lpi-navy);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Layouts */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--lpi-border);
+            padding-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--lpi-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .content-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layout for Who We Are */
+        .who-we-are-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .mission-text p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .sidebar-callout {
+            background: var(--lpi-navy);
+            padding: 30px;
+            color: white;
+            border-left: 6px solid var(--lpi-gold);
+        }
+
+        /* Beliefs List Styling */
+        .beliefs-section {
+            background-color: var(--lpi-gray-light);
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--lpi-border);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--lpi-navy);
+            display: flex;
+            align-items: center;
+        }
+
+        .about-list li::before {
+            content: "\f00c"; /* FontAwesome Check */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 15px;
+            color: var(--lpi-gold);
+        }
+
+        /* Integrity Section Styling */
+        .integrity-content {
+            background: var(--white);
+            border: 1px solid var(--lpi-border);
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #f1f3f5;
+            color: var(--lpi-navy);
+            padding: 60px 10%;
+            border-top: 8px solid var(--lpi-navy);
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--lpi-navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 992px) {
+            .who-we-are-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-graduation-cap"></i>&nbsp;ConnectEd
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li class="dropdown">
+                <a href="programs.html">PROGRAMS <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Research Fellowships</a>
+                    <a href="#">Mentorship Programs</a>
+                    <a href="#">Research Training & Courses</a>
+                    <a href="#">Scholarly Exchange & Networks</a>
+                </div>
+            </li>
+            <li><a href="get-involved.html">GET INVOLVED</a></li>
+            <li><a href="support.html">SUPPORT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>About</h1>
+    </header>
+
+    <section>
+        <div class="section-header">
+            <h2>Who We Are</h2>
+        </div>
+        <div class="who-we-are-grid">
+            <div class="mission-text">
+                <p>ConnectEd Research Institute is a nonprofit organization focused on expanding access to research mentorship and academic opportunity to talented and dedicated students who have limited access to academic resources and research opportunities.</p>
+                <p>The Institute develops programs that enable students to engage with research environments, build academic skills, and connect with faculty and research communities.</p>
+            </div>
+            <div class="sidebar-callout">
+                <h4 style="color: var(--lpi-gold); text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">Our Vision</h4>
+                <p style="font-size: 0.95rem; line-height: 1.6;">Empowering emerging scholars by lowering institutional barriers and fostering deep academic connections.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="beliefs-section">
+        <div class="content-wrap">
+            <div class="section-header">
+                <h2>What We Believe</h2>
+            </div>
+            <ul class="about-list">
+                <li>Early access to research experiences can shape academic trajectories</li>
+                <li>Mentorship plays a critical role in academic development</li>
+                <li>Exposure to real research environments builds confidence and capability</li>
+                <li>Institutions and faculty can play an important role in supporting emerging scholars</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="content-wrap">
+            <div class="section-header">
+                <h2>Commitment to Academic Integrity</h2>
+            </div>
+            <div class="integrity-content">
+                <p style="margin-bottom: 25px; font-size: 1.1rem; color: #444;">ConnectEd maintains internal policies to support professional standards and ethical academic engagement:</p>
+                <ul class="about-list" style="margin-top: 0;">
+                    <li style="border-bottom: none; padding: 10px 0;">Responsible program administration</li>
+                    <li style="border-bottom: none; padding: 10px 0;">Appropriate use of research support</li>
+                    <li style="border-bottom: none; padding: 10px 0;">Alignment with institutional policies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <a href="index.html" class="logo">ConnectEd Research Institute</a>
+            <div class="footer-links">
+                <a href="privacy.html">PRIVACY POLICY</a>
+                <a href="terms.html">TERMS OF USE</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 ConnectEd Research Institute. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
