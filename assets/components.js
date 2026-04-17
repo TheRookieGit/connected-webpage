@@ -44,7 +44,15 @@
             <ul class="nav-links">
                 ${itemsHtml}
             </ul>
-            <a href="fellowship-application.html" class="btn btn--gold nav-apply">Apply Now</a>
+            <div class="nav-apply-wrap">
+                <button class="btn btn--gold nav-apply" aria-haspopup="true" aria-expanded="false">
+                    Apply Now <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </button>
+                <div class="nav-apply-dropdown">
+                    <a href="fellowship-application.html">Fellowship Application</a>
+                    <a href="volunteer-interest.html">Volunteer Interest Form</a>
+                </div>
+            </div>
         </nav>`;
     }
 

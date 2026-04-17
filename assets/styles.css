@@ -2009,6 +2009,12 @@ textarea { min-height: 140px; resize: vertical; }
     position: relative;
 }
 
+.donation-portal select option,
+.contact-form-container select option {
+    background: #fff;
+    color: #000;
+}
+
 .donation-portal input::placeholder,
 .contact-form-container input::placeholder,
 .contact-form-container textarea::placeholder {
@@ -2676,11 +2682,66 @@ body::before {
 nav { z-index: 100; }
 footer { position: relative; z-index: 2; }
 
-.nav-apply {
+.nav-apply-wrap {
+    position: relative;
     flex-shrink: 0;
+}
+
+.nav-apply {
     font-size: var(--step--1);
     padding: 0.45em 1.1em;
     border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    cursor: pointer;
+    border: none;
+}
+
+.nav-apply::after { display: none; }
+
+.nav-apply-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid color-mix(in oklab, var(--lpi-navy) 15%, transparent);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px color-mix(in oklab, var(--lpi-navy) 14%, transparent);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+    z-index: 200;
+}
+
+.nav-apply-wrap:hover .nav-apply-dropdown,
+.nav-apply-wrap:focus-within .nav-apply-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-apply-dropdown a {
+    display: block;
+    padding: 0.75em 1.2em;
+    font-family: var(--font-sans);
+    font-size: var(--step--1);
+    color: var(--lpi-navy);
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.nav-apply-dropdown a:hover {
+    background: color-mix(in oklab, var(--lpi-navy) 88%, transparent);
+    color: #fff;
+    padding-left: 1.6em;
+}
+
+.nav-apply-dropdown a + a {
+    border-top: 1px solid color-mix(in oklab, var(--lpi-navy) 10%, transparent);
 }
 
 /* ============================================================
