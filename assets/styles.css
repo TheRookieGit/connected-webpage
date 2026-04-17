@@ -483,6 +483,12 @@ nav.is-scrolled {
     max-width: 16ch;
 }
 
+.page-header--image h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: color-mix(in oklab, var(--paper) 85%, var(--lpi-gold));
+}
+
 /* Image variant — documentary/editorial hero with navy wash */
 .page-header--image {
     background: var(--lpi-navy);
@@ -663,6 +669,7 @@ section > .content-wrap {
     line-height: 1;
     margin-bottom: var(--space-xl);
     font-weight: 300;
+    font-style: italic;
     color: var(--paper);
     letter-spacing: -0.025em;
     max-width: 18ch;
