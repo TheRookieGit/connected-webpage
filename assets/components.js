@@ -212,12 +212,43 @@
         });
     }
 
+    function wirePageEntry() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const header = document.querySelector('header');
+        if (!header) return;
+
+        let items = [];
+        if (header.classList.contains('hero')) {
+            const content = header.querySelector('.hero-content');
+            if (content) items = Array.from(content.children);
+        } else if (header.classList.contains('page-header')) {
+            items = Array.from(header.children);
+        } else {
+            const inner = header.querySelector('[class*="__inner"]');
+            if (inner) items = Array.from(inner.children);
+        }
+
+        if (!items.length) return;
+
+        items.forEach(el => el.classList.add('page-entry'));
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                items.forEach((el, i) => {
+                    setTimeout(() => el.classList.add('page-entry--run'), i * 200);
+                });
+            });
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         mount('#site-nav', renderNav());
         mount('#site-footer', renderFooter());
         wireHamburger();
         highlightActive();
         wireNavScroll();
+        wirePageEntry();
         autoDecorate();
         wireReveals();
         wireModals();
