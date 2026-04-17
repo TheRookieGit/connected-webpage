@@ -4,106 +4,676 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support | ConnectEd Research Institute</title>
-    <meta name="description" content="Support ConnectEd's mission with a one-time or monthly donation. Your contribution funds fellowship awards, mentorship infrastructure, and training resources.">
+    <meta name="description" content="Support ConnectEd's mission with a one-time or monthly pledge. Your contribution funds fellowship awards, mentorship infrastructure, and training resources.">
     <meta property="og:title" content="Support | ConnectEd Research Institute">
-    <meta property="og:description" content="Donate to fund fellowships, mentorship, and research training for emerging scholars.">
+    <meta property="og:description" content="Pledge support for fellowships, mentorship, and research training for emerging scholars.">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body[data-page="support"] {
+            --pledge-red:      oklch(46% 0.165 28);
+            --pledge-red-deep: oklch(36% 0.155 28);
+            --pledge-red-edge: oklch(58% 0.16  28);
+            --pledge-cream:    oklch(96% 0.018 75);
+            background:
+                linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+                url("https://images.unsplash.com/photo-1579208575657-c595a05383b7?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+                center -150px / cover fixed no-repeat;
+        }
+
+        .pledge-hero {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            padding: clamp(40px,6vw,72px) var(--edge-x) clamp(40px,6vw,64px);
+            background: transparent;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .pledge-hero__inner {
+            max-width: var(--max-content);
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto auto auto;
+            gap: clamp(20px,3vw,36px);
+        }
+
+        .pledge-hero__meta {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.88rem;
+            color: var(--ink-muted);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .pledge-hero__sep { opacity: 0.5; }
+
+        .pledge-hero__main {
+            display: grid;
+            grid-template-columns: minmax(0,1.45fr) minmax(0,1fr);
+            gap: clamp(32px,6vw,80px);
+            align-items: center;
+        }
+
+        .pledge-hero__main h1 {
+            font-size: clamp(2.2rem,1.2rem + 4.2vw,4.4rem);
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            font-weight: 400;
+            text-wrap: balance;
+        }
+
+        .pledge-hero__h1-line { display: block; }
+
+        .pledge-hero__h1-line--italic {
+            font-style: italic;
+            color: var(--lpi-blue);
+            padding-left: clamp(12px,3vw,48px);
+        }
+
+        .pledge-hero__lede {
+            font-size: var(--step-0);
+            line-height: 1.55;
+            color: var(--ink-soft);
+            max-width: 42ch;
+        }
+
+        .pledge-hero__ledger {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            border-top: 1px solid var(--lpi-navy);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .pledge-hero__ledger li {
+            padding: clamp(14px,2vw,22px) clamp(12px,2vw,24px);
+            display: flex;
+            align-items: baseline;
+            gap: clamp(10px,1.5vw,18px);
+            border-right: 1px solid var(--hairline);
+        }
+
+        .pledge-hero__ledger li:last-child { border-right: none; }
+
+        .pledge-hero__ledger-amt {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(1.6rem,1rem + 1.6vw,2.4rem);
+            letter-spacing: -0.02em;
+            color: var(--lpi-navy);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .pledge-hero__ledger-cap {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            line-height: 1.3;
+        }
+
+        .pledge-hero__cta {
+            justify-self: start;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: clamp(14px,1.6vw,18px) clamp(24px,3vw,36px);
+            background: var(--pledge-red);
+            color: var(--pledge-cream);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: clamp(1rem,0.9rem + 0.4vw,1.2rem);
+            font-weight: 500;
+            letter-spacing: -0.005em;
+            transition: background 0.2s ease, gap 0.2s ease, transform 0.2s ease;
+        }
+
+        .pledge-hero__cta:hover {
+            background: var(--pledge-red-deep);
+            gap: calc(var(--space-md) + 6px);
+            transform: translateY(-1px);
+        }
+
+        .pledge-hero__cta i { font-size: 0.85em; color: var(--lpi-gold); }
+
+        /* Pledge modal */
+        .pledge-modal {
+            background: color-mix(in oklab, var(--ink) 45%, transparent);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .pledge-modal__content {
+            background: var(--pledge-cream);
+            color: var(--pledge-red-deep);
+            border-top: none;
+            border-radius: 16px;
+            max-width: 460px;
+            width: calc(100% - 32px);
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            padding: clamp(28px,3.4vw,40px) clamp(22px,3vw,36px);
+            text-align: left;
+            position: relative;
+            font-family: var(--font-sans);
+        }
+
+        .pledge-modal__content::before {
+            content: "";
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid color-mix(in oklab, var(--pledge-red) 18%, transparent);
+            border-radius: 10px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .pledge-modal__close {
+            color: color-mix(in oklab, var(--pledge-red) 55%, transparent);
+            top: 12px; right: 14px;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .pledge-modal__close:hover { color: var(--pledge-red-deep); transform: rotate(90deg); }
+
+        .pledge__inner { width: 100%; margin: 0 auto; position: relative; z-index: 1; }
+
+        .pledge__head { text-align: center; margin-bottom: var(--space-lg); }
+
+        .pledge__eyebrow {
+            display: inline-block;
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--pledge-red);
+            margin-bottom: var(--space-sm);
+            padding-bottom: 4px;
+            border-bottom: 1px solid color-mix(in oklab, var(--pledge-red) 45%, transparent);
+        }
+
+        .pledge__head h2 {
+            font-family: var(--font-sans);
+            color: var(--pledge-red-deep);
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            margin: 0;
+        }
+
+        .pledge__form { display: flex; flex-direction: column; gap: var(--space-md); }
+
+        .pledge__freq {
+            display: inline-flex;
+            align-self: center;
+            align-items: baseline;
+            gap: var(--space-sm);
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .pledge__freq-opt {
+            cursor: pointer;
+            color: color-mix(in oklab, var(--pledge-red-deep) 40%, transparent);
+            padding-bottom: 3px;
+            border-bottom: 1.5px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .pledge__freq-opt input { position: absolute; opacity: 0; pointer-events: none; }
+
+        .pledge__freq-opt.is-active {
+            color: var(--pledge-red-deep);
+            border-bottom-color: var(--pledge-red);
+        }
+
+        .pledge__freq-sep { color: color-mix(in oklab, var(--pledge-red-deep) 30%, transparent); }
+
+        .pledge__amounts {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 6px;
+        }
+
+        .pledge__amt-opt {
+            position: relative;
+            padding: 10px 8px;
+            text-align: center;
+            cursor: pointer;
+            background: transparent;
+            color: var(--pledge-red-deep);
+            border: 1px solid color-mix(in oklab, var(--pledge-red) 22%, transparent);
+            border-radius: 8px;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+
+        .pledge__amt-opt--custom { grid-column: 1 / -1; }
+
+        .pledge__amt-opt input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+
+        .pledge__amt-opt:hover { border-color: var(--pledge-red); }
+
+        .pledge__amt-opt.is-active {
+            background: var(--pledge-red);
+            color: var(--pledge-cream);
+            border-color: var(--pledge-red);
+        }
+
+        .pledge__amt-fig {
+            display: inline-flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 3px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1;
+            color: inherit;
+        }
+
+        .pledge__amt-opt--custom .pledge__amt-fig { width: 100%; }
+
+        .pledge__amt-opt--custom input[type="number"] {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid color-mix(in oklab, var(--pledge-red) 30%, transparent);
+            color: inherit;
+            font: inherit;
+            text-align: left;
+            width: 100%;
+            min-width: 0;
+            padding: 0 0 2px;
+            -moz-appearance: textfield;
+        }
+
+        .pledge__amt-opt--custom input[type="number"]::placeholder {
+            color: color-mix(in oklab, var(--pledge-red-deep) 40%, transparent);
+            font-style: italic;
+        }
+
+        .pledge__amt-opt--custom.is-active input[type="number"]::placeholder {
+            color: color-mix(in oklab, var(--pledge-cream) 65%, transparent);
+        }
+
+        .pledge__amt-opt--custom input[type="number"]::-webkit-outer-spin-button,
+        .pledge__amt-opt--custom input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+        .pledge__amt-opt--custom input[type="number"]:focus {
+            outline: none;
+            border-bottom-color: var(--pledge-red);
+        }
+
+        .pledge__amt-opt--custom.is-active input[type="number"] {
+            border-bottom-color: color-mix(in oklab, var(--pledge-cream) 60%, transparent);
+        }
+
+        .pledge__submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            width: 100%;
+            padding: 12px 18px;
+            background: var(--lpi-gold);
+            color: var(--pledge-red-deep);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background 0.15s, transform 0.15s, opacity 0.15s;
+        }
+
+        .pledge__submit:hover {
+            background: color-mix(in oklab, var(--lpi-gold) 80%, var(--pledge-red-deep));
+            transform: translateY(-1px);
+        }
+
+        .pledge__submit.is-loading,
+        .pledge__submit:disabled { opacity: 0.6; cursor: progress; transform: none; }
+
+        .pledge__submit-arrow { font-weight: 400; font-size: 1.15em; transition: transform 0.15s; }
+
+        .pledge__submit:hover .pledge__submit-arrow { transform: translateX(3px); }
+
+        .pledge__submit-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            font-size: 0.66rem;
+            color: color-mix(in oklab, var(--pledge-red-deep) 55%, transparent);
+            width: 100%;
+        }
+
+        .pledge__status { font-size: 0.88rem; min-height: 1.4em; text-align: center; color: var(--pledge-red); }
+
+        .pledge__status.is-error { color: var(--pledge-red-deep); font-weight: 600; }
+
+        .pledge-hero__thankyou {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 2rem + 6vw, 7rem);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: var(--lpi-navy);
+            opacity: 0.75;
+        }
+
+        .donation-goes {
+            padding: clamp(48px,7vw,96px) var(--edge-x);
+            background: var(--paper);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .donation-goes__inner {
+            max-width: var(--max-content);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0,1fr) minmax(0,1.6fr);
+            gap: clamp(32px,6vw,80px);
+            align-items: start;
+        }
+
+        .donation-goes__label {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: clamp(1.6rem,1rem + 2vw,2.4rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            color: var(--lpi-navy);
+            line-height: 1.15;
+        }
+
+        .donation-goes__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .donation-goes__item {
+            display: flex;
+            align-items: baseline;
+            gap: clamp(14px,2vw,24px);
+            padding: clamp(16px,2vw,24px) 0;
+            border-bottom: 1px solid var(--hairline);
+            font-size: var(--step-0);
+            color: var(--ink-soft);
+            line-height: 1.45;
+        }
+
+        .donation-goes__item:first-child { border-top: 1px solid var(--hairline); }
+
+        .donation-goes__num {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 0.8rem;
+            color: var(--ink-muted);
+            flex-shrink: 0;
+            width: 1.4em;
+            text-align: right;
+        }
+
+        @media (max-width: 700px) {
+            .donation-goes__inner { grid-template-columns: 1fr; }
+            .pledge-hero__main { grid-template-columns: 1fr; }
+            .pledge-hero__ledger { grid-template-columns: 1fr; }
+            .pledge-hero__ledger li { border-right: none; border-bottom: 1px solid var(--hairline); }
+            .pledge-hero__ledger li:last-child { border-bottom: none; }
+        }
+    </style>
 </head>
 <body data-page="support">
 
     <div id="site-nav"></div>
 
-    <header class="page-header page-header--image" style="--ph-image: url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1800');">
-        <span class="eyebrow">Support Fellowship Access and Research Opportunities</span>
-        <h1>Support <em>Our Work</em></h1>
+    <header class="pledge-hero">
+        <div class="pledge-hero__inner">
+
+            <div class="pledge-hero__meta">
+                <span>Support</span>
+            </div>
+
+            <div class="pledge-hero__main">
+                <h1>
+                    <span class="pledge-hero__h1-line">Support</span>
+                    <span class="pledge-hero__h1-line pledge-hero__h1-line--italic">Our Work.</span>
+                </h1>
+                <p class="pledge-hero__lede">Your support helps expand access to research mentorship and fellowship funding for emerging scholars committed to educational equity.</p>
+            </div>
+
+            <ol class="pledge-hero__ledger">
+                <li>
+                    <span class="pledge-hero__ledger-amt">$25</span>
+                    <span class="pledge-hero__ledger-cap">Research Fellowship awards and scholar support</span>
+                </li>
+                <li>
+                    <span class="pledge-hero__ledger-amt">$100</span>
+                    <span class="pledge-hero__ledger-cap">Mentorship infrastructure and program coordination</span>
+                </li>
+                <li>
+                    <span class="pledge-hero__ledger-amt">$250</span>
+                    <span class="pledge-hero__ledger-cap">Research training resources and pilot learning initiatives</span>
+                </li>
+            </ol>
+
+            <a href="#" class="pledge-hero__cta" data-modal="pledge-modal">
+                Pledge Now
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
+        </div>
     </header>
 
-    <section id="impact">
-        <div class="container">
-            <div class="support-grid">
 
-                <div class="support-text">
-                    <div class="section-header">
-                        <span class="section-number">01 &middot; Impact</span>
-                        <h2>Your support expands access.</h2>
-                    </div>
+    <!-- ── Where Your Donation Goes ── -->
+    <section class="donation-goes">
+        <div class="donation-goes__inner">
+            <h2 class="donation-goes__label">Where Your<br>Donation Goes</h2>
+            <ul class="donation-goes__list">
+                <li class="donation-goes__item">
+                    <span class="donation-goes__num">01</span>
+                    <span>Research Fellowship awards and scholar support</span>
+                </li>
+                <li class="donation-goes__item">
+                    <span class="donation-goes__num">02</span>
+                    <span>Mentorship infrastructure and program coordination</span>
+                </li>
+                <li class="donation-goes__item">
+                    <span class="donation-goes__num">03</span>
+                    <span>Research training resources and pilot learning initiatives</span>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-                    <figure class="feature-image" style="aspect-ratio: 4 / 3; margin-bottom: var(--space-lg);">
-                        <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" alt="A scholar at work in a university research setting">
-                    </figure>
+    <!-- ── Pledge modal ── -->
+    <div id="pledge-modal" class="modal pledge-modal" role="dialog" aria-modal="true" aria-labelledby="pledge-modal-title">
+        <div class="modal-content pledge-modal__content">
+            <button type="button" class="modal-close pledge-modal__close" aria-label="Close">&times;</button>
+            <div class="pledge__inner">
 
-                    <p>Your support helps expand access to research mentorship and fellowship funding for emerging scholars committed to educational equity.</p>
-
-                    <div class="section-header" style="margin-top: var(--space-2xl);">
-                        <span class="section-number">02 &middot; Allocation</span>
-                        <h2>Where your donation goes.</h2>
-                    </div>
-                    <ul class="check-list">
-                        <li>Research Fellowship awards and scholar support.</li>
-                        <li>Mentorship infrastructure and program coordination.</li>
-                        <li>Research training resources and pilot learning initiatives.</li>
-                    </ul>
+                <div class="pledge__head">
+                    <span class="pledge__eyebrow">Secure Donation Portal</span>
+                    <h2 id="pledge-modal-title">Choose a contribution.</h2>
                 </div>
 
-                <aside class="donation-portal">
-                    <h3>Secure Donation Portal</h3>
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <input type="hidden" name="_subject" value="New ConnectEd Donation Intent">
-                        <div class="form-group">
-                            <label for="amount">Choose Donation Amount</label>
-                            <select name="Donation_Amount" id="amount" required>
-                                <option value="" disabled selected>Select an amount</option>
-                                <option value="$25">$25</option>
-                                <option value="$50">$50</option>
-                                <option value="$100">$100</option>
-                                <option value="$250">$250</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
+                <form class="pledge__form" id="pledge-form" novalidate>
 
-                        <div class="form-group" id="other-amount-div" style="display:none;">
-                            <label for="other_val">Enter Custom Amount ($)</label>
-                            <input type="number" name="Custom_Amount" id="other_val" placeholder="e.g., 500">
-                        </div>
-
-                        <label class="monthly-checkbox">
-                            <input type="checkbox" name="Monthly_Donation" value="Yes"> <span>Make this a monthly donation</span>
+                    <div class="pledge__freq" role="radiogroup" aria-label="Pledge frequency">
+                        <label class="pledge__freq-opt is-active">
+                            <input type="radio" name="frequency" value="once" checked>
+                            <span>Once</span>
                         </label>
-
-                        <button type="submit" class="btn-submit btn-gold">Complete Donation</button>
-                    </form>
-                    <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.85;">Note: submitting this form notifies our team. Secure card processing will be connected soon.</p>
-                    <div style="margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.2);">
-                        <p style="font-size: 0.85rem; opacity: 0.9; margin-bottom: var(--space-xs);">You will receive a donation receipt by email.</p>
-                        <p style="font-size: 0.85rem; opacity: 0.9;">Please contact us for institutional giving or sponsorship inquiries.</p>
+                        <span class="pledge__freq-sep" aria-hidden="true">/</span>
+                        <label class="pledge__freq-opt">
+                            <input type="radio" name="frequency" value="monthly">
+                            <span>Monthly</span>
+                        </label>
                     </div>
-                </aside>
+
+                    <div class="pledge__amounts" role="radiogroup" aria-label="Pledge amount">
+                        <label class="pledge__amt-opt">
+                            <input type="radio" name="amount" value="25">
+                            <span class="pledge__amt-fig">$25</span>
+                        </label>
+                        <label class="pledge__amt-opt is-active">
+                            <input type="radio" name="amount" value="50" checked>
+                            <span class="pledge__amt-fig">$50</span>
+                        </label>
+                        <label class="pledge__amt-opt">
+                            <input type="radio" name="amount" value="100">
+                            <span class="pledge__amt-fig">$100</span>
+                        </label>
+                        <label class="pledge__amt-opt">
+                            <input type="radio" name="amount" value="150">
+                            <span class="pledge__amt-fig">$150</span>
+                        </label>
+                        <label class="pledge__amt-opt">
+                            <input type="radio" name="amount" value="250">
+                            <span class="pledge__amt-fig">$250</span>
+                        </label>
+                        <label class="pledge__amt-opt">
+                            <input type="radio" name="amount" value="500">
+                            <span class="pledge__amt-fig">$500</span>
+                        </label>
+                        <label class="pledge__amt-opt pledge__amt-opt--custom">
+                            <input type="radio" name="amount" value="custom">
+                            <span class="pledge__amt-fig">$&nbsp;<input
+                                type="number"
+                                name="custom_amount"
+                                id="custom_amount"
+                                min="1" step="1"
+                                inputmode="numeric"
+                                placeholder="Custom amount"
+                                aria-label="Custom amount"></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="pledge__submit">
+                        <span class="pledge__submit-label">Continue to secure checkout</span>
+                        <span class="pledge__submit-arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <p class="pledge__submit-note">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        Tax-deductible &middot; Donation receipt sent by email &middot; Cancel anytime
+                    </p>
+
+                    <div class="pledge__status" id="pledge-status" role="status" aria-live="polite"></div>
+                </form>
 
             </div>
         </div>
-    </section>
+    </div>
 
     <div id="site-footer"></div>
 
     <script src="assets/components.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const amount = document.getElementById('amount');
-            const otherDiv = document.getElementById('other-amount-div');
-            const otherInput = document.getElementById('other_val');
+    window.STRIPE_CHECKOUT_ENDPOINT = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sidebar donation form
+        const amount = document.getElementById('amount');
+        const otherDiv = document.getElementById('other-amount-div');
+        const otherInput = document.getElementById('other_val');
+        if (amount) {
             amount.addEventListener('change', () => {
-                if (amount.value === 'Other') {
-                    otherDiv.style.display = 'block';
-                    otherInput.setAttribute('required', 'required');
-                } else {
-                    otherDiv.style.display = 'none';
-                    otherInput.removeAttribute('required');
-                }
+                const show = amount.value === 'Other';
+                otherDiv.style.display = show ? 'block' : 'none';
+                show ? otherInput.setAttribute('required','required') : otherInput.removeAttribute('required');
+            });
+        }
+
+        // Pledge modal form
+        const form = document.getElementById('pledge-form');
+        if (!form) return;
+
+        const status   = document.getElementById('pledge-status');
+        const customIn = document.getElementById('custom_amount');
+
+        const freqOpts = form.querySelectorAll('.pledge__freq-opt');
+        freqOpts.forEach(opt => {
+            opt.addEventListener('click', () => {
+                freqOpts.forEach(o => o.classList.remove('is-active'));
+                opt.classList.add('is-active');
             });
         });
+
+        const amtOpts = form.querySelectorAll('.pledge__amt-opt');
+        const setActive = (t) => { amtOpts.forEach(o => o.classList.remove('is-active')); t.classList.add('is-active'); };
+        amtOpts.forEach(opt => {
+            const radio = opt.querySelector('input[type="radio"]');
+            opt.addEventListener('click', (e) => {
+                if (e.target === customIn) return;
+                radio.checked = true;
+                setActive(opt);
+                if (radio.value !== 'custom') customIn.value = '';
+            });
+        });
+        customIn.addEventListener('focus', () => {
+            const customOpt = customIn.closest('.pledge__amt-opt');
+            customOpt.querySelector('input[type="radio"]').checked = true;
+            setActive(customOpt);
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            status.textContent = '';
+            status.classList.remove('is-error');
+
+            const data = new FormData(form);
+            let amt = data.get('amount');
+            if (amt === 'custom') amt = (data.get('custom_amount') || '').trim();
+            const numeric = Number(amt);
+
+            if (!numeric || numeric < 1) {
+                status.textContent = 'Please enter a valid pledge amount.';
+                status.classList.add('is-error');
+                return;
+            }
+
+            const payload = { amount: Math.round(numeric * 100), frequency: data.get('frequency') };
+            const endpoint = window.STRIPE_CHECKOUT_ENDPOINT;
+
+            if (!endpoint) {
+                status.textContent = `Pledge prepared: $${numeric} (${payload.frequency}). Stripe checkout will open here once connected.`;
+                return;
+            }
+
+            try {
+                const btn = form.querySelector('.pledge__submit');
+                btn.disabled = true; btn.classList.add('is-loading');
+                const res = await fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+                if (!res.ok) throw new Error('checkout_failed');
+                const { url } = await res.json();
+                window.location.href = url;
+            } catch {
+                status.textContent = 'Something went wrong. Please try again or email donate@connect-edu.org.';
+                status.classList.add('is-error');
+                const btn = form.querySelector('.pledge__submit');
+                btn.disabled = false; btn.classList.remove('is-loading');
+            }
+        });
+    });
     </script>
 </body>
 </html>
