@@ -3,22 +3,13 @@
 
 (function () {
     const navItems = [
-        { href: 'index.html',     label: 'Home',         key: 'home' },
-        { href: 'about.html',     label: 'About',        key: 'about' },
-        {
-            type: 'dropdown', key: 'programs',
-            label: 'Programs',
-            children: [
-                { href: 'fellowships.html',       label: 'Research Fellowships' },
-                { href: 'fellowship-tracks.html', label: 'Fellowship Tracks' },
-                { href: 'mentorship.html',        label: 'Mentorship Programs' },
-                { href: 'training.html',          label: 'Research Training & Courses' },
-                { href: 'networks.html',          label: 'Scholarly Exchange & Networks' }
-            ]
-        },
-        { href: 'get-involved.html', label: 'Get Involved', key: 'get-involved' },
-        { href: 'support.html',      label: 'Support',      key: 'support' },
-        { href: 'contact.html',      label: 'Contact',      key: 'contact' }
+        { href: 'index.html',        label: 'Home',                    key: 'home' },
+        { href: 'about.html',        label: 'About',                   key: 'about' },
+        { href: 'fellowships.html',  label: 'Fellowship',              key: 'fellowship' },
+        { href: 'programs.html',     label: 'Programs & Initiatives',  key: 'programs' },
+        { href: 'get-involved.html', label: 'Collaborate & Volunteer', key: 'get-involved' },
+        { href: 'support.html',      label: 'Support',                 key: 'support' },
+        { href: 'contact.html',      label: 'Contact',                 key: 'contact' }
     ];
 
     function renderNav() {

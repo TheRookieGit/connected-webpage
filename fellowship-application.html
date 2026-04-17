@@ -6,82 +6,253 @@
     <title>Fellowship Application | ConnectEd Research Institute</title>
     <meta name="description" content="Apply to ConnectEd Research Institute fellowships. Complete the application form with your academic profile and program selection.">
     <meta property="og:title" content="Fellowship Application | ConnectEd">
-    <meta property="og:description" content="Begin your fellowship application to join a mentored research cohort.">
+    <meta property="og:description" content="Begin your fellowship application to join a mentored research experience.">
     <meta property="og:type" content="website">
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body data-page="programs">
+<body data-page="fellowship">
 
     <div id="site-nav"></div>
 
-    <header class="page-header page-header--image" style="--ph-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&amp;fit=crop&amp;q=80&amp;w=1800');">
+    <header class="page-header page-header--image" style="--ph-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=1800');">
         <span class="eyebrow">Apply</span>
-        <h1>Fellowship application.</h1>
-        <p>Rolling review. Please have your academic transcripts and personal statement ready before beginning.</p>
+        <h1>Fellowship Application</h1>
+        <p>Please have your academic transcripts and personal statement ready before beginning.</p>
     </header>
 
     <section>
         <div class="container">
-        <a href="young-scholars.html" class="back-link">Back to Fellowship</a>
+        <a href="fellowships.html" class="back-link">Back to Fellowship</a>
         <div class="form-container">
-            <form id="fellowshipForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form id="fellowshipForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_subject" value="New Fellowship Application">
 
-                <div class="section-header"><h2>Applicant Profile</h2></div>
+                <!-- Section 1: Applicant Information -->
+                <div class="section-header" style="margin-top: 0;"><h2>Section 1 &mdash; Applicant Information</h2></div>
                 <div class="form-group">
-                    <label for="app-name">Full Name</label>
+                    <label for="app-name">Full Name <span style="color:red;">*</span></label>
                     <input type="text" id="app-name" name="Full_Name" required>
                 </div>
                 <div class="form-group">
-                    <label for="app-dob">Date of Birth</label>
+                    <label for="app-preferred-name">Preferred Name <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <input type="text" id="app-preferred-name" name="Preferred_Name">
+                </div>
+                <div class="form-group">
+                    <label for="app-dob">Date of Birth <span style="color:red;">*</span></label>
                     <input type="date" id="app-dob" name="Date_of_Birth" required>
                 </div>
                 <div class="form-group">
-                    <label for="app-nat">Nationality</label>
+                    <label for="app-gender">Gender <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <input type="text" id="app-gender" name="Gender" placeholder="Optional">
+                </div>
+                <div class="form-group">
+                    <label for="app-nat">Nationality <span style="color:red;">*</span></label>
                     <input type="text" id="app-nat" name="Nationality" required>
                 </div>
-
-                <div class="section-header" style="margin-top: 40px;"><h2>Academic Record</h2></div>
                 <div class="form-group">
-                    <label for="app-inst">Current Institution</label>
+                    <label for="app-country">Current Country of Residence <span style="color:red;">*</span></label>
+                    <input type="text" id="app-country" name="Country_of_Residence" required>
+                </div>
+
+                <!-- Section 2: Academic Background -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 2 &mdash; Academic Background</h2></div>
+                <div class="form-group">
+                    <label for="app-inst">Current School / Institution <span style="color:red;">*</span></label>
                     <input type="text" id="app-inst" name="Institution" required>
                 </div>
                 <div class="form-group">
-                    <label for="app-gpa-scale">GPA Scale</label>
-                    <select id="app-gpa-scale" name="GPA_Scale">
-                        <option>4.0</option>
-                        <option>100</option>
+                    <label for="app-grade">Grade / Year <span style="color:red;">*</span></label>
+                    <select id="app-grade" name="Grade_Year" required>
+                        <option value="" disabled selected>Select your grade or year</option>
+                        <optgroup label="High School">
+                            <option value="High School Grade 9">High School &mdash; Grade 9</option>
+                            <option value="High School Grade 10">High School &mdash; Grade 10</option>
+                            <option value="High School Grade 11">High School &mdash; Grade 11</option>
+                            <option value="High School Grade 12">High School &mdash; Grade 12</option>
+                        </optgroup>
+                        <optgroup label="Undergraduate">
+                            <option value="Undergraduate Year 1">Undergraduate &mdash; Year 1</option>
+                            <option value="Undergraduate Year 2">Undergraduate &mdash; Year 2</option>
+                            <option value="Undergraduate Year 3">Undergraduate &mdash; Year 3</option>
+                            <option value="Undergraduate Year 4">Undergraduate &mdash; Year 4</option>
+                        </optgroup>
                     </select>
                 </div>
-
-                <div class="section-header" style="margin-top: 40px;"><h2>Fellowship Choice</h2></div>
                 <div class="form-group">
-                    <label for="app-program">Program Selection</label>
-                    <select id="app-program" name="Program_Selection">
-                        <option>ConnectEd Young Scholars Fellowship</option>
-                        <option>ConnectEd STEM Research Fellowship</option>
+                    <label for="app-major">Intended Major / Academic Interest <span style="color:red;">*</span></label>
+                    <input type="text" id="app-major" name="Intended_Major" required>
+                </div>
+                <div class="form-group">
+                    <label for="app-gpa">Current GPA (or equivalent) <span style="color:red;">*</span></label>
+                    <input type="text" id="app-gpa" name="GPA" placeholder="e.g., 3.8" required>
+                </div>
+                <div class="form-group">
+                    <label for="app-gpa-scale">GPA Scale <span style="color:red;">*</span></label>
+                    <select id="app-gpa-scale" name="GPA_Scale" required>
+                        <option value="" disabled selected>Select scale</option>
+                        <option value="4.0">4.0</option>
+                        <option value="100">100</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
-                <div style="margin-top: 40px; padding: 20px; background: var(--lpi-gray-light);">
+                <!-- Section 3: Language & Test Scores -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 3 &mdash; Language &amp; Test Scores</h2></div>
+                <div class="form-group">
+                    <label for="app-eng-test">English Proficiency Test <span style="color: var(--ink-muted); font-weight:400;">(if applicable)</span></label>
+                    <select id="app-eng-test" name="English_Test">
+                        <option value="N/A">N/A</option>
+                        <option value="TOEFL">TOEFL</option>
+                        <option value="IELTS">IELTS</option>
+                        <option value="Duolingo">Duolingo</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="app-eng-score">Score <span style="color: var(--ink-muted); font-weight:400;">(if applicable)</span></label>
+                    <input type="text" id="app-eng-score" name="English_Test_Score" placeholder="e.g., 105">
+                </div>
+                <div class="form-group">
+                    <label for="app-eng-date">Test Date <span style="color: var(--ink-muted); font-weight:400;">(if applicable)</span></label>
+                    <input type="date" id="app-eng-date" name="English_Test_Date">
+                </div>
+                <div class="form-group">
+                    <label for="app-other-tests">Other Standardized Tests <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <input type="text" id="app-other-tests" name="Other_Test_Scores" placeholder="e.g., SAT 1480, AP Calculus BC 5, IB HL Chemistry 7">
+                </div>
+
+                <!-- Section 4: Fellowship Selection -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 4 &mdash; Fellowship Selection</h2></div>
+                <div class="form-group">
+                    <label for="app-fellowship-type">Fellowship Type <span style="color:red;">*</span></label>
+                    <select id="app-fellowship-type" name="Fellowship_Type" required>
+                        <option value="" disabled selected>Select fellowship type</option>
+                        <option value="ConnectEd Young Scholars Fellowship">ConnectEd Young Scholars Fellowship</option>
+                        <option value="ConnectEd STEM Research Fellowship">ConnectEd STEM Research Fellowship</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="app-format">Preferred Participation Format <span style="color:red;">*</span></label>
+                    <select id="app-format" name="Participation_Format" required>
+                        <option value="" disabled selected>Select format</option>
+                        <option value="Summer Intensive Research Format">Summer Intensive Research Format (8&ndash;12 weeks, ~20 hrs/week)</option>
+                        <option value="Academic Term Research Format">Academic Term Research Format (4&ndash;5 months, ~10 hrs/week)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Format Type <span style="color: var(--ink-muted); font-weight:400;">(select all that apply)</span></label>
+                    <div style="display:flex; flex-direction:column; gap: var(--space-xs); margin-top: var(--space-xs);">
+                        <label style="display:flex; align-items:center; gap: var(--space-sm); text-transform:none; font-weight:400; letter-spacing:0;">
+                            <input type="checkbox" name="Format_Type" value="Remote"> Remote
+                        </label>
+                        <label style="display:flex; align-items:center; gap: var(--space-sm); text-transform:none; font-weight:400; letter-spacing:0;">
+                            <input type="checkbox" name="Format_Type" value="In-person"> In-person
+                        </label>
+                        <label style="display:flex; align-items:center; gap: var(--space-sm); text-transform:none; font-weight:400; letter-spacing:0;">
+                            <input type="checkbox" name="Format_Type" value="Open to both"> Open to both
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Section 5: Research Interests -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 5 &mdash; Research Interests</h2></div>
+                <div class="form-group">
+                    <label for="app-research-area">Primary Area of Interest <span style="color:red;">*</span></label>
+                    <input type="text" id="app-research-area" name="Research_Area" placeholder="e.g., Economics, Computer Science, Biology, Psychology" required>
+                </div>
+                <div class="form-group">
+                    <label for="app-research-specific">Specific Research Interests <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <textarea id="app-research-specific" name="Specific_Research_Interests" rows="5" placeholder="What topics are you interested in? Any specific problems or questions you want to explore?"></textarea>
+                </div>
+
+                <!-- Section 6: Academic Motivation -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 6 &mdash; Academic Motivation</h2></div>
+                <div class="form-group">
+                    <label for="app-statement">Personal Statement <span style="color:red;">*</span></label>
+                    <p style="font-size: var(--step--1); color: var(--ink-soft); margin-bottom: var(--space-sm); text-transform:none; letter-spacing:0; font-weight:400;">Please briefly describe: your academic interests, why you are interested in research, and how this fellowship fits into your academic goals. (Suggested: 300&ndash;500 words)</p>
+                    <textarea id="app-statement" name="Personal_Statement" rows="12" required></textarea>
+                </div>
+
+                <!-- Section 7: Required Documents -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 7 &mdash; Required Documents</h2></div>
+                <p style="font-size: var(--step-0); color: var(--ink-soft); margin-bottom: var(--space-lg); text-transform:none; letter-spacing:0; font-weight:400;">Please upload the following documents in PDF format where possible.</p>
+
+                <div class="form-group">
+                    <label for="doc-cv">CV / Resume <span style="color:red;">*</span></label>
+                    <input type="file" id="doc-cv" name="CV_Resume" accept=".pdf,.doc,.docx" required>
+                </div>
+                <div class="form-group">
+                    <label for="doc-transcript">Academic Transcript <span style="color:red;">*</span></label>
+                    <input type="file" id="doc-transcript" name="Academic_Transcript" accept=".pdf,.jpg,.png" required>
+                </div>
+                <div class="form-group">
+                    <label for="doc-eng-report">English Test Score Report <span style="color: var(--ink-muted); font-weight:400;">(if applicable)</span></label>
+                    <input type="file" id="doc-eng-report" name="English_Test_Report" accept=".pdf,.jpg,.png">
+                </div>
+                <div class="form-group">
+                    <label for="doc-std-scores">Standardized Test Scores <span style="color: var(--ink-muted); font-weight:400;">(if applicable)</span></label>
+                    <input type="file" id="doc-std-scores" name="Standardized_Test_Scores" accept=".pdf,.jpg,.png">
+                </div>
+                <div class="form-group">
+                    <label for="doc-writing">Writing Sample <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <input type="file" id="doc-writing" name="Writing_Sample" accept=".pdf,.doc,.docx">
+                </div>
+                <div class="form-group">
+                    <label for="doc-proposal">Research Proposal <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <input type="file" id="doc-proposal" name="Research_Proposal" accept=".pdf,.doc,.docx">
+                </div>
+
+                <!-- Section 8: Referee Information -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 8 &mdash; Referee Information <span style="font-size: var(--step-0); font-weight:400; color: var(--ink-muted);">(optional)</span></h2></div>
+                <div class="form-group">
+                    <label for="ref-name">Referee Name</label>
+                    <input type="text" id="ref-name" name="Referee_Name">
+                </div>
+                <div class="form-group">
+                    <label for="ref-title">Title / Position</label>
+                    <input type="text" id="ref-title" name="Referee_Title">
+                </div>
+                <div class="form-group">
+                    <label for="ref-inst">Institution</label>
+                    <input type="text" id="ref-inst" name="Referee_Institution">
+                </div>
+                <div class="form-group">
+                    <label for="ref-email">Referee Email</label>
+                    <input type="email" id="ref-email" name="Referee_Email">
+                </div>
+                <div class="form-group">
+                    <label for="doc-ref-letter">Reference Letter <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <input type="file" id="doc-ref-letter" name="Reference_Letter" accept=".pdf,.doc,.docx">
+                </div>
+
+                <!-- Section 9: Additional Information -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 9 &mdash; Additional Information</h2></div>
+                <div class="form-group">
+                    <label for="app-additional">Anything else you would like us to know <span style="color: var(--ink-muted); font-weight:400;">(optional)</span></label>
+                    <textarea id="app-additional" name="Additional_Information" rows="5"></textarea>
+                </div>
+
+                <!-- Section 10: Agreement -->
+                <div class="section-header" style="margin-top: 40px;"><h2>Section 10 &mdash; Agreement</h2></div>
+                <div style="padding: 20px; background: var(--surface); border: 1px solid var(--hairline); border-radius: 4px;">
                     <div style="margin-bottom: 15px;">
                         <input type="checkbox" id="check1" class="agree-check" name="Confirms_Accuracy" value="yes">
-                        <label for="check1" style="display:inline; margin-left:10px; text-transform:none; font-weight:500;">Confirm accuracy of information</label>
+                        <label for="check1" style="display:inline; margin-left:10px; text-transform:none; font-weight:500; letter-spacing:0;">I confirm that all information provided is accurate.</label>
                     </div>
                     <div style="margin-bottom: 15px;">
                         <input type="checkbox" id="check2" class="agree-check" name="Understands_Placement" value="yes">
-                        <label for="check2" style="display:inline; margin-left:10px; text-transform:none; font-weight:500;">Understand placement is not guaranteed</label>
+                        <label for="check2" style="display:inline; margin-left:10px; text-transform:none; font-weight:500; letter-spacing:0;">I understand that submission of this application does not guarantee placement.</label>
                     </div>
                     <div>
                         <input type="checkbox" id="check3" class="agree-check" name="Agrees_To_Contact" value="yes">
-                        <label for="check3" style="display:inline; margin-left:10px; text-transform:none; font-weight:500;">Agree to be contacted</label>
+                        <label for="check3" style="display:inline; margin-left:10px; text-transform:none; font-weight:500; letter-spacing:0;">I agree to be contacted regarding application evaluation.</label>
                     </div>
                 </div>
 
-                <button type="submit" id="submitBtn" class="btn-submit" style="margin-top: 30px;" disabled>Submit Formal Application</button>
+                <button type="submit" id="submitBtn" class="btn-submit" style="margin-top: 30px;" disabled>Submit Application</button>
             </form>
         </div>
         </div>
