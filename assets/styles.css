@@ -1324,32 +1324,64 @@ section > .content-wrap {
 
 .beliefs-section { background: var(--surface); }
 
-/* Gap tags — Why We Exist */
-.gap-tags {
-    display: flex;
-    flex-wrap: wrap;
+/* Why We Exist — 2-col layout with barrier cards */
+.why-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+}
+
+.why-intro {
+    position: sticky;
+    top: calc(var(--nav-h, 72px) + var(--space-xl));
+}
+
+.barriers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-md);
 }
 
-.gap-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--space-md) clamp(20px, 2.5vw, 36px);
-    border: 1.5px solid var(--lpi-navy);
-    color: var(--lpi-navy);
-    font-size: var(--step-1);
-    font-weight: 500;
-    font-family: var(--font-sans);
-    letter-spacing: -0.01em;
-    transition:
-        background var(--dur-med) var(--ease-out-quart),
-        color var(--dur-med) var(--ease-out-quart);
-    cursor: default;
+.barrier-card {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    padding: clamp(20px, 2.5vw, 32px);
+    position: relative;
+    transition: border-color var(--dur-med) var(--ease-out-quart),
+                box-shadow var(--dur-med) var(--ease-out-quart);
 }
 
-.gap-tag:hover {
-    background: var(--lpi-navy);
-    color: var(--paper);
+.barrier-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 32px; height: 2px;
+    background: var(--lpi-gold);
+}
+
+.barrier-card:hover {
+    border-color: color-mix(in oklab, var(--lpi-navy) 30%, transparent);
+    box-shadow: 0 8px 24px -8px rgba(0,43,73,0.12);
+}
+
+.barrier-card h3 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    color: var(--lpi-navy);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-sm);
+}
+
+.barrier-card p {
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+@media (max-width: 860px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .why-intro { position: static; }
 }
 
 /* Belief statements — What We Believe (dark bg) */
@@ -1430,6 +1462,24 @@ section > .content-wrap {
     font-size: var(--step-0);
     color: var(--ink-soft);
     line-height: 1.65;
+}
+
+.process-step__img {
+    margin-top: var(--space-xl);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+
+.process-step__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--dur-slow) var(--ease-out-quart);
+}
+
+.process-step:hover .process-step__img img {
+    transform: scale(1.04);
 }
 
 @media (max-width: 768px) {
