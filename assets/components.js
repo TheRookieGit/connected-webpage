@@ -6,6 +6,7 @@
         { href: 'index.html',        label: 'Home',                    key: 'home' },
         { href: 'about.html',        label: 'About',                   key: 'about' },
         { href: 'fellowships.html',  label: 'Fellowship',              key: 'fellowship' },
+        { href: 'faculty.html',      label: 'For Faculty',             key: 'faculty' },
         { href: 'programs.html',     label: 'Programs & Initiatives',  key: 'programs' },
         { href: 'get-involved.html', label: 'Collaborate & Volunteer', key: 'get-involved' },
         { href: 'support.html',      label: 'Support',                 key: 'support' },
@@ -43,6 +44,7 @@
             <ul class="nav-links">
                 ${itemsHtml}
             </ul>
+            <a href="fellowship-application.html" class="btn btn--gold nav-apply">Apply Now</a>
         </nav>`;
     }
 

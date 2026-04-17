@@ -106,7 +106,7 @@ body {
     color: var(--ink);
     background: var(--paper);
     font-feature-settings: "ss01", "cv11";
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 img, svg, video { display: block; max-width: 100%; height: auto; }
@@ -257,8 +257,10 @@ em { font-style: italic; }
    NAVIGATION
    ============================================================ */
 nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     background: color-mix(in oklab, var(--paper) 92%, transparent);
     -webkit-backdrop-filter: saturate(180%) blur(12px);
@@ -2177,7 +2179,15 @@ body::before {
 
 /* Hide grain above nav/footer so it doesn't muddy text. Modals already have
    position:fixed + z-index:2000 and must not be forced into the document flow. */
-nav, footer { position: relative; z-index: 2; }
+nav { z-index: 100; }
+footer { position: relative; z-index: 2; }
+
+.nav-apply {
+    flex-shrink: 0;
+    font-size: var(--step--1);
+    padding: 0.45em 1.1em;
+    border-radius: 6px;
+}
 
 /* ============================================================
    FIGURE ROW — editorial image trio
@@ -2303,6 +2313,7 @@ nav, footer { position: relative; z-index: 2; }
     nav { padding: var(--space-sm) var(--edge-x); flex-wrap: wrap; }
 
     .nav-toggle { display: inline-flex; align-items: center; }
+    .nav-apply { display: none; }
 
     .nav-links {
         display: none;
