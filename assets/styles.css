@@ -1614,6 +1614,8 @@ section > .content-wrap {
     border-top: 2px solid var(--hairline);
     position: relative;
     transition: border-top-color var(--dur-med) var(--ease-out-quart);
+    display: flex;
+    flex-direction: column;
 }
 
 .process-step:hover { border-top-color: var(--lpi-gold); }
@@ -1643,7 +1645,8 @@ section > .content-wrap {
 }
 
 .process-step__img {
-    margin-top: var(--space-xl);
+    margin-top: auto;
+    padding-top: var(--space-xl);
     overflow: hidden;
     aspect-ratio: 4 / 3;
 }
