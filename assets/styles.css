@@ -280,22 +280,22 @@ nav.is-scrolled {
 }
 
 .logo {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 1.25rem;
-    color: var(--lpi-navy);
     text-decoration: none;
-    letter-spacing: -0.01em;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    flex-shrink: 0;
     transition: opacity var(--dur-fast) var(--ease-out-quart);
 }
 .logo:hover { opacity: 0.72; }
-.logo i {
-    font-size: 0.95rem;
-    color: var(--lpi-gold);
-    transform: translateY(-1px);
+.logo img {
+    display: block;
+    width: auto;
+    height: 52px;
+    object-fit: contain;
+}
+
+.footer-logo img {
+    height: 64px;
 }
 
 .nav-links {
@@ -2882,6 +2882,9 @@ footer { position: relative; z-index: 2; }
 
 @media (max-width: 768px) {
     nav { padding: var(--space-sm) var(--edge-x); flex-wrap: wrap; }
+
+    .logo img { height: 42px; }
+    .footer-logo img { height: 56px; }
 
     .nav-toggle { display: inline-flex; align-items: center; }
     .nav-apply { display: none; }

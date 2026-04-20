@@ -35,8 +35,7 @@
         return `
         <nav>
             <a href="index.html" class="logo">
-                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                <span>ConnectEd</span>
+                <img src="assets/logo.png" alt="ConnectEd Research Institute">
             </a>
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                 <i class="fas fa-bars" aria-hidden="true"></i>
@@ -60,7 +59,9 @@
         return `
         <footer>
             <div class="footer-container">
-                <a href="index.html" class="logo">ConnectEd Research Institute</a>
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.png" alt="ConnectEd Research Institute">
+                </a>
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Use</a>
