@@ -77,6 +77,21 @@
             max-width: 520px;
         }
 
+        .fa-section-lead--split {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: clamp(32px, 6vw, 80px);
+            align-items: end;
+        }
+
+        .fa-section-lead__desc {
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            max-width: 56ch;
+            padding-bottom: 8px;
+        }
+
         .fa-check-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -424,6 +439,7 @@
         /* ── Responsive ── */
         @media (max-width: 900px) {
             .fa-check-grid { grid-template-columns: 1fr; }
+            .fa-section-lead--split { grid-template-columns: 1fr; gap: 20px; align-items: start; }
             .fa-exchange { flex-direction: column; }
             .fa-exchange-side { flex-direction: column; min-height: auto; }
             .fa-exchange-img { min-height: 220px; flex: none; }
@@ -452,10 +468,12 @@
     <!-- ── 01 Role ── -->
     <section class="fa-discretion">
         <div class="container">
-            <div class="fa-section-lead">
-                <span class="fa-eyebrow">01 &mdash; Role</span>
-                <h2>Role of Faculty<br>Advisors</h2>
-                <p style="font-size: 1.05rem; color: var(--ink-soft); max-width: 56ch; margin-top: 20px; line-height: 1.7;">Faculty advisors host selected fellows in structured research experiences aligned with their lab's work. Advisors maintain full discretion over:</p>
+            <div class="fa-section-lead fa-section-lead--split">
+                <div class="fa-section-lead__heading">
+                    <span class="fa-eyebrow">01 &mdash; Role</span>
+                    <h2>Role of Faculty<br>Advisors</h2>
+                </div>
+                <p class="fa-section-lead__desc">Faculty advisors host selected fellows in structured research experiences aligned with their lab's work. Advisors maintain full discretion over:</p>
             </div>
             <div class="fa-check-grid">
                 <div class="fa-check-item">
