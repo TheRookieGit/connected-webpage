@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fellowship Application | ConnectEd Research Institute</title>
+    <title>Fellowships Application | ConnectEd Research Institute</title>
     <meta name="description" content="Apply to ConnectEd Research Institute fellowships. Complete the application form with your academic profile and program selection.">
-    <meta property="og:title" content="Fellowship Application | ConnectEd">
-    <meta property="og:description" content="Begin your fellowship application to join a mentored research experience.">
+    <meta property="og:title" content="Fellowships Application | ConnectEd">
+    <meta property="og:description" content="Begin your fellowships application to join a mentored research experience.">
     <meta property="og:type" content="website">
     <meta name="robots" content="noindex">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -117,26 +117,26 @@
         }
     </style>
 </head>
-<body data-page="fellowship">
+<body data-page="fellowships">
 
     <div id="site-nav"></div>
 
     <header class="page-header page-header--image" style="--ph-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=1800');">
         <span class="eyebrow">Apply</span>
-        <h1>Fellowship <em>Application</em></h1>
+        <h1>Fellowships <em>Application</em></h1>
         <p>Please have your academic transcripts and personal statement ready before beginning.</p>
     </header>
 
     <section>
         <div class="container">
-            <a href="fellowships.html" class="back-link">Back to Fellowship</a>
+            <a href="fellowships.html" class="back-link">Back to Fellowships</a>
 
             <div class="application-layout">
 
                 <!-- ── FORM ── -->
                 <div class="form-container">
-                    <form id="fellowshipForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="_subject" value="New Fellowship Application">
+                    <form id="fellowshipsForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_subject" value="New Fellowships Application">
 
                         <!-- Section 1 -->
                         <div id="sec-1">
@@ -164,6 +164,18 @@
                             <div class="form-group">
                                 <label for="app-country">Current Country of Residence <span style="color:red;">*</span></label>
                                 <input type="text" id="app-country" name="Country_of_Residence" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="app-address">Address <span style="color:red;">*</span></label>
+                                <input type="text" id="app-address" name="Address" placeholder="Street, City, State/Province, Postal Code" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="app-email">Email Address <span style="color:red;">*</span></label>
+                                <input type="email" id="app-email" name="Email" placeholder="yourname@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="app-phone">Phone Number <span style="color:red;">*</span></label>
+                                <input type="tel" id="app-phone" name="Phone" placeholder="+1 (555) 000-0000" required>
                             </div>
                         </div>
 
@@ -209,44 +221,34 @@
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="app-highest-degree">Highest Degree Obtained <span style="color:red;">*</span></label>
+                                <select id="app-highest-degree" name="Highest_Degree" required>
+                                    <option value="" disabled selected>Select degree</option>
+                                    <option value="High School Diploma">High School Diploma</option>
+                                    <option value="GED">GED</option>
+                                    <option value="Associate's Degree">Associate's Degree</option>
+                                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                    <option value="Master's Degree">Master's Degree</option>
+                                    <option value="Doctoral Degree">Doctoral Degree</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="app-current-program">Current Program / Field of Study <span style="color:red;">*</span></label>
+                                <input type="text" id="app-current-program" name="Current_Program" placeholder="e.g., B.Sc. Computer Science, M.A. Economics" required>
+                            </div>
                         </div>
 
                         <!-- Section 3 -->
                         <div id="sec-3">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 3 &mdash; Language &amp; Test Scores</h2></div>
+                            <div class="section-header" style="margin-top: 40px;"><h2>Section 3 &mdash; Fellowships Selection</h2></div>
                             <div class="form-group">
-                                <label for="app-eng-test">English Proficiency Test <span style="color:var(--ink-muted);font-weight:400;">(if applicable)</span></label>
-                                <select id="app-eng-test" name="English_Test">
-                                    <option value="N/A">N/A</option>
-                                    <option value="TOEFL">TOEFL</option>
-                                    <option value="IELTS">IELTS</option>
-                                    <option value="Duolingo">Duolingo</option>
-                                    <option value="None">None</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="app-eng-score">Score <span style="color:var(--ink-muted);font-weight:400;">(if applicable)</span></label>
-                                <input type="text" id="app-eng-score" name="English_Test_Score" placeholder="e.g., 105">
-                            </div>
-                            <div class="form-group">
-                                <label for="app-eng-date">Test Date <span style="color:var(--ink-muted);font-weight:400;">(if applicable)</span></label>
-                                <input type="date" id="app-eng-date" name="English_Test_Date">
-                            </div>
-                            <div class="form-group">
-                                <label for="app-other-tests">Other Standardized Tests <span style="color:var(--ink-muted);font-weight:400;">(optional)</span></label>
-                                <input type="text" id="app-other-tests" name="Other_Test_Scores" placeholder="e.g., SAT 1480, AP Calculus BC 5">
-                            </div>
-                        </div>
-
-                        <!-- Section 4 -->
-                        <div id="sec-4">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 4 &mdash; Fellowship Selection</h2></div>
-                            <div class="form-group">
-                                <label for="app-fellowship-type">Fellowship Type <span style="color:red;">*</span></label>
+                                <label for="app-fellowship-type">Fellowships Type <span style="color:red;">*</span></label>
                                 <select id="app-fellowship-type" name="Fellowship_Type" required>
-                                    <option value="" disabled selected>Select fellowship type</option>
-                                    <option value="ConnectEd Young Scholars Fellowship">ConnectEd Young Scholars Fellowship</option>
-                                    <option value="ConnectEd STEM Research Fellowship">ConnectEd STEM Research Fellowship</option>
+                                    <option value="" disabled selected>Select fellowships type</option>
+                                    <option value="ConnectEd Young Scholars Fellowships">ConnectEd Young Scholars Fellowships</option>
+                                    <option value="ConnectEd STEM Research Fellowships">ConnectEd STEM Research Fellowships</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -273,9 +275,9 @@
                             </div>
                         </div>
 
-                        <!-- Section 5 -->
-                        <div id="sec-5">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 5 &mdash; Research Interests</h2></div>
+                        <!-- Section 4 -->
+                        <div id="sec-4">
+                            <div class="section-header" style="margin-top: 40px;"><h2>Section 4 &mdash; Research Interests</h2></div>
                             <div class="form-group">
                                 <label for="app-research-area">Primary Area of Interest <span style="color:red;">*</span></label>
                                 <input type="text" id="app-research-area" name="Research_Area" placeholder="e.g., Economics, Computer Science, Biology, Psychology" required>
@@ -286,19 +288,19 @@
                             </div>
                         </div>
 
-                        <!-- Section 6 -->
-                        <div id="sec-6">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 6 &mdash; Academic Motivation</h2></div>
+                        <!-- Section 5 -->
+                        <div id="sec-5">
+                            <div class="section-header" style="margin-top: 40px;"><h2>Section 5 &mdash; Academic Motivation</h2></div>
                             <div class="form-group">
                                 <label for="app-statement">Personal Statement <span style="color:red;">*</span></label>
-                                <p style="font-size:var(--step--1);color:var(--ink-soft);margin-bottom:var(--space-sm);text-transform:none;letter-spacing:0;font-weight:400;">Please briefly describe: your academic interests, why you are interested in research, and how this fellowship fits into your academic goals. (Suggested: 300&ndash;500 words)</p>
+                                <p style="font-size:var(--step--1);color:var(--ink-soft);margin-bottom:var(--space-sm);text-transform:none;letter-spacing:0;font-weight:400;">Please briefly describe: your academic interests, why you are interested in research, and how this fellowships fits into your academic goals. (Suggested: 300&ndash;500 words)</p>
                                 <textarea id="app-statement" name="Personal_Statement" rows="12" required></textarea>
                             </div>
                         </div>
 
-                        <!-- Section 7 -->
-                        <div id="sec-7">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 7 &mdash; Required Documents</h2></div>
+                        <!-- Section 6 -->
+                        <div id="sec-6">
+                            <div class="section-header" style="margin-top: 40px;"><h2>Section 6 &mdash; Required Documents</h2></div>
                             <p style="font-size:var(--step-0);color:var(--ink-soft);margin-bottom:var(--space-lg);text-transform:none;letter-spacing:0;font-weight:400;">Please upload the following documents in PDF format where possible.</p>
                             <div class="form-group">
                                 <label for="doc-cv">CV / Resume <span style="color:red;">*</span></label>
@@ -326,9 +328,9 @@
                             </div>
                         </div>
 
-                        <!-- Section 8 -->
-                        <div id="sec-8">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 8 &mdash; Referee Information <span style="font-size:var(--step-0);font-weight:400;color:var(--ink-muted);">(optional)</span></h2></div>
+                        <!-- Section 7 -->
+                        <div id="sec-7">
+                            <div class="section-header" style="margin-top: 40px;"><h2>Section 7 &mdash; Referee Information <span style="font-size:var(--step-0);font-weight:400;color:var(--ink-muted);">(optional)</span></h2></div>
                             <div class="form-group">
                                 <label for="ref-name">Referee Name</label>
                                 <input type="text" id="ref-name" name="Referee_Name">
@@ -351,18 +353,18 @@
                             </div>
                         </div>
 
-                        <!-- Section 9 -->
-                        <div id="sec-9">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 9 &mdash; Additional Information</h2></div>
+                        <!-- Section 8 -->
+                        <div id="sec-8">
+                            <div class="section-header" style="margin-top: 40px;"><h2>Section 8 &mdash; Additional Information</h2></div>
                             <div class="form-group">
                                 <label for="app-additional">Anything else you would like us to know <span style="color:var(--ink-muted);font-weight:400;">(optional)</span></label>
                                 <textarea id="app-additional" name="Additional_Information" rows="5"></textarea>
                             </div>
                         </div>
 
-                        <!-- Section 10 -->
-                        <div id="sec-10">
-                            <div class="section-header" style="margin-top: 40px;"><h2>Section 10 &mdash; Agreement</h2></div>
+                        <!-- Section 9 -->
+                        <div id="sec-9">
+                            <div class="section-header" style="margin-top: 40px;"><h2>Section 9 &mdash; Agreement</h2></div>
                             <div style="padding:20px;background:var(--surface);border:1px solid var(--hairline);border-radius:4px;">
                                 <div style="margin-bottom:15px;">
                                     <input type="checkbox" id="check1" class="agree-check" name="Confirms_Accuracy" value="yes">
@@ -387,7 +389,7 @@
                 <aside class="application-sidebar">
                     <p class="sidebar-title">Your Progress</p>
                     <div class="sidebar-progress-meta">
-                        <span id="progress-count" class="sidebar-progress-count">0 / 7</span>
+                        <span id="progress-count" class="sidebar-progress-count">0 / 6</span>
                         <span style="font-size:0.75rem;color:var(--ink-muted);">sections done</span>
                     </div>
                     <div class="sidebar-progress-track">
@@ -397,14 +399,13 @@
                     <ul class="sidebar-toc" id="sidebar-toc">
                         <li><a href="#sec-1"><span class="toc-icon" id="icon-0"><i class="far fa-circle"></i></span>Applicant Information</a></li>
                         <li><a href="#sec-2"><span class="toc-icon" id="icon-1"><i class="far fa-circle"></i></span>Academic Background</a></li>
-                        <li><a href="#sec-3"><span class="toc-icon optional" id="icon-2"><i class="fas fa-minus"></i></span>Language &amp; Test Scores <span style="color:var(--ink-muted);font-style:italic;">(optional)</span></a></li>
-                        <li><a href="#sec-4"><span class="toc-icon" id="icon-3"><i class="far fa-circle"></i></span>Fellowship Selection</a></li>
-                        <li><a href="#sec-5"><span class="toc-icon" id="icon-4"><i class="far fa-circle"></i></span>Research Interests</a></li>
-                        <li><a href="#sec-6"><span class="toc-icon" id="icon-5"><i class="far fa-circle"></i></span>Academic Motivation</a></li>
-                        <li><a href="#sec-7"><span class="toc-icon" id="icon-6"><i class="far fa-circle"></i></span>Required Documents</a></li>
-                        <li><a href="#sec-8"><span class="toc-icon optional" id="icon-7"><i class="fas fa-minus"></i></span>Referee Information <span style="color:var(--ink-muted);font-style:italic;">(optional)</span></a></li>
-                        <li><a href="#sec-9"><span class="toc-icon optional" id="icon-8"><i class="fas fa-minus"></i></span>Additional Information <span style="color:var(--ink-muted);font-style:italic;">(optional)</span></a></li>
-                        <li><a href="#sec-10"><span class="toc-icon" id="icon-9"><i class="far fa-circle"></i></span>Agreement</a></li>
+                        <li><a href="#sec-3"><span class="toc-icon" id="icon-2"><i class="far fa-circle"></i></span>Fellowships Selection</a></li>
+                        <li><a href="#sec-4"><span class="toc-icon" id="icon-3"><i class="far fa-circle"></i></span>Research Interests</a></li>
+                        <li><a href="#sec-5"><span class="toc-icon" id="icon-4"><i class="far fa-circle"></i></span>Academic Motivation</a></li>
+                        <li><a href="#sec-6"><span class="toc-icon" id="icon-5"><i class="far fa-circle"></i></span>Required Documents</a></li>
+                        <li><a href="#sec-7"><span class="toc-icon optional" id="icon-6"><i class="fas fa-minus"></i></span>Referee Information <span style="color:var(--ink-muted);font-style:italic;">(optional)</span></a></li>
+                        <li><a href="#sec-8"><span class="toc-icon optional" id="icon-7"><i class="fas fa-minus"></i></span>Additional Information <span style="color:var(--ink-muted);font-style:italic;">(optional)</span></a></li>
+                        <li><a href="#sec-9"><span class="toc-icon" id="icon-8"><i class="far fa-circle"></i></span>Agreement</a></li>
                     </ul>
                 </aside>
 
@@ -427,16 +428,15 @@
 
             // ── Progress sidebar ──
             const sections = [
-                { id: 'sec-1',  optional: false, fields: ['#app-name','#app-dob','#app-nat','#app-country'] },
-                { id: 'sec-2',  optional: false, fields: ['#app-inst','#app-grade','#app-major','#app-gpa'] },
-                { id: 'sec-3',  optional: true,  fields: [] },
-                { id: 'sec-4',  optional: false, fields: ['#app-fellowship-type','#app-format'] },
-                { id: 'sec-5',  optional: false, fields: ['#app-research-area'] },
-                { id: 'sec-6',  optional: false, fields: ['#app-statement'] },
-                { id: 'sec-7',  optional: false, fields: ['#doc-cv','#doc-transcript'] },
+                { id: 'sec-1',  optional: false, fields: ['#app-name','#app-dob','#app-nat','#app-country','#app-email','#app-phone'] },
+                { id: 'sec-2',  optional: false, fields: ['#app-inst','#app-grade','#app-major','#app-gpa','#app-highest-degree','#app-current-program'] },
+                { id: 'sec-3',  optional: false, fields: ['#app-fellowship-type','#app-format'] },
+                { id: 'sec-4',  optional: false, fields: ['#app-research-area'] },
+                { id: 'sec-5',  optional: false, fields: ['#app-statement'] },
+                { id: 'sec-6',  optional: false, fields: ['#doc-cv','#doc-transcript'] },
+                { id: 'sec-7',  optional: true,  fields: [] },
                 { id: 'sec-8',  optional: true,  fields: [] },
-                { id: 'sec-9',  optional: true,  fields: [] },
-                { id: 'sec-10', optional: false, fields: ['#check1','#check2','#check3'] },
+                { id: 'sec-9',  optional: false, fields: ['#check1','#check2','#check3'] },
             ];
 
             function isFilled(sel) {

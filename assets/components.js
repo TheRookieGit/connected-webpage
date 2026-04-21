@@ -5,7 +5,7 @@
     const navItems = [
         { href: 'index.html',        label: 'Home',                    key: 'home' },
         { href: 'about.html',        label: 'About',                   key: 'about' },
-        { href: 'fellowships.html',  label: 'Fellowship',              key: 'fellowship' },
+        { href: 'fellowships.html',  label: 'Fellowships',             key: 'fellowships' },
         { href: 'faculty.html',      label: 'For Faculty',             key: 'faculty' },
         { href: 'programs.html',     label: 'Programs',    key: 'programs' },
         { href: 'get-involved.html', label: 'Get Involved', key: 'get-involved' },
@@ -35,8 +35,7 @@
         return `
         <nav>
             <a href="index.html" class="logo">
-                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                <span>ConnectEd</span>
+                <img src="assets/logo.png" alt="ConnectEd Research Institute">
             </a>
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                 <i class="fas fa-bars" aria-hidden="true"></i>
@@ -49,7 +48,7 @@
                     Apply Now <i class="fas fa-caret-down" aria-hidden="true"></i>
                 </button>
                 <div class="nav-apply-dropdown">
-                    <a href="fellowship-application.html">Fellowship Application</a>
+                    <a href="fellowship-application.html">Fellowships Application</a>
                     <a href="volunteer-interest.html">Volunteer Interest Form</a>
                 </div>
             </div>
@@ -60,7 +59,9 @@
         return `
         <footer>
             <div class="footer-container">
-                <a href="index.html" class="logo">ConnectEd Research Institute</a>
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.png" alt="ConnectEd Research Institute">
+                </a>
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Use</a>

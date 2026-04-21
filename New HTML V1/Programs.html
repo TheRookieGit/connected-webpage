@@ -153,7 +153,7 @@
             margin: 0 auto;
         }
 
-        /* Fellowship Cards - Interactive Resource Style */
+        /* Fellowships Cards - Interactive Resource Style */
         .fellowship-cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -308,18 +308,18 @@
 
         <section class="container">
             <div class="section-header">
-                <h2>Fellowship Overview</h2>
+                <h2>Fellowships Overview</h2>
             </div>
             <p style="font-size: 1.1rem; margin-bottom: 30px;">These application-based programs match advanced high school and undergraduate students with research groups to provide meaningful academic exposure and skill development.</p>
 
             <div class="fellowship-cards">
                 <div class="clickable-card" onclick="showPage('young-scholars')">
-                    <h3>Young Scholars Fellowship</h3>
+                    <h3>Young Scholars Fellowships</h3>
                     <p style="margin-top: 15px;">Designed for academically strong high school students and early-stage undergraduates.</p>
                     <p style="margin-top: 20px; font-weight: 700; color: var(--lpi-navy);">LEARN MORE & APPLY <i class="fas fa-arrow-right"></i></p>
                 </div>
                 <div class="clickable-card">
-                    <h3>STEM Research Fellowship</h3>
+                    <h3>STEM Research Fellowships</h3>
                     <p style="margin-top: 15px;">Designed for students seeking advanced or technically involved research in science and engineering.</p>
                     <p style="margin-top: 20px; font-weight: 700; color: var(--lpi-navy);">COMING SOON</p>
                 </div>
@@ -329,7 +329,7 @@
 
     <main id="young-scholars" class="page-content">
         <header class="page-header">
-            <h1>Young Scholars Fellowship</h1>
+            <h1>Young Scholars Fellowships</h1>
         </header>
         <section class="container">
             <button onclick="showPage('main-programs')" style="margin-bottom: 30px; cursor: pointer; border: none; background: none; color: var(--lpi-blue); font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">
@@ -364,11 +364,11 @@
 
     <main id="app-form" class="page-content">
         <header class="page-header">
-            <h1>Fellowship Application</h1>
+            <h1>Fellowships Application</h1>
         </header>
         <section class="container">
             <div class="form-container">
-                <form id="fellowshipForm">
+                <form id="fellowshipsForm">
                     <div class="section-header"><h2>Applicant Profile</h2></div>
                     <div class="form-group"><label>Full Name</label><input type="text" required></div>
                     <div class="form-group"><label>Date of Birth</label><input type="date" required></div>
@@ -381,12 +381,12 @@
                         <select><option>4.0</option><option>100</option></select>
                     </div>
 
-                    <div class="section-header" style="margin-top: 40px;"><h2>Fellowship Choice</h2></div>
+                    <div class="section-header" style="margin-top: 40px;"><h2>Fellowships Choice</h2></div>
                     <div class="form-group">
                         <label>Program Selection</label>
                         <select>
-                            <option>ConnectEd Young Scholars Fellowship</option>
-                            <option>ConnectEd STEM Research Fellowship</option>
+                            <option>ConnectEd Young Scholars Fellowships</option>
+                            <option>ConnectEd STEM Research Fellowships</option>
                         </select>
                     </div>
 
@@ -443,7 +443,7 @@
             });
         });
 
-        document.getElementById('fellowshipForm').addEventListener('submit', (e) => {
+        document.getElementById('fellowshipsForm').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Application Submitted Successfully!');
             showPage('main-programs');
