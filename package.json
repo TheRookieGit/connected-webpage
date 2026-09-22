@@ -2,13 +2,11 @@
   "name": "connected-webpage",
   "version": "1.0.0",
   "private": true,
-  "description": "ConnectEd Research Institute — static site + bilingual translation pipeline",
+  "description": "ConnectEd Research Institute — static site",
   "scripts": {
     "dev": "node tools/serve.js",
     "build": "node tools/build-portfolio.js",
-    "compare": "node tools/compare.js",
-    "translate": "node translate.js",
-    "stamp": "node stamp-hashes.js"
+    "compare": "node tools/compare.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.30.0"
