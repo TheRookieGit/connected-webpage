@@ -220,6 +220,33 @@ ${historyHtml}
     }) + page({ root, dataPage: 'programs', body });
 }
 
+// Portfolio card for the catalog browser (index page only).
+function catalogCard(p) {
+    const tags = p.methods.slice(0, 3).map(m => `<li class="pf-tag">${esc(m)}</li>`).join('');
+    return `<article class="pf-card" data-id="${p.id}" data-type="${p.type}">
+                    <span class="pf-card__rail" aria-hidden="true"></span>
+                    <div class="pf-card__top">
+                        <span class="pf-card__type">${esc(TYPES[p.type].filter)}</span>
+                        ${hasPast(p) ? statusLabel(p).replace('badge badge--past', 'pf-card__status pf-card__status--past') : '<span class="pf-card__status">Representative program</span>'}
+                    </div>
+                    <h3 class="pf-card__title"><a href="${p.slug}.html">${esc(p.title)}</a></h3>
+                    <p class="pf-card__desc">${esc(p.card)}</p>
+                    <ul class="pf-card__tags" aria-label="Methods">${tags}</ul>
+                    <span class="pf-card__go" aria-hidden="true">View program overview &rarr;</span>
+                </article>`;
+}
+
+// Public projection used by the filter rail and the slide-out panel.
+function catalogData() {
+    return programs.map(p => ({
+        id: p.id, slug: p.slug, title: p.title, type: p.type, typeLabel: TYPES[p.type].label, typeShort: TYPES[p.type].filter,
+        typePage: TYPES[p.type].page, disciplines: p.disciplines, card: p.card, overview: p.overview,
+        fields: p.fields, methods: p.methods, preparation: p.preparation, format: p.format,
+        timing: p.timing, outcomes: p.outcomes, outlineLabel: p.outlineLabel, sessions: p.sessions,
+        past: (p.offeringHistory || []).filter(o => o.year)
+    }));
+}
+
 function buildIndex() {
     const root = '../../';
     const crumbs = [
@@ -228,72 +255,120 @@ function buildIndex() {
         { label: 'Program Portfolio', href: 'index.html', canonical: '/programs/portfolio/' }
     ];
     const usedTypes = Object.keys(TYPES).filter(k => programs.some(p => p.type === k));
-    const disciplines = [...new Set(programs.flatMap(p => p.disciplines))].sort();
-    const anyPast = programs.some(hasPast);
-    const cards = programs.map(p => card(p, '')).join('\n            ');
-
-    const offeringFilter = anyPast ? `
-            <div>
-                <label for="pf-offering">Offering</label>
-                <select id="pf-offering" name="offering">
-                    <option value="">All examples</option>
-                    <option value="past">Confirmed past offerings</option>
-                </select>
-            </div>` : '';
+    const cards = programs.map(catalogCard).join('\n                ');
+    const data = JSON.stringify({
+        types: usedTypes.map(k => ({ key: k, label: TYPES[k].filter })),
+        outlineNotice: OUTLINE_NOTICE,
+        programs: catalogData()
+    }).replace(/</g, '\\u003c');
 
     const body = `
-    <header class="page-header">
+    <header class="page-header page-header--image pf-hero" style="--ph-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=1800');">
         ${breadcrumbs(crumbs)}
-        <span class="eyebrow">Programs</span>
-        <h1>Program Portfolio</h1>
-        <p class="page-header__sub">Explore representative research courses, methods programs, and mentored projects across disciplines. These examples show the questions, skills, and learning experiences a program can include; they are not an exhaustive catalog or a statement of current enrollment availability.</p>
-        <p class="page-header__sub">Where a past offering has been confirmed, its year or term and delivery context appear in the record. Learning sequences labeled illustrative were developed to explain program scope and may differ from the sessions used in a particular offering.</p>
+        <h1>Program <em>Portfolio</em></h1>
+        <p>Explore representative research courses, methods programs, and mentored projects across disciplines. These examples show the questions, skills, and learning experiences a program can include; they are not an exhaustive catalog or a statement of current enrollment availability.</p>
+        <p>Where a past offering has been confirmed, its year or term and delivery context appear in the record. Learning sequences labeled illustrative were developed to explain program scope and may differ from the sessions used in a particular offering.</p>
+        <div class="pf-hero__stats">
+            <div><span class="pf-hero__num">${programs.length}</span><span class="pf-hero__label">Program examples</span></div>
+            <div><span class="pf-hero__num">${usedTypes.length}</span><span class="pf-hero__label">Program types</span></div>
+        </div>
     </header>
 
-    <section class="programs-section">
-        <div class="container">
-            <form class="portfolio-filters" id="portfolio-filters" role="search" aria-label="Filter program examples">
-                <div>
-                    <label for="pf-q">Search</label>
-                    <input type="search" id="pf-q" name="q" placeholder="Search by topic, method, or keyword" autocomplete="off">
+    <div class="pf-app" id="pf-app">
+        <div class="pf-toolbar">
+            <div class="pf-toolbar__inner">
+                <div class="pf-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="17" height="17" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                    <input id="pf-q" type="search" autocomplete="off" placeholder="Search by topic, method, or keyword" aria-label="Search program examples">
+                    <kbd class="pf-kbd" aria-hidden="true">/</kbd>
+                    <button type="button" class="pf-q-clear" id="pf-q-clear" hidden aria-label="Clear search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" width="11" height="11" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                    </button>
                 </div>
-                <div>
-                    <label for="pf-type">Program type</label>
-                    <select id="pf-type" name="type">
-                        <option value="">All types</option>
-                        ${usedTypes.map(k => `<option value="${k}">${esc(TYPES[k].filter)}</option>`).join('\n                        ')}
-                    </select>
+                <button type="button" class="pf-filter-btn" id="pf-filter-btn" aria-controls="pf-rail" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="15" height="15" aria-hidden="true"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+                    <span>Filters</span>
+                    <span class="pf-filter-badge" id="pf-filter-badge" hidden></span>
+                </button>
+                <div class="pf-density" role="group" aria-label="Layout">
+                    <button type="button" data-density="cozy" aria-pressed="true" aria-label="Card view" title="Card view">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" width="15" height="15" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
+                    </button>
+                    <button type="button" data-density="compact" aria-pressed="false" aria-label="Compact list" title="Compact list">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" width="15" height="15" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
                 </div>
-                <div>
-                    <label for="pf-discipline">Discipline</label>
-                    <select id="pf-discipline" name="discipline">
-                        <option value="">All disciplines</option>
-                        ${disciplines.map(d => `<option value="${esc(d)}">${esc(d)}</option>`).join('\n                        ')}
-                    </select>
-                </div>${offeringFilter}
-                <div>
-                    <button type="reset" id="pf-clear">Clear filters</button>
-                </div>
-            </form>
-            <p class="portfolio-count" id="pf-count" role="status" aria-live="polite"></p>
-            <ul class="portfolio-grid" id="pf-grid">
-            ${cards}
-            </ul>
-            <div class="empty-state" id="pf-empty" hidden>
-                <p>No program examples match these filters. Try a different topic or clear the filters.</p>
             </div>
         </div>
-    </section>
 
-    <section>
-        <div class="container">
-            <p class="lede">Looking for academic guidance beyond a course? Our community initiatives include workshops, faculty-path conversations, and doctoral-preparation mentoring.</p>
-            <div class="action-row">
-                <a href="${root}community/index.html" class="btn btn--line">Community &amp; Academic Pathways</a>
+        <div class="pf-body">
+            <aside class="pf-rail" id="pf-rail" aria-label="Filters">
+                <div class="pf-rail__head">
+                    <span>Filters</span>
+                    <button type="button" id="pf-clear-all" hidden>Clear filters</button>
+                </div>
+                <div class="pf-rail__scroll" id="pf-facets"></div>
+                <div class="pf-rail__foot">
+                    <button type="button" id="pf-rail-done">Show results</button>
+                </div>
+            </aside>
+            <div class="pf-rail-scrim" id="pf-rail-scrim" hidden></div>
+
+            <main class="pf-results">
+                <div class="pf-resultbar">
+                    <div class="pf-count" id="pf-count" role="status" aria-live="polite"><b>${programs.length}</b> program examples</div>
+                    <div class="pf-chips" id="pf-chips"></div>
+                </div>
+                <div class="pf-grid" id="pf-grid">
+                ${cards}
+                </div>
+                <div class="pf-empty" id="pf-empty" hidden>
+                    <div class="pf-empty__title">No program examples match these filters.</div>
+                    <p>Try a different topic or clear the filters.</p>
+                    <button type="button" id="pf-empty-reset">Clear filters</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <section class="programs-section">
+        <div class="container" style="text-align: center;">
+            <div class="section-header section-header--center">
+                <h2>Looking for academic guidance beyond a course?</h2>
+            </div>
+            <p style="font-size: var(--step-1); color: var(--ink-soft); max-width: 56ch; margin: 0 auto var(--space-xl);">Our community initiatives include workshops, faculty-path conversations, and doctoral-preparation mentoring.</p>
+            <div style="display:flex; gap:var(--space-md); flex-wrap:wrap; justify-content:center;">
+                <a href="${root}community/index.html" class="btn">Community &amp; Academic Pathways</a>
                 <a href="${root}contact.html?interest=programs" class="btn btn--gold">Ask About Program Fit</a>
             </div>
         </div>
     </section>
+
+    <!-- Slide-out program panel -->
+    <div class="pf-panel-scrim" id="pf-panel-scrim" hidden></div>
+    <aside class="pf-panel" id="pf-panel" role="dialog" aria-modal="true" aria-labelledby="pf-panel-title" hidden>
+        <header class="pf-panel__head">
+            <div class="pf-panel__crumb" id="pf-panel-crumb"></div>
+            <button type="button" class="pf-panel__close" id="pf-panel-close" aria-label="Close program details">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+        </header>
+        <div class="pf-panel__scroll" id="pf-panel-body"></div>
+        <footer class="pf-panel__foot">
+            <button type="button" class="pf-panel__nav" id="pf-prev">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13" aria-hidden="true"><path d="M19 12H6M11 6l-6 6 6 6"/></svg>
+                <span>Previous</span>
+            </button>
+            <button type="button" class="pf-panel__nav" id="pf-next">
+                <span>Next</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </button>
+            <span class="pf-panel__pos" id="pf-pos"></span>
+            <a class="pf-panel__cta" id="pf-cta" href="${root}contact.html?interest=programs">Ask About This Program</a>
+        </footer>
+    </aside>
+
+    <script type="application/json" id="pf-data">${data}</script>
     ${breadcrumbJsonLd(crumbs)}
     <script src="${root}assets/portfolio.js" defer></script>
 `;
@@ -303,8 +378,9 @@ function buildIndex() {
         description: 'Representative research courses, methods programs, and mentored projects across disciplines, each with learning goals and an illustrative session outline.',
         canonical: '/programs/portfolio/',
         root
-    }) + page({ root, dataPage: 'programs', body });
+    }) + page({ root, dataPage: 'programs', body }).replace('<body data-page="programs">', '<body data-page="programs" class="portfolio-page">');
 }
+
 
 function buildPreview(linkPrefix) {
     return FEATURED.filter(id => byId[id]).map(id => card(byId[id], linkPrefix)).join('\n                ');

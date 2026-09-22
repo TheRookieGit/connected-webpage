@@ -193,6 +193,10 @@
     function wireNavScroll() {
         const nav = document.querySelector('nav');
         if (!nav) return;
+        // Expose the nav height so sticky elements (e.g. the portfolio toolbar) sit right below it.
+        const setNavH = () => document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+        setNavH();
+        window.addEventListener('resize', setNavH, { passive: true });
         const update = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
         update();
         window.addEventListener('scroll', update, { passive: true });
