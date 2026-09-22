@@ -4,6 +4,9 @@
   "private": true,
   "description": "ConnectEd Research Institute — static site + bilingual translation pipeline",
   "scripts": {
+    "dev": "node tools/serve.js",
+    "build": "node tools/build-portfolio.js",
+    "compare": "node tools/compare.js",
     "translate": "node translate.js",
     "stamp": "node stamp-hashes.js"
   },

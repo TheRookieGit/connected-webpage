@@ -1,0 +1,820 @@
+// ConnectEd Program Portfolio — public projection only.
+// Every field here is approved-for-publication copy. Do NOT add source notes, fees,
+// mentor names, internal approval flags, or other private review data to this file:
+// it is part of the public repository and its content is rendered into public HTML.
+//
+// deliveryStatus / offeringHistory: leave offeringHistory empty unless an owner-confirmed
+// past offering exists (title + year/term + operating entity). A confirmed offering adds
+// e.g. { label: 'Past offering', year: '2025', organizer: 'ConnectEd Research Institute' }.
+// outlineBasis stays 'illustrative' even after an offering is confirmed.
+//
+// published: set to false to keep a record out of the public site entirely.
+
+const FORMAT_ONLINE = 'Online instruction and guided project work; individual or small-group configuration.';
+const TIMING_10 = 'Illustrative sequence: 10 core sessions; scheduling is set for each offering.';
+const TIMING_10_PROJECT = 'Illustrative sequence: 10 project meetings; actual duration is project-specific.';
+const TIMING_EXTENDED = 'Extended project horizon: 6–12 months. Eight illustrative milestones.';
+
+module.exports = [
+  {
+    id: 'C01',
+    slug: 'research-foundations',
+    title: 'Research Foundations Bootcamp',
+    type: 'foundations',
+    disciplines: ['Cross-disciplinary'],
+    card: 'Build a practical starting point for scholarly reading, literature search, research questions, academic writing, and responsible AI use.',
+    overview: 'This introductory program develops the habits and tools needed to begin a research project. Learners practice locating and evaluating scholarship, reading academic articles, synthesizing ideas, and turning an area of interest into a feasible research question. The emphasis is on research reasoning and a defensible plan rather than a publication promise.',
+    fields: 'Cross-disciplinary',
+    methods: ['Literature search', 'Critical reading', 'Synthesis', 'Question development', 'Citation', 'Responsible AI use'],
+    preparation: 'No previous research experience required. Reading and writing support should be adapted to academic stage.',
+    format: FORMAT_ONLINE,
+    timing: 'Introductory format: four live classes over approximately 1–2 weeks, plus about 10 hours of practice.',
+    outcomes: [
+      'Create a documented search strategy and an annotated reading record.',
+      'Distinguish a summary from a synthesis and draft a feasible research question.',
+      'Produce a short research concept note with citations and a responsible-tool-use statement.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Finding and evaluating scholarly sources; keeping a search log',
+      'Reading critically; building a literature matrix and synthesizing evidence',
+      'Developing research questions; connecting questions, methods, and feasibility',
+      'Academic writing, citation, and responsible AI use; concept-note presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C02',
+    slug: 'research-synthesis-meta-analysis-r',
+    title: 'Research Synthesis and Meta-Analysis: Quantitative Research with R',
+    type: 'methods',
+    disciplines: ['Education', 'Psychology', 'Health & Medicine', 'Social Sciences'],
+    card: 'Use systematic review methods and R to synthesize research evidence and interpret quantitative findings.',
+    overview: 'Learners develop a review question, document a search and screening strategy, extract study information, and explore effect-size calculation and synthesis. Guided exercises connect statistical choices with study design and interpretation. A scoped review protocol or pilot analysis can serve as a starting point for a larger evidence-synthesis project.',
+    fields: 'Education; psychology; health; social sciences; other evidence-based fields',
+    methods: ['Systematic search', 'Screening', 'Data extraction', 'Effect sizes', 'R', 'Evidence synthesis'],
+    preparation: 'Comfort reading research articles; introductory statistics recommended. R preparation can be added.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Develop a review protocol and transparent selection criteria.',
+      'Prepare an extraction table and a reproducible pilot synthesis.',
+      'Interpret pooled estimates, heterogeneity, limitations, and visualizations.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Evidence synthesis and a focused review question',
+      'Review protocols, eligibility criteria, and search strategy',
+      'Screening studies and documenting selection decisions',
+      'Data extraction, coding rules, and study-quality considerations',
+      'R workflow and effect-size concepts',
+      'Effect-size calculation and model selection',
+      'Estimating and visualizing pooled results',
+      'Heterogeneity and exploratory moderator analysis',
+      'Sensitivity checks and potential reporting biases',
+      'Presenting a pilot synthesis and a reproducible research report'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C03',
+    slug: 'r-public-data-social-science',
+    title: 'Data Science Using R: Applications of Public Datasets in Social Science Research',
+    type: 'methods',
+    disciplines: ['Social Sciences', 'Education', 'Psychology', 'Business & Economics'],
+    card: 'Turn public datasets into reproducible analyses using R, research design, regression, and introductory measurement methods.',
+    overview: 'This program connects substantive social-science questions with quantitative analysis. Learners use public datasets to practice data cleaning, survey-variable interpretation, regression, and an introduction to factor modeling. Work culminates in a documented analytical report rather than unsupported causal claims.',
+    fields: 'Social sciences; education; psychology; economics; public policy',
+    methods: ['R', 'Public datasets', 'Survey processing', 'Regression', 'Factor modeling', 'Reproducibility'],
+    preparation: 'Basic quantitative reasoning; introductory statistics helpful. Coding preparation can be included.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Translate a substantive question into measurable variables and an analysis plan.',
+      'Clean and analyze a public dataset using a documented R workflow.',
+      'Explain findings, uncertainty, measurement limits, and study limitations.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Research questions, study designs, and public-data access',
+      'Getting started with R and reproducible project organization',
+      'Importing data; codebooks, survey items, and variable definitions',
+      'Cleaning, recoding, and examining missing data',
+      'Descriptive statistics and data visualization',
+      'Statistical inference and bivariate relationships',
+      'Regression models and interpretation',
+      'Introduction to factor models and measurement',
+      'Model checks, sensitivity analysis, and limits to causal interpretation',
+      'Writing and presenting a reproducible analytical report'
+    ],
+    related: ['C02', 'C06', 'C07'],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C04',
+    slug: 'ai-uncertainty-decision-making',
+    title: 'AI Unlocked: Data, Uncertainty, and Smart Decision-Making',
+    type: 'methods',
+    disciplines: ['Data Science & AI', 'Business & Economics', 'Environment & Sustainability'],
+    card: 'Compare predictive models and examine how uncertainty changes the interpretation of data-driven decisions.',
+    overview: 'Using Python or R, learners build and compare predictive models for a carefully scoped application. The program combines regression, decision trees, and introductory Bayesian reasoning with model validation and uncertainty analysis. Examples may draw on environmental, housing, or financial datasets; predictions are evaluated as research outputs, not decision guarantees.',
+    fields: 'Data science; statistics; economics; environmental studies; applied mathematics',
+    methods: ['Prediction', 'Regression', 'Decision trees', 'Bayesian reasoning', 'Uncertainty', 'Model evaluation'],
+    preparation: 'Introductory statistics and basic coding helpful; bridge exercises can support newer learners.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Build and compare transparent baseline and machine-learning models.',
+      'Evaluate errors using appropriate data splits and metrics.',
+      'Communicate model uncertainty and implications for a bounded use case.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Prediction questions and decisions under uncertainty',
+      'Data preparation and exploratory analysis',
+      'Regression models as transparent baselines',
+      'Classification and decision trees',
+      'Training, validation, and test design',
+      'Comparing models and diagnosing error',
+      'Foundations of Bayesian reasoning',
+      'Uncertainty intervals and sensitivity to assumptions',
+      'Evaluating a chosen application and documenting limitations',
+      'Presenting a reproducible model-comparison study'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C05',
+    slug: 'ai-data-science-real-world',
+    title: 'AI and Data Science for Real-World Research',
+    type: 'methods',
+    disciplines: ['Data Science & AI', 'Health & Medicine', 'Education', 'Business & Economics', 'Social Sciences'],
+    card: 'Build a research workflow from Python data preparation to machine-learning evaluation and an applied project.',
+    overview: 'Learners practice Python, NumPy/pandas, and machine-learning workflows for an interdisciplinary research question. Depending on preparation, the program introduces scikit-learn, neural-network concepts, or text-analysis methods. The course prioritizes sound evaluation and a reproducible project over covering every advanced technique in a single offering.',
+    fields: 'AI; data science; health; education; business; social sciences',
+    methods: ['Python', 'NumPy/pandas', 'Machine learning', 'Neural networks', 'Text analysis', 'Evaluation'],
+    preparation: 'Basic Python recommended for the full sequence; foundational coding support can be added.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Create a documented data-processing and modeling pipeline.',
+      'Compare models using a suitable baseline and evaluation strategy.',
+      'Communicate an interdisciplinary analysis with code and limitations.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'An applied research question and the AI research workflow',
+      'Python foundations and computational notebooks',
+      'Data processing with NumPy and pandas',
+      'Exploratory analysis and feature preparation',
+      'Supervised learning and baseline models',
+      'Model validation, leakage, and error analysis',
+      'Neural-network concepts and an introductory modeling exercise',
+      'Text analysis and language-model applications as an elective extension',
+      'Project refinement, interpretability, and responsible data use',
+      'Reproducible project presentation and research report'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C06',
+    slug: 'population-health-data-science',
+    title: 'Population Health Data Science: From Research Questions to Evidence',
+    type: 'methods',
+    disciplines: ['Health & Medicine', 'Data Science & AI'],
+    card: 'Explore population-health questions through study design, descriptive analysis, and introductory statistical modeling.',
+    overview: 'The program introduces the logic of health-data research using an appropriately accessible dataset. Learners move from a research question to variable definitions, cleaning, statistical analysis, and interpretation using R or Stata. Work emphasizes observational-study limitations, ethical data use, and clear communication rather than clinical conclusions.',
+    fields: 'Public health; medicine; epidemiology; biostatistics; health data science',
+    methods: ['Health datasets', 'Study design', 'Descriptive statistics', 'Regression', 'R or Stata', 'Visualization'],
+    preparation: 'Basic quantitative reasoning; introductory statistics helpful. Preparation is adapted to academic stage.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Frame a feasible health research question and choose an appropriate study design.',
+      'Prepare and analyze an accessible health dataset.',
+      'Explain uncertainty, confounding, and limitations in a research report.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'From a population-health concern to a research question',
+      'Study designs, variables, and ethical data access',
+      'R or Stata setup and data preparation',
+      'Descriptive statistics and visualizing health data',
+      'Probability, sampling, and statistical inference',
+      'Regression concepts for health research',
+      'Confounding, adjustment, and interpretation',
+      'Model diagnostics and sensitivity checks',
+      'Organizing results and discussing limitations',
+      'Presenting an evidence-based analytical report'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C07',
+    slug: 'ai-computational-social-science',
+    title: 'AI for Social Science',
+    type: 'methods',
+    disciplines: ['Social Sciences', 'Data Science & AI', 'Education', 'Humanities & Design'],
+    card: 'Use text, network, and bibliometric data to investigate social questions with transparent computational methods.',
+    overview: 'This cross-disciplinary program introduces computational approaches to social inquiry. Learners explore appropriate text or network datasets, develop an analysis pipeline, and consider the relationship between computational patterns and social explanations. Research ethics, privacy, representativeness, and algorithmic bias are part of the methodological discussion.',
+    fields: 'Sociology; communication; education; digital humanities; interdisciplinary research',
+    methods: ['Text analysis', 'NLP', 'Social networks', 'Bibliometrics', 'Data ethics', 'Computational inquiry'],
+    preparation: 'Interest in social research; introductory coding or statistics helpful. Dataset complexity is matched to preparation.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Connect a social question to a defensible source of computational evidence.',
+      'Implement a small text, network, or bibliometric analysis.',
+      'Explain the limits of measurement, representation, and inference.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Computational social science and researchable questions',
+      'Data sources, permissions, privacy, and sampling',
+      'Data cleaning and a reproducible workflow',
+      'Representing text and introductory text analysis',
+      'Language models as research tools and evaluation challenges',
+      'Network concepts and relationship data',
+      'Bibliometric analysis and knowledge networks',
+      'Algorithmic bias, representativeness, and interpretation',
+      'Completing a scoped text or network study',
+      'Research presentation and transparent documentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C08',
+    slug: 'data-driven-finance',
+    title: 'Data-Driven Finance: Research in Markets, Firms, and Investments',
+    type: 'mentored',
+    disciplines: ['Business & Economics'],
+    card: 'Investigate financial questions using empirical design, Stata, financial datasets, and a structured research project.',
+    overview: 'This research-focused program connects questions in financial markets and firm behavior with data collection, cleaning, and econometric analysis. Topics may include corporate finance, asset pricing, investor behavior, or emerging financial technologies. Learners develop an empirical argument and interpret results without presenting analysis as investment advice.',
+    fields: 'Finance; economics; business analytics; management; accounting',
+    methods: ['Empirical finance', 'Stata', 'Data cleaning', 'Econometrics', 'Firm and market analysis'],
+    preparation: 'Introductory statistics and an interest in finance or economics; Stata preparation can be included.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Formulate a feasible financial research question and empirical strategy.',
+      'Prepare data and conduct a documented statistical analysis.',
+      'Discuss findings, competing explanations, and limitations in a report.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Financial research questions: markets, firms, and investors',
+      'Literature review, hypotheses, and empirical design',
+      'Financial data sources, definitions, and access',
+      'Data cleaning and descriptive analysis in Stata',
+      'Regression and introductory econometric reasoning',
+      'Choosing a bounded empirical strategy for the project',
+      'Estimating models and interpreting results',
+      'Robustness checks and alternative explanations',
+      'Research writing, tables, and visual communication',
+      'Project presentation and a plan for further research'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C09',
+    slug: 'hci-social-health-sciences',
+    title: 'Human-Computer Interaction for Social Sciences and Health Sciences',
+    type: 'mentored',
+    disciplines: ['Humanities & Design', 'Health & Medicine', 'Psychology', 'Education'],
+    card: 'Explore human-centered research, interface prototyping, and the evaluation of AI-mediated interactions.',
+    overview: 'Learners examine an interaction problem, explore user needs, and develop a prototype or research plan. The program introduces Figma, mixed methods, and participatory-design concepts, with possible applications in accessibility, communication, and digital health. Any human-participant research requires appropriate review and permissions before recruitment or data collection.',
+    fields: 'HCI; design; education; communication; psychology; digital health',
+    methods: ['User research', 'Figma', 'Prototyping', 'Mixed methods', 'Participatory design', 'Usability'],
+    preparation: 'Interest in people, technology, or design; coding is not required for a low-fidelity prototype pathway.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Define a human-centered design problem and an ethical evaluation plan.',
+      'Develop and document an interface prototype or interaction concept.',
+      'Interpret evaluation evidence and communicate design limitations.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Human-centered questions and AI-mediated interaction',
+      'Literature, context, and stakeholder perspectives',
+      'Research ethics and planning a user-needs study',
+      'Interview, survey, and focus-group methods as appropriate',
+      'Participatory-design principles and design requirements',
+      'Prototyping interfaces with Figma',
+      'Designing interactions involving language models',
+      'Evaluation methods and approved usability activities',
+      'Synthesizing findings and revising the design rationale',
+      'Research presentation and a documented design portfolio'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C10',
+    slug: 'ai-energy-systems',
+    title: 'Design New Energy Systems with AI',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Environment & Sustainability', 'Data Science & AI'],
+    card: 'Model hybrid energy systems and explore how data and optimization inform system design and operation.',
+    overview: 'This project-centered program examines combinations of solar, wind, storage, and grid resources. Learners explore load data, modeling assumptions, system integration, and economic or performance trade-offs. A chosen simulation or optimization project connects technical reasoning with the interpretation of results.',
+    fields: 'Energy; engineering; sustainability; environmental studies; applied AI',
+    methods: ['Hybrid energy systems', 'Simulation', 'Load analysis', 'Optimization', 'Economic evaluation'],
+    preparation: 'Quantitative preparation and interest in engineering; modeling depth is matched to learner readiness.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Develop a bounded hybrid-energy-system model with explicit assumptions.',
+      'Compare system configurations or operating strategies.',
+      'Explain performance, cost, and sensitivity results in a technical report.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Defining a hybrid-energy research problem',
+      'Demand profiles and energy-resource data',
+      'Solar and wind generation models',
+      'Battery and hydrogen storage concepts',
+      'Grid interaction and system integration',
+      'Simulation workflow and a baseline configuration',
+      'Optimization and AI-supported modeling approaches',
+      'Electricity tariffs, dispatch, and demand-side considerations',
+      'Sensitivity analysis and technical-economic interpretation',
+      'Research report and system-design presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C11',
+    slug: 'intelligent-systems-vision-sound',
+    title: 'Intelligent Systems Design: AI, Computer Vision, and the Physics of Sound',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Physical Sciences', 'Data Science & AI'],
+    card: 'Connect computer vision, machine learning, and physical modeling through a focused engineering research question.',
+    overview: 'Learners explore how computational methods support the sensing and design of physical systems. The project may focus on an image-based task or on a vibration/acoustics problem, rather than requiring both to be completed. Modeling, experimental reasoning, and technical communication provide a common research foundation.',
+    fields: 'Engineering; physics; computer science; applied mathematics; acoustics',
+    methods: ['Image processing', 'Feature extraction', 'Machine learning', 'Vibration', 'Physical modeling'],
+    preparation: 'Interest in physics and mathematics; coding or laboratory preparation depends on the selected pathway.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Formulate a measurable engineering question and a model or experiment.',
+      'Implement and evaluate a bounded vision or acoustics study.',
+      'Present results with explicit assumptions and reproducible documentation.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Intelligent physical systems and a focused research question',
+      'Literature review, variables, and measurement planning',
+      'Foundations of image processing and data representation',
+      'Feature extraction and introductory machine learning',
+      'Physical models of vibration and sound',
+      'Selecting a vision or acoustics project pathway',
+      'Building a baseline model or approved experimental setup',
+      'Testing, validation, and sources of error',
+      'Interpreting results and improving the study',
+      'Technical report, research poster, and presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C12',
+    slug: 'intelligent-robotics',
+    title: 'Intelligent Robotics and Engineering System Design',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Physical Sciences'],
+    card: 'Explore sensing, control, and system integration through a scoped robotics or engineering design project.',
+    overview: 'This program introduces the components and reasoning involved in intelligent engineering systems. Learners examine sensors, electronic logic, control, and integration before developing a simulation or appropriately supervised prototype. The emphasis is on testable design choices, evidence, and a clearly bounded contribution.',
+    fields: 'Robotics; electrical and mechanical engineering; computing; materials; physics',
+    methods: ['Sensing', 'Circuit reasoning', 'Logic', 'Control', 'Integration', 'Engineering evaluation'],
+    preparation: 'Basic mathematics and interest in engineering; programming and hardware requirements depend on the project.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Specify a system problem and define measurable performance criteria.',
+      'Develop a simulation or approved prototype for a selected subsystem.',
+      'Evaluate trade-offs and communicate a documented engineering result.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'System requirements and a feasible engineering question',
+      'Circuit concepts, logic, and electronic building blocks',
+      'Sensors, measurement, and data acquisition',
+      'Programming a simulation or prototype workflow',
+      'Control concepts and system behavior',
+      'Perception or learning methods for the selected task',
+      'Integrating subsystems and defining test cases',
+      'Performance evaluation and failure analysis',
+      'Design iteration and technical documentation',
+      'Demonstration and research presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C13',
+    slug: 'computational-drug-design',
+    title: 'Machine Learning and Molecular Docking for Kinase Inhibitor Discovery',
+    type: 'mentored',
+    disciplines: ['Life Sciences', 'Data Science & AI', 'Health & Medicine'],
+    card: 'Explore a reproducible computational drug-design workflow using protein structures, docking, and introductory machine learning.',
+    overview: 'This computational practicum examines how structural information and data-driven methods can inform hypotheses about molecular interactions. Learners document data sources, compare docking and modeling outputs, and discuss uncertainty. Computational rankings are research hypotheses, not validated evidence of clinical efficacy or safety.',
+    fields: 'Computational biology; chemistry; bioinformatics; pharmacology; AI',
+    methods: ['Protein structures', 'Docking', 'Virtual screening', 'Machine learning', 'SAR', 'Reproducibility'],
+    preparation: 'Interest in chemistry or life sciences; introductory coding helpful. Scientific depth is adapted to preparation.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Explain the data and structural assumptions behind a computational workflow.',
+      'Conduct and document a small computational comparison.',
+      'Interpret candidate rankings cautiously and identify validation needs.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Research questions in computational drug discovery',
+      'Linux basics, files, and reproducible research records',
+      'Protein structures and appropriate structural data sources',
+      'Protein-ligand interactions and molecular representations',
+      'Docking concepts and a small educational exercise',
+      'Comparing poses and interpreting screening outputs',
+      'Preparing molecular features and activity labels',
+      'Introductory machine-learning models and validation',
+      'Structure-activity hypotheses, uncertainty, and limitations',
+      'Reproducible report and computational research presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C14',
+    slug: 'llm-human-intent-driving',
+    title: 'Talking to Self-Driving Cars: Human Intent and Decision-Making with LLMs',
+    type: 'mentored',
+    disciplines: ['Data Science & AI', 'Engineering', 'Humanities & Design', 'Psychology'],
+    card: 'Study how natural-language preferences can be interpreted and evaluated in a simulated driving decision system.',
+    overview: 'Learners build a bounded simulation linking a human instruction, a language-model interpretation, and a constrained driving decision. The research focuses on intent, ambiguity, feedback, and safety boundaries. All proposed testing is simulated; the project does not authorize real-vehicle or public-road experimentation.',
+    fields: 'AI; HCI; computing; robotics; transportation; cognitive science',
+    methods: ['LLMs', 'Intent representation', 'Simulation', 'Decision systems', 'Human-in-the-loop evaluation'],
+    preparation: 'Basic programming and an interest in AI or human-computer interaction.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Define a constrained language-to-decision research question.',
+      'Build a simulated interaction pipeline and evaluation cases.',
+      'Analyze failures, ambiguity, and limits of model behavior.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Human intent and a bounded driving-simulation problem',
+      'Driving decisions, constraints, and evaluation scenarios',
+      'Representing natural-language instructions and ambiguity',
+      'Language-model interpretation and structured outputs',
+      'Connecting intent to a simulated decision policy',
+      'Human-in-the-loop feedback and interface design',
+      'Testing instructions, variations, and failure cases',
+      'Safety constraints and robustness in simulation',
+      'Analyzing results and explaining system limitations',
+      'Simulated demonstration and research report'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C15',
+    slug: 'ai-livestream-commerce',
+    title: 'AI and the Future of Livestream Commerce',
+    type: 'mentored',
+    disciplines: ['Business & Economics'],
+    card: 'Investigate pricing, consumer behavior, and platform strategy in commerce involving AI and human presenters.',
+    overview: 'The program develops research questions from an emerging commercial setting. Learners explore the roles of platforms, firms, and presenters, then use an appropriately scoped demand model, case analysis, or quantitative approach. The final work examines assumptions and strategic trade-offs rather than promising commercial performance.',
+    fields: 'Business; economics; marketing; operations; digital commerce',
+    methods: ['Digital commerce', 'Demand models', 'Pricing', 'Platform strategy', 'Game-theoretic reasoning'],
+    preparation: 'Interest in business or economics; quantitative depth is adapted to preparation.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10,
+    outcomes: [
+      'Translate a commercial phenomenon into a researchable question.',
+      'Construct and examine a simple model or structured case analysis.',
+      'Explain assumptions, strategic implications, and limitations.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Platforms, firms, presenters, and the research context',
+      'Consumer behavior and a focused research question',
+      'Reviewing relevant evidence and selecting an approach',
+      'Demand modeling and explicit assumptions',
+      'Pricing decisions and channel structure',
+      'AI and human presenters: scenario comparison',
+      'Competition and introductory game-theoretic reasoning',
+      'Model evaluation or quantitative case analysis',
+      'Sensitivity checks and interpretation',
+      'Research presentation and an analytical report'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C16',
+    slug: 'biomedical-data-research',
+    title: 'Biomedical Data Research: Cancer, Biomarkers, and Epigenetics',
+    type: 'mentored',
+    disciplines: ['Life Sciences', 'Health & Medicine', 'Data Science & AI'],
+    card: 'Explore a selected computational research question using biological data and transparent analytical methods.',
+    overview: 'This program brings together three possible research directions: circulating tumor-cell transcriptomics, extracellular-vesicle and tumor-microenvironment markers, and cell-free DNA methylation. Each learner follows one appropriately scoped track. Dataset access, preparation, and analytical depth are established before the project begins.',
+    fields: 'Biomedical sciences; bioinformatics; data science; biotechnology',
+    methods: ['Biological data', 'Transcriptomics', 'Biomarker research', 'Methylation', 'Analytical interpretation'],
+    preparation: 'Biology preparation helpful; computational skills are assessed for the selected track.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10_PROJECT,
+    outcomes: [
+      'Define a bounded biological question and evaluate dataset suitability.',
+      'Document an analysis appropriate to one selected data type.',
+      'Communicate patterns and limitations without diagnostic claims.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Selecting a biological question and one project track',
+      'Reading the literature and documenting biological context',
+      'Data access, licensing, privacy, and study design',
+      'Preparing data and performing quality checks',
+      'Exploring patterns with suitable visualizations',
+      'Selecting an analysis for transcriptomic or methylation data',
+      'Comparing findings with biological context',
+      'Checking robustness and potential confounding',
+      'Writing results and limitations',
+      'Research poster or analytical report presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C17',
+    slug: 'vision-surgical-robotics',
+    title: 'Vision-Guided 3D Reconstruction for Intelligent Surgical Robotics',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Data Science & AI', 'Health & Medicine'],
+    card: 'Investigate how vision, geometric reconstruction, and robot motion relate in an educational robotics study.',
+    overview: 'A mentored project explores a bounded problem in spatial perception for robotic systems. Possible work connects geometric reconstruction with kinematic reasoning and technical evaluation. The educational scope is limited to simulation, permitted datasets, or an approved nonclinical setup; it does not involve patient care or surgical experimentation.',
+    fields: 'Robotics; computer vision; mechanical and biomedical engineering',
+    methods: ['Computer vision', '3D geometry', 'Robot kinematics', 'Spatial perception', 'Evaluation'],
+    preparation: 'Preparation in mathematics, coding, or mechanics appropriate to the proposed project.',
+    format: FORMAT_ONLINE,
+    timing: 'Extended project horizon: 6–12 months. Eight illustrative milestones, not eight promised sessions.',
+    outcomes: [
+      'Connect a perception question with a measurable research objective.',
+      'Develop and evaluate a bounded reconstruction or simulation workflow.',
+      'Communicate technical limits and nonclinical applicability.'
+    ],
+    outlineLabel: 'Illustrative project milestones',
+    sessions: [
+      'Research question, literature, and nonclinical scope',
+      'Robot kinematics and spatial coordinate systems',
+      'Imaging geometry and data preparation',
+      '3D reconstruction workflow and baseline model',
+      'Linking reconstruction to a bounded perception task',
+      'Evaluation metrics, simulation tests, and sources of error',
+      'Robustness checks and technical interpretation',
+      'Research report and final presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C18',
+    slug: 'single-camera-3d-reconstruction',
+    title: 'Single-Camera 3D Reconstruction',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Physical Sciences', 'Data Science & AI'],
+    card: 'Explore geometric measurement and reconstruction using a single-camera configuration and explicit assumptions.',
+    overview: 'Learners investigate how image information, calibration, and geometric constraints can support a scoped reconstruction problem. The project emphasizes what can and cannot be inferred from a chosen camera setup, how measurement error is evaluated, and how a reproducible workflow is documented.',
+    fields: 'Computer vision; applied mathematics; physics; engineering',
+    methods: ['Camera models', 'Calibration', 'Geometric constraints', 'Reconstruction', 'Error analysis'],
+    preparation: 'Interest in geometry and coding; camera or dataset requirements depend on the project.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_EXTENDED,
+    outcomes: [
+      'Explain the assumptions and limitations of a selected reconstruction approach.',
+      'Implement a small calibrated reconstruction workflow.',
+      'Evaluate measurement error and communicate results.'
+    ],
+    outlineLabel: 'Illustrative project milestones',
+    sessions: [
+      'Research question and geometric constraints',
+      'Camera models and image formation',
+      'Calibration and scale information',
+      'Data collection or selecting a permitted image dataset',
+      'Developing a reconstruction baseline',
+      'Measurement evaluation and uncertainty',
+      'Refinement and comparisons',
+      'Documenting and presenting the reconstruction study'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C19',
+    slug: 'ai-metal-additive-manufacturing',
+    title: 'AI-Driven Defect Prediction and Process Control in Metal Additive Manufacturing',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Physical Sciences', 'Data Science & AI'],
+    card: 'Explore data-driven approaches to manufacturing defects, prediction, and process-quality questions.',
+    overview: 'This project investigates relationships between process information, defects, and quality in metal additive manufacturing. Learners work with approved data or simulations to define a prediction task, evaluate a model, and discuss process implications. Access to manufacturing equipment is not implied by the online program description.',
+    fields: 'Manufacturing; materials; mechanical engineering; machine learning',
+    methods: ['Manufacturing data', 'Defect characterization', 'Machine learning', 'Quality', 'Process reasoning'],
+    preparation: 'Engineering or quantitative interest; coding and domain preparation are matched to the task.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_EXTENDED,
+    outcomes: [
+      'Define a meaningful defect-prediction question and target variable.',
+      'Develop and validate a baseline or machine-learning model.',
+      'Explain process implications, data limits, and further validation needs.'
+    ],
+    outlineLabel: 'Illustrative project milestones',
+    sessions: [
+      'Manufacturing context and a bounded research problem',
+      'Defect mechanisms and relevant process variables',
+      'Data access, labeling, and quality checks',
+      'Feature construction and baseline prediction',
+      'Training and evaluating a predictive model',
+      'Interpreting model behavior and process implications',
+      'Sensitivity checks and process-control concepts',
+      'Technical report and research presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C20',
+    slug: 'flexible-solar-manufacturing',
+    title: 'Scalable Manufacturing and Performance Optimization of Flexible Solar Devices',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Physical Sciences', 'Environment & Sustainability'],
+    card: 'Study manufacturing and performance trade-offs for flexible solar devices through a bounded research project.',
+    overview: 'Learners examine how production choices relate to device performance, stability, and scaling. Depending on available resources, the project may use literature-derived evidence, approved process data, or simulation. Any laboratory component requires a separately confirmed facility, safety process, and supervisory arrangement.',
+    fields: 'Materials; energy; manufacturing; sustainability',
+    methods: ['Flexible solar devices', 'Manufacturing', 'Process variables', 'Stability', 'Performance analysis'],
+    preparation: 'Interest in materials, energy, or engineering; project preparation assessed individually.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_EXTENDED,
+    outcomes: [
+      'Identify a research question connecting manufacturing and performance.',
+      'Analyze appropriate evidence or data with stated assumptions.',
+      'Evaluate scaling or stability trade-offs in a technical report.'
+    ],
+    outlineLabel: 'Illustrative project milestones',
+    sessions: [
+      'Flexible solar devices and the manufacturing question',
+      'Literature review and performance measures',
+      'Scalable fabrication concepts and process variables',
+      'Selecting a data, modeling, or approved experimental approach',
+      'Analyzing performance and stability',
+      'Exploring manufacturing and optimization trade-offs',
+      'Checking evidence and study limitations',
+      'Research report and technical presentation'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C21',
+    slug: 'ai-built-environment',
+    title: 'AI and the Built Environment',
+    type: 'mentored',
+    disciplines: ['Engineering', 'Humanities & Design', 'Data Science & AI', 'Environment & Sustainability'],
+    card: 'Explore a research application in construction vision, building modeling, or digital-twin environments.',
+    overview: 'The program offers alternative project directions in visual safety analysis, generative design with building information modeling, or digital twins and immersive environments. Learners select a tractable problem and evaluate a prototype, simulation, or dataset-based analysis rather than attempting every direction in one project.',
+    fields: 'Construction; architecture; civil engineering; AI; sustainability',
+    methods: ['Computer vision', 'BIM', 'Generative design', 'Digital twins', 'VR/AR', 'Evaluation'],
+    preparation: 'Interest in engineering or design; coding and modeling needs depend on the selected track.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10_PROJECT,
+    outcomes: [
+      'Select a bounded built-environment question and evaluation criteria.',
+      'Develop a prototype, simulation, or analytical workflow.',
+      'Explain performance, design trade-offs, and implementation limits.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Selecting a built-environment research track',
+      'Literature, stakeholder needs, and problem definition',
+      'Data, models, and appropriate research permissions',
+      'Technical foundations for the selected track',
+      'Building a baseline prototype or analysis',
+      'Applying a selected AI or modeling method',
+      'Evaluation scenarios and performance measures',
+      'Interpreting results and design trade-offs',
+      'Refining the work and documenting limitations',
+      'Technical demonstration and research report'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C22',
+    slug: 'interactive-media-digital-humanities',
+    title: 'Interactive Media, XR, and Digital Humanities Research',
+    type: 'mentored',
+    disciplines: ['Humanities & Design', 'Data Science & AI'],
+    card: 'Develop a research question at the intersection of interactive technology, cultural inquiry, and design.',
+    overview: 'Possible tracks include AI-supported cultural work, XR interaction, games addressing social questions, affect visualization, and virtual museums. Learners select one direction and build a defensible research or design contribution. Projects may result in a prototype, pictorial, research poster, or analytical paper.',
+    fields: 'HCI; digital humanities; design; media; cultural studies; computing',
+    methods: ['XR', 'Interaction design', 'Digital humanities', 'Visualization', 'Prototyping', 'Research communication'],
+    preparation: 'Interest in technology, humanities, or design; technical prerequisites vary by track.',
+    format: FORMAT_ONLINE,
+    timing: TIMING_10_PROJECT,
+    outcomes: [
+      'Formulate a tractable interdisciplinary research or design question.',
+      'Develop and evaluate a scoped prototype or analytical contribution.',
+      'Explain evidence, interpretation, and ethical or cultural considerations.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Choosing a research track and framing the question',
+      'Literature, cultural context, and stakeholder perspectives',
+      'Method selection and ethical design considerations',
+      'Technical foundations for the selected medium',
+      'Prototype or analytical framework development',
+      'Documenting interaction and design decisions',
+      'Planning a suitable evaluation',
+      'Interpreting evidence and revising the contribution',
+      'Preparing a poster, pictorial, or report',
+      'Research demonstration and discussion'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C23',
+    slug: 'scholarly-writing-presentations',
+    title: 'Research Writing and Scholarly Presentation',
+    type: 'methods',
+    disciplines: ['Cross-disciplinary'],
+    card: 'Translate a developing research project into a clear abstract, poster, paper, or academic presentation.',
+    overview: 'This communication-focused program supports learners who already have a research question, project, or draft. Activities connect the contribution of a study with its intended audience, evidence, visual presentation, and scholarly conventions. Submission planning is educational guidance; selection by a conference or journal remains an external decision.',
+    fields: 'Cross-disciplinary scholarly communication',
+    methods: ['Abstracts', 'Research writing', 'Posters', 'Presentation', 'Scholarly feedback', 'Submission literacy'],
+    preparation: 'A defined project or a substantive draft; beginners should first complete foundational research work.',
+    format: FORMAT_ONLINE,
+    timing: 'Illustrative sequence: eight sessions; no historic duration is asserted.',
+    outcomes: [
+      'Explain the contribution and limitations of an existing project.',
+      'Develop an appropriate scholarly communication artifact.',
+      'Present findings and respond thoughtfully to academic questions.'
+    ],
+    outlineLabel: 'Illustrative learning sequence',
+    sessions: [
+      'Project contribution, audience, and communication goals',
+      'Mapping evidence to the structure of a research paper',
+      'Writing an abstract and explaining the research question',
+      'Communicating methods and results transparently',
+      'Designing figures and a research poster',
+      'Preparing an oral presentation and academic discussion',
+      'Interpreting feedback, authorship, and submission expectations',
+      'Final presentation and a revision plan'
+    ],
+    offeringHistory: [],
+    published: true
+  },
+  {
+    id: 'C24',
+    slug: 'school-research-pathway',
+    title: 'School Partnership Research Pathway',
+    type: 'school',
+    disciplines: ['Cross-disciplinary'],
+    card: 'Integrate readiness assessment, research foundations, methods, and a substantive capstone into a school pathway.',
+    overview: 'This curriculum model connects research readiness with foundational learning, disciplinary or technical preparation, and a capstone. Schools may select a research pathway or an innovation-and-impact pathway. A separate, optional advanced research experience extends exposure; it is not a substitute for the capstone.',
+    fields: 'Cross-disciplinary school research and innovation',
+    methods: ['Research readiness', 'Academic communication', 'Methods', 'Capstone', 'Dissemination', 'Reflection'],
+    preparation: 'Designed with school educators; learner grouping and pacing follow readiness and school requirements.',
+    format: FORMAT_ONLINE,
+    timing: 'School-defined pacing; ten illustrative curriculum blocks.',
+    outcomes: [
+      'Develop foundational and methodological readiness for a substantive project.',
+      'Complete and document a scoped research or innovation capstone.',
+      'Communicate findings or evaluate an intervention or prototype.'
+    ],
+    outlineLabel: 'Illustrative curriculum blocks',
+    sessions: [
+      'Readiness assessment and individualized learning goals',
+      'Academic English, research communication, and scholarly thinking',
+      'Structured academic reading and writing',
+      'Literature search and evidence synthesis',
+      'Responsible AI use and research integrity',
+      'A methods option: social research, Python, or R',
+      'Disciplinary exploration and project-specific technical preparation',
+      'Research or innovation-and-impact capstone development',
+      'Project implementation, evaluation, and documentation',
+      'Research dissemination, defense, and reflection'
+    ],
+    offeringHistory: [],
+    published: true
+  }
+];

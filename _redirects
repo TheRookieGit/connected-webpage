@@ -1,0 +1,13 @@
+# Permanent redirects for Netlify / Cloudflare Pages (_redirects format).
+# The old files are also kept as instant-redirect stubs for hosts without this file (e.g. GitHub Pages).
+/programs.html              /programs/                     301
+/fellowships.html           /programs/fellowships          301
+/fellowship-tracks.html     /programs/fellowships          301
+/young-scholars.html        /programs/fellowships          301
+/faculty.html               /for-mentors                   301
+/get-involved.html          /for-mentors                   301
+/volunteer-interest.html    /for-mentors                   301
+/mentorship.html            /programs/mentored-research    301
+/training.html              /programs/                     301
+/networks.html              /community/                    301
+/support.html               /support                       301

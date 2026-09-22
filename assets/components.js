@@ -1,41 +1,65 @@
 // ConnectEd Research Institute — shared layout components
-// Injects nav + footer, wires hamburger, handles modals, scroll reveals, and subtle nav elevation.
+// Injects nav + footer, wires hamburger and dropdowns, scroll reveals, and subtle nav elevation.
+// Pages live at different folder depths, so every link is resolved against the site root,
+// which is derived from this script's own URL (works over http and file://).
 
 (function () {
+    const script = document.currentScript;
+    const ROOT = script ? script.src.replace(/assets\/components\.js(\?.*)?$/, '') : '';
+    const url = (path) => ROOT + path;
+
     const navItems = [
-        { href: 'index.html',        label: 'Home',                    key: 'home' },
-        { href: 'about.html',        label: 'About',                   key: 'about' },
-        { href: 'fellowships.html',  label: 'Fellowships',             key: 'fellowships' },
-        { href: 'faculty.html',      label: 'For Faculty',             key: 'faculty' },
-        { href: 'programs.html',     label: 'Programs',    key: 'programs' },
-        { href: 'get-involved.html', label: 'Get Involved', key: 'get-involved' },
-        { href: 'support.html',      label: 'Support',                 key: 'support' },
-        { href: 'contact.html',      label: 'Contact',                 key: 'contact' }
+        { href: 'about.html', label: 'About', key: 'about' },
+        {
+            type: 'dropdown', label: 'Programs', key: 'programs',
+            children: [
+                { href: 'programs/index.html',                label: 'Programs Overview' },
+                { href: 'programs/research-foundations.html', label: 'Research Foundations' },
+                { href: 'programs/research-methods.html',     label: 'Research Methods & Data Analysis' },
+                { href: 'programs/mentored-research.html',    label: 'Mentored Research Projects' },
+                { href: 'programs/fellowships.html',          label: 'Research Fellowships' },
+                { href: 'programs/school-programs.html',      label: 'School & Institutional Programs' },
+                { href: 'programs/portfolio/index.html',      label: 'Program Portfolio' }
+            ]
+        },
+        {
+            type: 'dropdown', label: 'Community', key: 'community',
+            children: [
+                { href: 'community/index.html',             label: 'Community & Academic Pathways' },
+                { href: 'community/workshops-panels.html',  label: 'Workshops & Panels' },
+                { href: 'community/phd-incubator-2025.html', label: '2025 PhD Incubator' }
+            ]
+        },
+        { href: 'partnerships/index.html', label: 'Partnerships', key: 'partnerships' },
+        { href: 'contact.html', label: 'Contact', key: 'contact' },
+        { href: 'support.html', label: 'Support Our Work', key: 'support', mobileOnly: true }
     ];
 
     function renderNav() {
-        const itemsHtml = navItems.map(item => {
+        const itemsHtml = navItems.map((item, i) => {
             if (item.type === 'dropdown') {
+                const id = `nav-menu-${i}`;
                 const childLinks = item.children.map(c =>
-                    `<a href="${c.href}">${escapeAttr(c.label)}</a>`
+                    `<a href="${url(c.href)}">${escapeHtml(c.label)}</a>`
                 ).join('');
                 return `
                 <li class="dropdown">
-                    <a href="#" role="button" aria-haspopup="true" aria-expanded="false"
-                       data-nav="${item.key}" data-nav-trigger>
-                       <span>${escapeAttr(item.label)}</span>
+                    <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false"
+                       aria-controls="${id}" data-nav="${item.key}" data-nav-trigger>
+                       <span>${escapeHtml(item.label)}</span>
                        <i class="fas fa-caret-down" aria-hidden="true"></i>
-                    </a>
-                    <div class="dropdown-content">${childLinks}</div>
+                    </button>
+                    <div class="dropdown-content" id="${id}">${childLinks}</div>
                 </li>`;
             }
-            return `<li><a href="${item.href}" data-nav="${item.key}">${escapeAttr(item.label)}</a></li>`;
+            const cls = item.mobileOnly ? ' class="nav-mobile-only"' : '';
+            return `<li${cls}><a href="${url(item.href)}" data-nav="${item.key}">${escapeHtml(item.label)}</a></li>`;
         }).join('');
 
         return `
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="ConnectEd Research Institute">
+        <nav aria-label="Primary">
+            <a href="${url('index.html')}" class="logo">
+                <img src="${url('assets/logo.png')}" alt="ConnectEd Research Institute home">
             </a>
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                 <i class="fas fa-bars" aria-hidden="true"></i>
@@ -43,38 +67,54 @@
             <ul class="nav-links">
                 ${itemsHtml}
             </ul>
-            <div class="nav-apply-wrap">
-                <button class="btn btn--gold nav-apply" aria-haspopup="true" aria-expanded="false">
-                    Apply Now <i class="fas fa-caret-down" aria-hidden="true"></i>
-                </button>
-                <div class="nav-apply-dropdown">
-                    <a href="fellowship-application.html">Fellowships Application</a>
-                    <a href="volunteer-interest.html">Volunteer Interest Form</a>
-                </div>
-            </div>
+            <a href="${url('support.html')}" class="btn btn--gold nav-apply" data-nav="support">Support Our Work</a>
         </nav>`;
     }
 
     function renderFooter() {
+        const year = new Date().getFullYear();
+        const link = (href, label) => `<a href="${url(href)}">${label}</a>`;
         return `
         <footer>
-            <div class="footer-container">
-                <a href="index.html" class="logo footer-logo">
-                    <img src="assets/logo.png" alt="ConnectEd Research Institute">
-                </a>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Use</a>
+            <div class="footer-container footer-container--columns">
+                <div class="footer-brand">
+                    <a href="${url('index.html')}" class="logo footer-logo">
+                        <img src="${url('assets/logo.png')}" alt="ConnectEd Research Institute home">
+                    </a>
+                    <p class="footer-tagline">ConnectEd Research Institute</p>
+                    <p class="footer-sub">Research education, mentorship, and academic opportunity.</p>
+                </div>
+                <div class="footer-col">
+                    <h2 class="footer-col__title">Explore</h2>
+                    ${link('about.html', 'About')}
+                    ${link('programs/index.html', 'Programs')}
+                    ${link('programs/portfolio/index.html', 'Program Portfolio')}
+                    ${link('community/index.html', 'Community')}
+                    ${link('partnerships/index.html', 'Partnerships')}
+                </div>
+                <div class="footer-col">
+                    <h2 class="footer-col__title">Resources</h2>
+                    ${link('academic-standards.html', 'Academic Standards')}
+                    ${link('student-work.html', 'Student Work')}
+                    ${link('for-mentors.html', 'For Educators &amp; Mentors')}
+                </div>
+                <div class="footer-col">
+                    <h2 class="footer-col__title">Connect</h2>
+                    ${link('contact.html', 'Contact')}
+                    ${link('support.html', 'Support Our Work')}
+                    ${link('privacy.html', 'Privacy')}
+                    ${link('accessibility.html', 'Accessibility')}
                 </div>
             </div>
+            <p class="footer-note">ConnectEd is an independent organization. Participation by an individual academic does not imply endorsement or sponsorship by that individual&rsquo;s university.</p>
             <div class="copyright">
-                &copy; 2026 ConnectEd Research Institute. All rights reserved.
+                &copy; ${year} ConnectEd Research Institute.
             </div>
         </footer>`;
     }
 
-    function escapeAttr(str) {
-        return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+    function escapeHtml(str) {
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
     }
 
     function mount(selector, html) {
@@ -92,42 +132,61 @@
             toggle.setAttribute('aria-expanded', String(isOpen));
         });
 
-        const dropdownTrigger = document.querySelector('.nav-links .dropdown > a[data-nav-trigger]');
-        if (dropdownTrigger) {
-            const parent = dropdownTrigger.parentElement;
-            dropdownTrigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                const isOpen = parent.classList.toggle('open');
-                dropdownTrigger.setAttribute('aria-expanded', String(isOpen));
+        const triggers = document.querySelectorAll('.nav-links .dropdown > [data-nav-trigger]');
+        const closeAll = (except) => {
+            triggers.forEach(t => {
+                if (t === except) return;
+                t.parentElement.classList.remove('open');
+                t.setAttribute('aria-expanded', 'false');
             });
+        };
 
-            document.addEventListener('click', (e) => {
-                if (!parent.contains(e.target) && parent.classList.contains('open')) {
-                    parent.classList.remove('open');
-                    dropdownTrigger.setAttribute('aria-expanded', 'false');
+        triggers.forEach(trigger => {
+            const parent = trigger.parentElement;
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeAll(trigger);
+                const isOpen = parent.classList.toggle('open');
+                trigger.setAttribute('aria-expanded', String(isOpen));
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            triggers.forEach(t => {
+                if (!t.parentElement.contains(e.target)) {
+                    t.parentElement.classList.remove('open');
+                    t.setAttribute('aria-expanded', 'false');
                 }
             });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && parent.classList.contains('open')) {
-                    parent.classList.remove('open');
-                    dropdownTrigger.setAttribute('aria-expanded', 'false');
-                    dropdownTrigger.focus();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            triggers.forEach(t => {
+                if (t.parentElement.classList.contains('open')) {
+                    t.parentElement.classList.remove('open');
+                    t.setAttribute('aria-expanded', 'false');
+                    t.focus();
                 }
             });
-        }
+        });
+    }
+
+    function normalizePath(p) {
+        return p.replace(/index\.html$/, '').replace(/\.html$/, '').replace(/\/$/, '');
     }
 
     function highlightActive() {
         const page = document.body.dataset.page;
         if (page) {
-            const link = document.querySelector(`.nav-links a[data-nav="${page}"]`);
-            if (link) link.classList.add('is-active');
+            document.querySelectorAll(`nav [data-nav="${page}"]`).forEach(el => el.classList.add('is-active'));
         }
 
-        const here = location.pathname.split('/').pop() || 'index.html';
+        const here = normalizePath(location.pathname);
         document.querySelectorAll('.dropdown-content a').forEach(a => {
-            const href = (a.getAttribute('href') || '').split('/').pop();
-            if (href && href === here) a.classList.add('is-active');
+            if (normalizePath(new URL(a.href).pathname) === here) {
+                a.classList.add('is-active');
+                a.setAttribute('aria-current', 'page');
+            }
         });
     }
 
@@ -172,8 +231,6 @@
             '.support-text',
             '.donation-portal',
             '.contact-form-container',
-            '.interest-form',
-            '.form-container',
             '.check-list',
             '.pullquote-figure',
             '.pullquote-body',
@@ -185,31 +242,8 @@
             if (!el.closest('[data-no-reveal]')) el.classList.add('reveal');
         });
 
-        document.querySelectorAll('.initiatives-grid, .fellowship-cards, .opportunity-grid, .stats-grid, .figure-row, .partners-logos').forEach(grid => {
-            grid.classList.add('reveal-group');
-        });
-    }
-
-    function wireModals() {
-        document.addEventListener('click', (e) => {
-            const trigger = e.target.closest('[data-modal]');
-            if (trigger) {
-                e.preventDefault();
-                const modal = document.getElementById(trigger.getAttribute('data-modal'));
-                if (modal) { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
-                return;
-            }
-            if (e.target.closest('.modal-close') || e.target.classList.contains('modal')) {
-                document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
-                document.body.style.overflow = '';
-            }
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key !== 'Escape') return;
-            const open = document.querySelectorAll('.modal.open');
-            if (!open.length) return;
-            open.forEach(m => m.classList.remove('open'));
-            document.body.style.overflow = '';
+        document.querySelectorAll('.type-grid, .initiatives-grid, .structure-grid, .fellowship-cards, .opportunity-grid, .stats-grid, .figure-row, .partners-logos').forEach(grid => {
+            if (!grid.closest('[data-no-reveal]')) grid.classList.add('reveal-group');
         });
     }
 
@@ -225,9 +259,6 @@
             if (content) items = Array.from(content.children);
         } else if (header.classList.contains('page-header')) {
             items = Array.from(header.children);
-        } else {
-            const inner = header.querySelector('[class*="__inner"]');
-            if (inner) items = Array.from(inner.children);
         }
 
         if (!items.length) return;
@@ -243,6 +274,49 @@
         });
     }
 
+    // Scroll-activated timeline items (.approach-item[data-timeline-item])
+    function wireTimeline() {
+        const items = document.querySelectorAll('[data-timeline-item]');
+        if (!items.length) return;
+        if (!('IntersectionObserver' in window)) {
+            items.forEach(el => el.classList.add('is-active'));
+            return;
+        }
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-active'); });
+        }, { threshold: 0.35 });
+        items.forEach(el => io.observe(el));
+    }
+
+    // Modals: [data-modal="id"] opens #id; .modal-close, backdrop click, or Escape closes.
+    function wireModals() {
+        let lastTrigger = null;
+        const close = () => {
+            document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
+            document.body.style.overflow = '';
+            if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+        };
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('[data-modal]');
+            if (trigger) {
+                e.preventDefault();
+                const modal = document.getElementById(trigger.getAttribute('data-modal'));
+                if (modal) {
+                    lastTrigger = trigger;
+                    modal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                    const first = modal.querySelector('.modal-close, button, input, a');
+                    if (first) first.focus();
+                }
+                return;
+            }
+            if (e.target.closest('.modal-close') || e.target.classList.contains('modal')) close();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.querySelector('.modal.open')) close();
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         mount('#site-nav', renderNav());
         mount('#site-footer', renderFooter());
@@ -252,6 +326,7 @@
         wirePageEntry();
         autoDecorate();
         wireReveals();
+        wireTimeline();
         wireModals();
     });
 })();

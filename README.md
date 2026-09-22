@@ -6,26 +6,52 @@ Static multi-page site for ConnectEd Research Institute, a nonprofit expanding a
 
 ```
 .
-├── index.html                    # Home
-├── about.html                    # About
-├── programs.html                 # Programs overview hub (5 program cards)
-├── fellowships.html              # Research Fellowships (flagship overview)
-├── fellowship-tracks.html        # Two fellowship tracks (Young Scholars + STEM)
-├── mentorship.html               # Mentorship programs
-├── training.html                 # Research training & courses
-├── networks.html                 # Scholarly exchange & networks
-├── young-scholars.html           # Young Scholars Fellowship detail
-├── fellowship-application.html   # Application form
-├── get-involved.html             # Volunteer / mentor / partner interest
-├── support.html                  # Donation portal
-├── contact.html                  # Contact form
-├── privacy.html                  # Privacy policy (placeholder — needs legal review)
-├── terms.html                    # Terms of use  (placeholder — needs legal review)
-└── assets/
-    ├── styles.css                # Shared stylesheet (all pages)
-    ├── components.js             # Injects shared nav + footer, wires hamburger menu
-    └── favicon.svg               # Favicon
+├── index.html                      # Home
+├── about.html                      # About
+├── academic-standards.html         # Academic Standards & Learning Quality
+├── student-work.html               # Student Research & Scholarly Work
+├── for-mentors.html                # For Educators & Mentors (no public directory)
+├── support.html                    # Support Our Work (routes to a support inquiry)
+├── contact.html                    # Inquiry form (?interest= & ?program= prefill)
+├── privacy.html / accessibility.html / terms.html
+├── programs/
+│   ├── index.html                  # Programs overview + FAQ + portfolio preview
+│   ├── research-foundations.html   # five program-type pages
+│   ├── research-methods.html
+│   ├── mentored-research.html
+│   ├── fellowships.html
+│   ├── school-programs.html
+│   └── portfolio/                  # GENERATED — do not edit by hand
+│       ├── index.html              # searchable / filterable Program Portfolio
+│       └── <slug>.html             # 24 program detail pages
+├── community/                      # index, workshops-panels, phd-incubator-2025
+├── partnerships/                   # index, woodbridge-academy
+├── tools/
+│   ├── data/programs.js            # program catalog (public copy only)
+│   └── build-portfolio.js          # generator
+├── _redirects                      # Netlify / Cloudflare Pages redirects for retired URLs
+├── sitemap.xml / robots.txt        # sitemap is generated
+└── assets/                         # styles.css, components.js (nav + footer), portfolio.js, program-titles.js (generated)
 ```
+
+Retired pages (fellowships, faculty, get-involved, mentorship, training, networks, fellowship-tracks,
+young-scholars, volunteer-interest) are kept as instant-redirect stubs.
+`fellowship-application.html` is kept as a hidden page (noindex, not linked) for future use — see the note at the top of the file.
+
+Online donations: set `window.STRIPE_CHECKOUT_ENDPOINT` in [support.html](support.html). While it is empty the "Pledge Now" button stays hidden; add `?pledge=preview` to the URL to preview the modal.
+
+## Program Portfolio (generated)
+
+Edit program records in [tools/data/programs.js](tools/data/programs.js), then run:
+
+```bash
+node tools/build-portfolio.js
+```
+
+This rebuilds `programs/portfolio/`, the six-card previews on the homepage and Programs page
+(between the `portfolio-preview` markers), `assets/program-titles.js`, and `sitemap.xml`.
+Set `published: false` to hide a record. Only add an `offeringHistory` entry for an owner-confirmed
+past offering; outlines stay labeled "illustrative" either way.
 
 ## How shared nav/footer works
 
@@ -39,7 +65,7 @@ Each page includes two placeholder divs:
 
 [assets/components.js](assets/components.js) replaces them on `DOMContentLoaded`. To change the navigation or footer, edit that one file. No build step required.
 
-The active page is highlighted by setting `<body data-page="home">` (or `about`, `programs`, etc.); the script matches that against `data-nav` on each link.
+The active section is highlighted by `<body data-page="...">` (about, programs, community, partnerships, contact, support). Links are resolved relative to the site root, so pages can live in subfolders.
 
 ## Forms
 

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /New%20HTML%20V1/
+
+Sitemap: https://www.connect-edu.org/sitemap.xml
