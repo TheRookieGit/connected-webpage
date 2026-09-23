@@ -966,6 +966,18 @@ section > .content-wrap {
     gap: var(--space-xl);
 }
 
+.structure-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.structure-card .check-list { margin-top: var(--space-sm); }
+.structure-card .check-list li {
+    font-size: var(--step-0);
+    font-weight: 400;
+    color: var(--ink-soft);
+    padding: var(--space-sm) 0;
+    gap: var(--space-sm);
+}
+.structure-card .check-list li:hover { padding-left: 0; color: var(--ink-soft); }
+.structure-grid--2 .structure-card::after { display: none; }
+
 @media (max-width: 768px) {
     .structure-grid { grid-template-columns: 1fr; }
 }
@@ -2559,6 +2571,36 @@ footer .logo {
 
 @media (max-width: 640px) {
     .institution-marks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Mentor composition — counts on a light background */
+.mentor-mix {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.mentor-mix li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-top: var(--space-md);
+    border-top: 2px solid var(--lpi-gold);
+}
+
+.mentor-mix__num {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    line-height: 1;
+    color: var(--lpi-navy);
+}
+
+.mentor-mix__label {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
 }
 
 /* ============================================================
