@@ -1,0 +1,55 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/programs.html",
+      "destination": "/programs/",
+      "permanent": true
+    },
+    {
+      "source": "/fellowships.html",
+      "destination": "/programs/fellowships",
+      "permanent": true
+    },
+    {
+      "source": "/fellowship-tracks.html",
+      "destination": "/programs/fellowships",
+      "permanent": true
+    },
+    {
+      "source": "/young-scholars.html",
+      "destination": "/programs/fellowships",
+      "permanent": true
+    },
+    {
+      "source": "/faculty.html",
+      "destination": "/for-mentors",
+      "permanent": true
+    },
+    {
+      "source": "/get-involved.html",
+      "destination": "/for-mentors",
+      "permanent": true
+    },
+    {
+      "source": "/volunteer-interest.html",
+      "destination": "/for-mentors",
+      "permanent": true
+    },
+    {
+      "source": "/mentorship.html",
+      "destination": "/programs/mentored-research",
+      "permanent": true
+    },
+    {
+      "source": "/training.html",
+      "destination": "/programs/",
+      "permanent": true
+    },
+    {
+      "source": "/networks.html",
+      "destination": "/community/",
+      "permanent": true
+    }
+  ]
+}

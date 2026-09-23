@@ -5,7 +5,7 @@
   "description": "ConnectEd Research Institute — static site",
   "scripts": {
     "dev": "node tools/serve.js",
-    "build": "node tools/build-portfolio.js",
+    "build:portfolio": "node tools/build-portfolio.js",
     "compare": "node tools/compare.js"
   },
   "dependencies": {

@@ -30,6 +30,7 @@ Static multi-page site for ConnectEd Research Institute, a nonprofit expanding a
 │   ├── data/programs.js            # program catalog (public copy only)
 │   └── build-portfolio.js          # generator
 ├── _redirects                      # Netlify / Cloudflare Pages redirects for retired URLs
+├── vercel.json                     # Vercel: clean URLs + the same redirects (no build step)
 ├── sitemap.xml / robots.txt        # sitemap is generated
 └── assets/                         # styles.css, components.js (nav + footer), portfolio.js, program-titles.js (generated)
 ```
