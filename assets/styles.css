@@ -2532,6 +2532,35 @@ footer .logo {
 
 .partner-mark:hover { opacity: 1; color: var(--lpi-navy); }
 
+/* Institution wordmarks — bold names in each school's color */
+.institution-marks {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(20px, 3vw, 40px) clamp(16px, 3vw, 32px);
+    margin-top: var(--space-lg);
+    padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+}
+
+.institution-marks li {
+    font-family: var(--font-sans);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--mark, var(--lpi-navy));
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+    .institution-marks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 /* ============================================================
    SPLIT FEATURE — alternating image/text program sections
    ============================================================ */
