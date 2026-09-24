@@ -24,7 +24,7 @@ Static multi-page site for ConnectEd Research Institute, a nonprofit expanding a
 │   └── portfolio/                  # GENERATED — do not edit by hand
 │       ├── index.html              # searchable / filterable Program Portfolio
 │       └── <slug>.html             # 24 program detail pages
-├── community/                      # index, workshops-panels, phd-incubator-2025
+├── community/                      # index（含 Past events）, phd-incubator-2025, 三个 2022 活动页
 ├── partnerships/                   # index, woodbridge-academy
 ├── tools/
 │   ├── data/programs.js            # program catalog (public copy only)

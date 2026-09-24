@@ -2603,6 +2603,86 @@ footer .logo {
     line-height: 1.45;
 }
 
+/* Mentor directory — names as mentors chose to present them */
+.mentor-directory__title {
+    font-size: var(--step-2);
+    color: var(--lpi-navy);
+    margin: var(--space-2xl) 0 var(--space-xs);
+}
+
+.mentor-directory__group {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: var(--space-xl) 0 var(--space-md);
+}
+
+.mentor-directory {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-md);
+}
+
+.mentor-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-top: 2px solid var(--lpi-gold);
+}
+
+.mentor-entry__name {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+    color: var(--lpi-navy);
+}
+
+.mentor-entry__name a { color: inherit; text-decoration: underline; text-decoration-color: var(--gold-soft); text-underline-offset: 3px; }
+
+.mentor-entry__role { font-size: 0.85rem; font-weight: 600; color: var(--lpi-blue); }
+.mentor-entry__org { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.45; }
+.mentor-entry__fields { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.5; margin-top: 4px; }
+
+/* Links to specific past events under a community initiative card */
+.event-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+.process-step .event-links a.text-link { margin-top: 0; font-size: 0.92rem; }
+
+/* Past events list */
+.event-list { list-style: none; margin-top: var(--space-2xl); border-top: 2px solid var(--lpi-navy); }
+
+.event-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(0, 3fr);
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.event-row__meta { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+.event-row__date { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; color: var(--ink-muted); }
+.event-row__body h3 { font-size: var(--step-2); margin-bottom: var(--space-xs); }
+.event-row__body h3 a { color: var(--lpi-navy); text-decoration: none; }
+.event-row__body h3 a:hover { color: var(--lpi-blue); text-decoration: underline; }
+.event-row__body p { color: var(--ink-soft); max-width: 64ch; margin-bottom: var(--space-sm); }
+
+@media (max-width: 640px) {
+    .event-row { grid-template-columns: 1fr; gap: var(--space-sm); }
+    .event-row__meta { flex-direction: row; align-items: center; flex-wrap: wrap; }
+}
+
 /* ============================================================
    SPLIT FEATURE — alternating image/text program sections
    ============================================================ */

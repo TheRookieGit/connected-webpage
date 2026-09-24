@@ -2,6 +2,31 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/community",
+      "destination": "/community/",
+      "permanent": false
+    },
+    {
+      "source": "/partnerships",
+      "destination": "/partnerships/",
+      "permanent": false
+    },
+    {
+      "source": "/programs",
+      "destination": "/programs/",
+      "permanent": false
+    },
+    {
+      "source": "/programs/portfolio",
+      "destination": "/programs/portfolio/",
+      "permanent": false
+    },
+    {
+      "source": "/community/workshops-panels",
+      "destination": "/community/#past-events",
+      "permanent": true
+    },
+    {
       "source": "/programs.html",
       "destination": "/programs/",
       "permanent": true

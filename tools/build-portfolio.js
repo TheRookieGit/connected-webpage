@@ -407,7 +407,9 @@ const STATIC_ROUTES = [
     '/programs/', '/programs/research-foundations', '/programs/research-methods',
     '/programs/mentored-research', '/programs/fellowships', '/programs/school-programs',
     '/programs/portfolio/',
-    '/community/', '/community/workshops-panels', '/community/phd-incubator-2025',
+    '/community/', '/community/phd-incubator-2025',
+    '/community/professional-development-panels-2022',
+    '/community/faculty-outreach-writing-workshop-2022', '/community/phd-roundtables-2022',
     '/partnerships/', '/partnerships/woodbridge-academy'
 ];
 
