@@ -97,6 +97,24 @@ The site is plain static HTML/CSS/JS — drop the folder onto any static host:
 
 > Linux hosts are case-sensitive. All filenames and links must be lowercase — this is already the case here.
 
+### Vercel: folder pages need a trailing-slash redirect
+
+The live site is on Vercel with `cleanUrls: true`. Vercel serves a folder's `index.html` both at
+`/community/` **and** at `/community` (no slash). Without the slash, the browser treats `community` as a
+file, so a relative link such as `href="phd-incubator-2025.html"` on that page resolves to
+`/phd-incubator-2025` instead of `/community/phd-incubator-2025` → 404.
+
+[vercel.json](vercel.json) therefore redirects each folder URL to its trailing-slash form:
+
+```json
+{ "source": "/community", "destination": "/community/", "permanent": false }
+```
+
+This is in place for `/community`, `/programs`, `/programs/portfolio`, and `/partnerships`.
+**Whenever you add a new folder with an `index.html`, add the same redirect for it.**
+When you remove or rename a page, add a permanent redirect from the old URL
+(e.g. `/community/workshops-panels` → `/community/#past-events`).
+
 ## 捐款支付集成方案 (Donation Payment — Planned Architecture)
 
 Support 页面当前的捐款表单是 Formspree 占位，上线正式支付需要分两个独立方案，分别覆盖**美国 / 国际捐款人**和**中国境内捐款人**。两者的技术栈、合规路径、上线周期都不一样，不能塞进同一套表单。
