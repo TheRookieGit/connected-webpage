@@ -3138,7 +3138,7 @@ a.nav-apply { text-decoration: none; }
 .event-record__people li { color: var(--ink-soft); }
 .event-record__people strong { color: var(--lpi-navy); }
 .event-record__people a { color: inherit; }
-.event-record__note { font-size: var(--step-0); padding-top: var(--space-lg); border-top: 1px solid var(--hairline); }
+.event-record__note { font-size: 0.85rem; padding-top: var(--space-lg); border-top: 1px solid var(--hairline); }
 .event-record__links a { color: var(--lpi-blue); font-weight: 600; }
 
 /* Heading + body text blocks */
