@@ -29,7 +29,7 @@
                 { href: 'community/phd-incubator-2025.html', label: '2025 PhD Incubator' },
                 { href: 'community/professional-development-panels-2022.html', label: '2022 Professional Development Panels' },
                 { href: 'community/faculty-outreach-writing-workshop-2022.html', label: '2022 Writing to Prospective Advisors' },
-                { href: 'community/phd-roundtables-2022.html', label: '2022 Doctoral Roundtables' }
+                { href: 'community/phd-roundtables-2022.html', label: '2022 PhD Roundtables' }
             ]
         },
         { href: 'partnerships/index.html', label: 'Partnerships', key: 'partnerships' },
