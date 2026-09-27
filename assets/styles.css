@@ -2566,8 +2566,21 @@ footer .logo {
 .event-row__meta { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
 .event-row__date { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; color: var(--ink-muted); }
 .event-row__body h3 { font-size: var(--step-2); margin-bottom: var(--space-xs); }
+.event-row { position: relative; }
 .event-row__body h3 a { color: var(--lpi-navy); text-decoration: none; }
-.event-row__body h3 a:hover { color: var(--lpi-blue); text-decoration: underline; }
+/* Whole row is clickable via the title link */
+.event-row__body h3 a::before { content: ""; position: absolute; inset: 0; }
+.event-row__body h3 a::after {
+    content: "\2192";
+    display: inline-block;
+    margin-left: 0.4em;
+    color: var(--lpi-blue);
+    transition: transform 0.2s ease;
+}
+.event-row:hover h3 a { color: var(--lpi-blue); text-decoration: underline; text-underline-offset: 0.15em; }
+.event-row:hover h3 a::after { transform: translateX(4px); }
+.event-row__body h3 a:focus-visible { outline: none; }
+.event-row:focus-within { outline: 2px solid var(--lpi-blue); outline-offset: 4px; }
 .event-row__body p { color: var(--ink-soft); max-width: 64ch; margin-bottom: var(--space-sm); }
 
 @media (max-width: 640px) {
