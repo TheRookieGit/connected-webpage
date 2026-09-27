@@ -22,16 +22,7 @@
                 { href: 'programs/portfolio/index.html',      label: 'Program Portfolio' }
             ]
         },
-        {
-            type: 'dropdown', label: 'Community', key: 'community',
-            children: [
-                { href: 'community/index.html',             label: 'Community & Academic Pathways' },
-                { href: 'community/phd-incubator-2025.html', label: '2025 PhD Incubator' },
-                { href: 'community/professional-development-panels-2022.html', label: '2022 Professional Development Panels' },
-                { href: 'community/faculty-outreach-writing-workshop-2022.html', label: '2022 Writing to Prospective Advisors' },
-                { href: 'community/phd-roundtables-2022.html', label: '2022 PhD Roundtables' }
-            ]
-        },
+        { href: 'community/index.html', label: 'Community', key: 'community' },
         { href: 'partnerships/index.html', label: 'Partnerships', key: 'partnerships' },
         { href: 'contact.html', label: 'Contact', key: 'contact' },
         { href: 'support.html', label: 'Support Our Work', key: 'support', mobileOnly: true }
